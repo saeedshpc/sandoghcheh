@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('tankhah');
+});
+
+Route::get('cards', function(){
+    return view('bank-accounts');
 });
