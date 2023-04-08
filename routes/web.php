@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BankAccountController;
+use App\Models\BankAccount;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,5 @@ Route::get('/', function () {
     return view('tankhah');
 });
 
-Route::get('cards', function(){
-    return view('bank-accounts');
-});
+Route::get('cards', [BankAccountController::class, 'index']);
+Route::get('cards/create', [BankAccountController::class, 'create']);

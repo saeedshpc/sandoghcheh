@@ -12,7 +12,7 @@
     />
     <script src="./assets/js/script.js" defer></script>
     <title>صندوقچه</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
 <section>
@@ -34,7 +34,7 @@
                         >
                     </div>
                     <img
-                        src="/images/user-profile.jpg"
+                        src="./assets/images/user-profile.jpg"
                         class="w-1/4 rounded-full"
                         alt=""
                     />
@@ -149,7 +149,7 @@
                     <!-- <a href="#" class="text-xs font-bold hover:text-red-400">خروج</a> -->
                 </div>
                 <img
-                    src="/images/user-profile.jpg"
+                    src="./assets/images/user-profile.jpg"
                     class="w-1/5 rounded-full dark:border-2 dark:border-white"
                     alt=""
                 />
@@ -167,21 +167,236 @@
                         placeholder="جستجو..."
                         class="w-full focus:outline-none text-xs dark:bg-slate-700 dark:text-white"
                     />
-                    <x-icon name="magnifier" class="w-6 h-6" />
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6 dark:text-white"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                        />
+                    </svg>
                 </div>
                 <a
-                    href="./add-tankhah.html"
+                    href="#"
                     class="p-3 px-4 rounded-lg bg-[#0b9b82] text-white duration-200 hover:bg-[#32bba4] text-sm"
-                >افزودن هزینه</a
+                >افزودن حساب</a
                 >
                 <a
                     href="#"
                     class="p-2 px-2 rounded-lg bg-white dark:bg-slate-700 dark:text-white border dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 duration-200 text-sm"
-                >
-                   <x-icon name="pencil" />
+                ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
+                        />
+                    </svg>
                 </a>
             </header>
-            {{$slot}}
+            <!-- Form -->
+            <div class="py-6 px-4">
+                <form
+                    action="#"
+                    class="flex flex-col gap-5 text-gray-700 border dark:border-gray-600 p-6 rounded-xl"
+                    method="POST"
+                >
+                    <div
+                        class="flex flex-col items-start justify-between lg:flex-row lg:items-center"
+                    >
+                        <div>
+                            <h2 class="text-lg font-bold mb-2 dark:text-gray-100">
+                                افزودن حساب بانکی جدید
+                            </h2>
+                            <p class="text-gray-500 text-sm dark:text-gray-300">
+                                در این صفحه حساب یا کارت بانکی جدیدی را ثبت می‌نمایید.
+                            </p>
+                        </div>
+                        <div class="hidden lg:flex">
+                            <button
+                                type="submit"
+                                class="p-2 px-8 rounded-lg ml-2 bg-slate-900 text-white duration-200 hover:bg-slate-700 text-sm dark:bg-slate-600 dark:border dark:border-gray-300"
+                            >
+                                ذخیره
+                            </button>
+                            <a
+                                href="#"
+                                class="p-2 px-2 rounded-lg bg-white border hover:bg-gray-100 duration-200 text-sm"
+                            >انصراف</a
+                            >
+                        </div>
+                    </div>
+                    <div
+                        class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
+                    ></div>
+                    <!-- setting 1 text -->
+                    <div
+                        class="flex flex-col gap-4 items-start justify-between lg:flex-row lg:items-center lg:gap-0"
+                    >
+                        <div>
+                            <h3 class="text-md font-bold mb-2 dark:text-gray-100">
+                                نام حساب
+                            </h3>
+                            <p class="text-gray-500 text-sm dark:text-gray-300">
+                                عنوان استفاده این حساب یا کارت بانکی
+                            </p>
+                        </div>
+                        <div class="w-full lg:w-auto">
+                            <input
+                                type="text"
+                                placeholder="   کارت تنخواه بانوریس..."
+                                class="w-full lg:w-96 dark:text-white bg-white focus:outline-none text-sm p-4 px-4 rounded-lg border border-gray-200 focus:border-[#0b9b82] focus:outline focus:outline-green-100 dark:bg-slate-700"
+                            />
+                        </div>
+                    </div>
+                    <div
+                        class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
+                    ></div>
+
+                    <!-- setting 2 text -->
+                    <div
+                        class="flex flex-col gap-4 items-start justify-between lg:flex-row lg:items-center lg:gap-0"
+                    >
+                        <div>
+                            <h3 class="text-md font-bold mb-2 dark:text-gray-100">
+                                استفاده حساب
+                            </h3>
+                            <p class="text-gray-500 text-sm dark:text-gray-300">
+                                از این حساب برای چه مصارفی استفاده می‌شود
+                            </p>
+                        </div>
+                        <div class="w-full lg:w-auto">
+                            <input
+                                type="text"
+                                placeholder="خریدهای شرکت بانوریس"
+                                class="w-full lg:w-96 dark:text-white bg-white focus:outline-none text-sm p-4 px-4 rounded-lg border border-gray-200 focus:border-[#0b9b82] focus:outline focus:outline-green-100 dark:bg-slate-700"
+                            />
+                        </div>
+                    </div>
+                    <div
+                        class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
+                    ></div>
+                    <!-- setting 3 text -->
+                    <div
+                        class="flex flex-col gap-4 items-start justify-between lg:flex-row lg:items-center lg:gap-0"
+                    >
+                        <div>
+                            <h3 class="text-md font-bold mb-2 dark:text-gray-100">
+                                نام بانک
+                            </h3>
+                            <p class="text-gray-500 text-sm dark:text-gray-300">
+                                نام بانک این حساب یا کارت
+                            </p>
+                        </div>
+                        <div class="w-full lg:w-auto">
+                            <input
+                                type="text"
+                                placeholder="ملی"
+                                class="w-full lg:w-96 dark:text-white bg-white focus:outline-none text-sm p-4 px-4 rounded-lg border border-gray-200 focus:border-[#0b9b82] focus:outline focus:outline-green-100 dark:bg-slate-700"
+                            />
+                        </div>
+                    </div>
+                    <div
+                        class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
+                    ></div>
+                    <!-- setting 4 text -->
+                    <div
+                        class="flex flex-col gap-4 items-start justify-between lg:flex-row lg:items-center lg:gap-0"
+                    >
+                        <div>
+                            <h3 class="text-md font-bold mb-2 dark:text-gray-100">
+                                دارنده حساب
+                            </h3>
+                            <p class="text-gray-500 text-sm dark:text-gray-300">
+                                نام مالک این حساب یا کارت بانکی
+                            </p>
+                        </div>
+                        <div class="w-full lg:w-auto">
+                            <input
+                                type="text"
+                                placeholder="سعید شیخ الاسلامی"
+                                class="w-full lg:w-96 dark:text-white bg-white focus:outline-none text-sm p-4 px-4 rounded-lg border border-gray-200 focus:border-[#0b9b82] focus:outline focus:outline-green-100 dark:bg-slate-700"
+                            />
+                        </div>
+                    </div>
+                    <div
+                        class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
+                    ></div>
+                    <!-- setting 5 text -->
+                    <div
+                        class="flex flex-col gap-4 items-start justify-between lg:flex-row lg:items-center lg:gap-0"
+                    >
+                        <div>
+                            <h3 class="text-md font-bold mb-2 dark:text-gray-100">
+                                شماره حساب
+                            </h3>
+                            <p class="text-gray-500 text-sm dark:text-gray-300">
+                                شماره حساب بانکی
+                            </p>
+                        </div>
+                        <div class="w-full lg:w-auto">
+                            <input
+                                type="text"
+                                placeholder="0322822822009"
+                                class="w-full lg:w-96 dark:text-white bg-white focus:outline-none text-sm p-4 px-4 rounded-lg border border-gray-200 focus:border-[#0b9b82] focus:outline focus:outline-green-100 dark:bg-slate-700"
+                            />
+                        </div>
+                    </div>
+                    <div
+                        class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
+                    ></div>
+                    <!-- setting 6 text -->
+                    <div
+                        class="flex flex-col gap-4 items-start justify-between lg:flex-row lg:items-center lg:gap-0"
+                    >
+                        <div>
+                            <h3 class="text-md font-bold mb-2 dark:text-gray-100">
+                                شماره کارت
+                            </h3>
+                            <p class="text-gray-500 text-sm dark:text-gray-300">
+                                شماره کارت بانکی
+                            </p>
+                        </div>
+                        <div class="w-full lg:w-auto">
+                            <input
+                                type="text"
+                                placeholder="6037998119485349"
+                                class="w-full lg:w-96 dark:text-white bg-white focus:outline-none text-sm p-4 px-4 rounded-lg border border-gray-200 focus:border-[#0b9b82] focus:outline focus:outline-green-100 dark:bg-slate-700"
+                            />
+                        </div>
+                    </div>
+                    <div
+                        class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
+                    ></div>
+
+                    <!-- mobile submit -->
+                    <div class="lg:hidden flex justify-end gap-3 mt-5">
+                        <button
+                            type="submit"
+                            class="p-2 px-8 rounded-lg ml-2 bg-slate-900 text-white duration-200 hover:bg-slate-700 text-sm dark:bg-slate-600 dark:border dark:border-gray-300"
+                        >
+                            ذخیره
+                        </button>
+                        <a
+                            href="#"
+                            class="p-2 px-2 rounded-lg bg-white border hover:bg-gray-100 duration-200 text-sm"
+                        >انصراف</a
+                        >
+                    </div>
+                </form>
+            </div>
         </main>
 
         <!-- SideBar menu -->
@@ -189,7 +404,7 @@
             dir="rtl"
             class="hidden md:block bg-white col-span-3 xl:col-span-2 py-6 px-2 lg:px-6 dark:bg-slate-800 dark:text-white"
         >
-            <img src="/images/logo.png" class="scale-50 -mt-5" alt="" />
+            <img src="./assets/images/logo.png" class="scale-50 -mt-5" alt="" />
             <h2 class="text-center -mt-4 font-bold text-xl mb-1">صندوقچه</h2>
             <p class="text-xs tb:text-sm text-center">
                 سامانه مالی توکان تجارت آرسس
@@ -220,7 +435,7 @@
                         >
                     </li>
                     <li
-                        class="text-gray-800 dark:text-white font-bold dark:hover:text-gray-400"
+                        class="hover:text-gray-800 font-bold dark:hover:text-gray-400"
                     >
                         <a
                             href="./tankhah-dashboard.html"
@@ -336,8 +551,10 @@
                         >
                     </li>
 
-                    <li class="hover:text-gray-800 dark:hover:text-gray-400">
-                        <a href="./cards" class="flex items-center gap-2">
+                    <li
+                        class="text-gray-800 dark:text-white dark:hover:text-gray-400"
+                    >
+                        <a href="./bank-accounts.html" class="flex items-center gap-2">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -469,7 +686,7 @@
             class="hidden absolute bg-white dark:bg-slate-800 dark:text-white top-0 left-0 w-full min-h-screen col-span-3 xl:col-span-2 py-6 px-6 pb-10"
         >
             <img
-                src="/images/logo.png"
+                src="./assets/images/logo.png"
                 class="w-1/2 my-8 mx-auto"
                 alt=""
             />
@@ -505,9 +722,7 @@
                                 <span>داشبورد</span></a
                             >
                         </li>
-                        <li
-                            class="text-gray-800 dark:text-white dark:hover:text-gray-400"
-                        >
+                        <li class="hover:text-gray-800 dark:hover:text-gray-400">
                             <a
                                 href="./tankhah-dashboard.html"
                                 class="flex items-center gap-2"
@@ -625,7 +840,9 @@
                             >
                         </li>
 
-                        <li class="hover:text-gray-800 dark:hover:text-gray-400">
+                        <li
+                            class="text-gray-800 dark:text-white dark:hover:text-gray-400"
+                        >
                             <a
                                 href="./bank-accounts.html"
                                 class="flex items-center gap-2"
