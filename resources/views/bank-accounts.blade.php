@@ -3,111 +3,16 @@
     <div
         class="flex flex-col md:flex-row md:items-center justify-between gap-4 py-6 px-2 md:px-4"
     >
-        <div>
-            <h2 class="text-lg font-bold text-gray-700 dark:text-white mb-1">
-                مدیریت حساب‌های بانکی
-            </h2>
-            <p class="text-xs dark:text-white">5 مورد ثبت شده</p>
-        </div>
-        <div class="flex gap-2 md:gap-4 justify-between text-gray-700">
-            <a
-                href="#"
-                class="p-2 px-2 rounded-lg bg-white dark:bg-slate-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600 border hover:bg-gray-100 duration-200"
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-6 h-6"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
-                    />
-                </svg>
-            </a>
-            <a
-                href="#"
-                class="p-3 px-3 xs:px-4 rounded-lg text-xs xs:text-sm bg-white dark:bg-slate-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600 border hover:bg-gray-100 duration-200"
-            >مرتب سازی : بر اساس تاریخ</a
-            >
-            <a
-                href="#"
-                class="p-3 px-3 xs:px-4 rounded-lg text-xs xs:text-sm bg-white border hover:bg-gray-100 dark:bg-slate-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600 duration-200"
-            >
-                < آبان 1401 ></a
-            >
-        </div>
+        <x-reports-title title="مدیریت حساب‌های بانکی" records="6"/>
+        <x-reports-filter />
     </div>
     <!-- boxes -->
-    <div class="py-6 px-4">
-        <!-- report boxes -->
-        <div
-            class="flex flex-col mb-5 items-center flex-wrap xl:flex-nowrap justify-around gap-2 lg:gap-2 xl:gap-4 md:flex-row"
-        >
-            <!-- box1 -->
-            <div
-                class="bg-gray-100 dark:bg-slate-700 dark:border-gray-600 dark:hover:border-gray-400 w-full md:w-[49%] xl:w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-gray-200"
-            >
-                <p class="text-gray-600 dark:text-white mb-1">
-                    جمع هزینه‌های امسال بانوریس
-                </p>
-                <p class="text-gray-800 dark:text-white text-sm font-bold mb-1">
-                    5/3400/000 تومان
-                </p>
-                <p class="text-gray-600 dark:text-white text-xs">
-                    فروش امسال: 700/000/000
-                </p>
-            </div>
-
-            <!-- box2 -->
-            <div
-                class="bg-gray-100 dark:bg-slate-700 dark:border-gray-600 dark:hover:border-gray-400 w-full md:w-[49%] xl:w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-gray-200"
-            >
-                <p class="text-gray-600 dark:text-white mb-1">
-                    جمع هزینه‌های امسال فروشگاه لباس
-                </p>
-                <p class="text-gray-800 dark:text-white text-sm font-bold mb-1">
-                    21/890/000 تومان
-                </p>
-                <p class="text-gray-600 dark:text-white text-xs">
-                    فروش امسال: 1/500/000/000
-                </p>
-            </div>
-
-            <!-- box3 -->
-            <div
-                class="bg-gradient-to-b md:w-[49%] xl:w-full from-[#13bda0] to-[#0b9b82] w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-blue-300"
-            >
-                <p class="text-white dark:text-white mb-1">
-                    جمع هزینه‌های امسال فروشگاه آرایشی
-                </p>
-                <p class="text-white dark:text-white text-sm font-bold mb-1">
-                    31/220/000 تومان
-                </p>
-                <p class="text-white dark:text-white text-xs">
-                    فروش امسال: 2/856/00/000
-                </p>
-            </div>
-            <!-- box4 -->
-            <div
-                class="bg-gray-100 dark:bg-slate-700 dark:border-gray-600 dark:hover:border-gray-400 w-full md:w-[49%] xl:w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-gray-200"
-            >
-                <p class="text-gray-600 dark:text-white mb-1">
-                    جمع هزینه‌های امسال فروشگاه ماگ
-                </p>
-                <p class="text-gray-800 dark:text-white text-sm font-bold mb-1">
-                    12/000/000 تومان
-                </p>
-                <p class="text-gray-600 dark:text-white text-xs">
-                    فروش امسال: 330/000/000
-                </p>
-            </div>
-        </div>
-    </div>
+    <x-main-info-boxes>
+        <x-report-box name="financial" />
+        <x-report-box name="financial" />
+        <x-report-box name="financial" :active="true"/>
+        <x-report-box name="financial" />
+    </x-main-info-boxes>
     <!-- table and pagination -->
     <div id="table-pagination-div">
         <!-- tables -->
@@ -468,26 +373,6 @@
             </table>
         </div>
         <!-- pagination -->
-        <div
-            class="w-full flex items-center justify-between text-gray-600 dark:text-white py-6 px-4 text-sm mb-10"
-        >
-            <a
-                href="#"
-                class="p-2 px-4 rounded-lg bg-white border hover:bg-gray-100 dark:bg-slate-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600 duration-200 text-xs"
-            >صفحه قبل</a
-            >
-            <div class="flex gap-4">
-                <a href="#" class="hover:text-[#32bba4]">1</a>
-                <a href="#" class="hover:text-[#32bba4]">2</a>
-                <a href="#" class="font-bold hover:text-[#32bba4]">3</a>
-                <a href="#">...</a>
-                <a href="#" class="hover:text-[#32bba4]">9</a>
-            </div>
-            <a
-                href="#"
-                class="p-2 px-4 rounded-lg bg-white dark:bg-slate-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600 border hover:bg-gray-100 duration-200 text-xs"
-            >صفحه بعد</a
-            >
-        </div>
+        <x-pagination></x-pagination>
     </div>
 </x-layout>
