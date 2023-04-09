@@ -32,6 +32,9 @@ class BankAccountController extends Controller
 
         BankAccount::create($attributes);
 
-        return redirect('/cards');
+        return redirect('/cards')->with([
+            'message' => 'حساب بانکی با موفقیت افزوده شد',
+            'status' => 'success'
+        ]);
     }
 }
