@@ -15,9 +15,8 @@
         <input
             id="{{$name}}"
             name="{{$name}}"
-            value="{{old($name)}}"
             class="w-full lg:w-96 dark:text-white bg-white focus:outline-none text-sm p-4 px-4 rounded-lg border border-gray-200 focus:border-[#0b9b82] focus:outline focus:outline-green-100 dark:bg-slate-700"
-            {{$attributes}}
+            {{$attributes(['value' => old($name)])}}
         />
     </div>
 </div>

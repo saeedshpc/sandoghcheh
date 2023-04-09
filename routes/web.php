@@ -22,4 +22,6 @@ Route::get('/', function () {
 //Bank Account
 Route::get('cards', [BankAccountController::class, 'index']);
 Route::get('cards/create', [BankAccountController::class, 'create']);
-Route::Post('cards', [BankAccountController::class, 'store']);
+Route::post('cards', [BankAccountController::class, 'store']);
+Route::get('/cards/{bankAccount}', [BankAccountController::class, 'edit']);
+Route::patch('/cards/{bankAccount}', [BankAccountController::class, 'update']);

@@ -46,7 +46,7 @@
                             class="flex items-center justify-around gap-4 md:gap-2 w-full"
                         >
                             <a
-                                href="#"
+                                href="/cards/{{$bankAccount->id}}"
                                 class="hover:text-greenOne dark:hover:text-green-400"
                             >
                                <x-icon name="pencil" class="w-5 h-5" />
