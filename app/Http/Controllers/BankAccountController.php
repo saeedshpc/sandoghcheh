@@ -18,4 +18,21 @@ class BankAccountController extends Controller
     {
         return view('create-account');
     }
+
+    public function store()
+    {
+
+        $attributes = request()->validate([
+            'account_name' => ['required', 'min:3', 'max:255'],
+            'account_usage' => ['min:3', 'max:255'],
+            'account_bank_name' => ['required', 'min:3', 'max:255'],
+            'account_owner' => ['required', 'min:3', 'max:255'],
+            'account_number' => ['max:255'],
+            'account_card_number' => ['max:255'],
+        ]);
+
+        BankAccount::create($attributes);
+
+        return redirect('/cards');
+    }
 }

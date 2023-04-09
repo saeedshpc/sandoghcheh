@@ -19,5 +19,7 @@ Route::get('/', function () {
     return view('tankhah');
 });
 
+//Bank Account
 Route::get('cards', [BankAccountController::class, 'index']);
 Route::get('cards/create', [BankAccountController::class, 'create']);
+Route::Post('cards', [BankAccountController::class, 'store']);
