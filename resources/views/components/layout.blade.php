@@ -318,7 +318,7 @@
                         >
                     </li>
                     <li class="hover:text-gray-800 dark:hover:text-gray-400">
-                        <a href="./companies.html" class="flex items-center gap-2">
+                        <a href="./companies" class="flex items-center gap-2">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"

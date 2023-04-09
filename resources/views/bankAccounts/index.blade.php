@@ -3,7 +3,7 @@
     <div
         class="flex flex-col md:flex-row md:items-center justify-between gap-4 py-6 px-2 md:px-4"
     >
-        <x-reports-title title="مدیریت حساب‌های بانکی" records="6"/>
+        <x-reports-title title="مدیریت حساب‌های بانکی" :records="$bankAccounts->count()"/>
         <x-reports-filter/>
     </div>
     <!-- boxes -->
