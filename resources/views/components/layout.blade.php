@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
         href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap"
         rel="stylesheet"
     />
-    <script src="./assets/js/script.js" defer></script>
+    <script src="/js/script.js" defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
     <title>صندوقچه</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
 <section>
@@ -167,7 +168,7 @@
                         placeholder="جستجو..."
                         class="w-full focus:outline-none text-xs dark:bg-slate-700 dark:text-white"
                     />
-                    <x-icon name="magnifier" class="w-6 h-6" />
+                    <x-icon name="magnifier" class="w-6 h-6"/>
                 </div>
                 <a
                     href="./add-tankhah.html"
@@ -178,7 +179,7 @@
                     href="#"
                     class="p-2 px-2 rounded-lg bg-white dark:bg-slate-700 dark:text-white border dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 duration-200 text-sm"
                 >
-                   <x-icon name="pencil" />
+                    <x-icon name="pencil"/>
                 </a>
             </header>
             {{$slot}}
@@ -189,7 +190,7 @@
             dir="rtl"
             class="hidden md:block bg-white col-span-3 xl:col-span-2 py-6 px-2 lg:px-6 dark:bg-slate-800 dark:text-white"
         >
-            <img src="/images/logo.png" class="scale-50 -mt-5" alt="" />
+            <img src="/images/logo.png" class="scale-50 -mt-5" alt=""/>
             <h2 class="text-center -mt-4 font-bold text-xl mb-1">صندوقچه</h2>
             <p class="text-xs tb:text-sm text-center">
                 سامانه مالی توکان تجارت آرسس
@@ -756,5 +757,6 @@
         </div>
     </div>
 </section>
+<x-flash/>
 </body>
 </html>

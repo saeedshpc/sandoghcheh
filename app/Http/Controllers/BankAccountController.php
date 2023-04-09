@@ -21,7 +21,6 @@ class BankAccountController extends Controller
 
     public function store()
     {
-
         $attributes = request()->validate([
             'account_name' => ['required', 'min:3', 'max:255'],
             'account_usage' => ['min:3', 'max:255'],
