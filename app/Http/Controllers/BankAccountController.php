@@ -9,14 +9,14 @@ class BankAccountController extends Controller
 {
     public function index()
     {
-        return view('bank-accounts',[
-            'bankAccounts' => BankAccount::all(),
+        return view('bankAccounts.index',[
+            'bankAccounts' => BankAccount::latest()->get(),
         ]);
     }
 
     public function create()
     {
-        return view('create-account');
+        return view('bankAccounts.create');
     }
 
     public function store()
@@ -39,7 +39,7 @@ class BankAccountController extends Controller
 
     public function edit(BankAccount $card)
     {
-        return view('edit-bank-account',[
+        return view('bankAccounts.edit',[
             'bankAccount' => $card
         ]);
     }
