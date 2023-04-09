@@ -51,12 +51,13 @@
                             >
                                <x-icon name="pencil" class="w-5 h-5" />
                             </a>
-                            <a
-                                href="#"
-                                class="hover:text-greenOne dark:hover:text-green-400"
-                            >
-                               <x-icon name="trash" class="w-5 h-5" />
-                            </a>
+                            <form class="flex items-center justify-center" method="POST" action="/cards/{{$bankAccount->id}}">
+                                @csrf
+                                @method('DELETE')
+                                <button class="hover:text-greenOne dark:hover:text-green-400">
+                                    <x-icon name="trash" class="w-5 h-5" />
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </x-table-td>

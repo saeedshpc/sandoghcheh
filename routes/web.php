@@ -25,3 +25,5 @@ Route::get('cards/create', [BankAccountController::class, 'create']);
 Route::post('cards', [BankAccountController::class, 'store']);
 Route::get('/cards/{bankAccount}', [BankAccountController::class, 'edit']);
 Route::patch('/cards/{bankAccount}', [BankAccountController::class, 'update']);
+Route::delete('/cards/{bankAccount}', [BankAccountController::class, 'destroy']);
+

@@ -61,4 +61,13 @@ class BankAccountController extends Controller
             'message' => 'حساب بانکی با موفقیت بروزرسانی شد'
         ]);
     }
+
+    public function destroy(BankAccount $bankAccount)
+    {
+        $bankAccount->delete();
+
+        return redirect('/cards')->with([
+            'message' => 'حساب بانکی حذف شد'
+        ]);
+    }
 }
