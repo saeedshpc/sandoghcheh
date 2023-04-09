@@ -179,7 +179,7 @@
                     href="#"
                     class="p-2 px-2 rounded-lg bg-white dark:bg-slate-700 dark:text-white border dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 duration-200 text-sm"
                 >
-                    <x-icon name="pencil"/>
+                    <x-icon name="pencil" class="w-6 h-6"/>
                 </a>
             </header>
             {{$slot}}
