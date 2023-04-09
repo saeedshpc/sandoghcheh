@@ -37,14 +37,14 @@ class BankAccountController extends Controller
         ]);
     }
 
-    public function edit(BankAccount $bankAccount)
+    public function edit(BankAccount $card)
     {
         return view('edit-bank-account',[
-            'bankAccount' => $bankAccount
+            'bankAccount' => $card
         ]);
     }
 
-    public function update(BankAccount $bankAccount)
+    public function update(BankAccount $card)
     {
         $attributes = request()->validate([
             'account_name' => ['required', 'min:3', 'max:255'],
@@ -55,16 +55,16 @@ class BankAccountController extends Controller
             'account_card_number' => ['max:255'],
         ]);
 
-        $bankAccount->update($attributes);
+        $card->update($attributes);
 
         return redirect('/cards')->with([
             'message' => 'حساب بانکی با موفقیت بروزرسانی شد'
         ]);
     }
 
-    public function destroy(BankAccount $bankAccount)
+    public function destroy(BankAccount $card)
     {
-        $bankAccount->delete();
+        $card->delete();
 
         return redirect('/cards')->with([
             'message' => 'حساب بانکی حذف شد'
