@@ -10,7 +10,9 @@
             {{-- Form Header--}}
             <x-form.header
                 title="افزودن شرکت جدید"
-                description="در این صفحه شرکت یا کسب و کار جدیدی ثبت می‌نمایید."/>
+                description="در این صفحه شرکت یا کسب و کار جدیدی ثبت می‌نمایید."
+                cancel_href="/companies"
+            />
 
             <!-- setting 1 text -->
             <x-form.input
@@ -24,13 +26,15 @@
                 name="company_work_area"
                 label="حوزه فعالیت"
                 description="حوزه فعالیت این کسب و کار یا شرکت"
-                placeholder="فروش خرد یا عمده پارچه"/>
+                placeholder="فروش خرد یا عمده پارچه"
+                :seperator="false"
+            />
 
             <!-- mobile submit -->
             <div
                 class="lg:hidden flex justify-end gap-3 mt-5">
                 <x-form.submit/>
-                <x-form.cancel/>
+                <x-form.cancel href="/companies"/>
             </div>
         </form>
     </div>

@@ -10,7 +10,9 @@
             {{-- Form Header--}}
             <x-form.header
                 title="افزودن حساب بانکی جدید"
-                description="در این صفحه حساب یا کارت بانکی جدیدی را ثبت می‌نمایید."/>
+                description="در این صفحه حساب یا کارت بانکی جدیدی را ثبت می‌نمایید."
+                cancel_href="/cards"
+            />
 
             <!-- setting 1 text -->
             <x-form.input
@@ -59,7 +61,7 @@
             <div
                 class="lg:hidden flex justify-end gap-3 mt-5">
                 <x-form.submit/>
-                <x-form.cancel/>
+                <x-form.cancel href="/cards"/>
             </div>
         </form>
     </div>
