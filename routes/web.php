@@ -22,8 +22,5 @@ Route::get('/', function () {
 
 
 Route::resource('/cards', BankAccountController::class)->except('show');
-Route::controller(CompanyController::class)->group(function(){
-    Route::get('/companies', 'index');
-    Route::get('/companies/create', 'create');
-    Route::post('/companies', 'store');
-});
+Route::resource('/companies', CompanyController::class)->except('show');
+

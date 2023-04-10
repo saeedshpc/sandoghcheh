@@ -1,4 +1,4 @@
-@props(['title' => 'عنوان فرم ', 'description' => 'توضیحات فرم'])
+@props(['title' => 'عنوان فرم ', 'description' => 'توضیحات فرم', 'cancel_href' => '#'])
 <div
     class="flex flex-col items-start justify-between lg:flex-row lg:items-center"
 >
@@ -12,7 +12,7 @@
     </div>
     <div class="hidden lg:flex">
         <x-form.submit />
-        <x-form.cancel />
+        <x-form.cancel href="{{$cancel_href}}" />
     </div>
 </div>
 <div
