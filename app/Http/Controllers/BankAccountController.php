@@ -21,16 +21,7 @@ class BankAccountController extends Controller
 
     public function store()
     {
-        $attributes = request()->validate([
-            'account_name' => ['required', 'min:3', 'max:255'],
-            'account_usage' => ['min:3', 'max:255'],
-            'account_bank_name' => ['required', 'min:3', 'max:255'],
-            'account_owner' => ['required', 'min:3', 'max:255'],
-            'account_number' => ['max:255'],
-            'account_card_number' => ['max:255'],
-        ]);
-
-        BankAccount::create($attributes);
+        BankAccount::create($this->validateBankAccount());
 
         return redirect('/cards')->with([
             'message' => 'حساب بانکی با موفقیت افزوده شد'
@@ -46,16 +37,7 @@ class BankAccountController extends Controller
 
     public function update(BankAccount $card)
     {
-        $attributes = request()->validate([
-            'account_name' => ['required', 'min:3', 'max:255'],
-            'account_usage' => ['min:3', 'max:255'],
-            'account_bank_name' => ['required', 'min:3', 'max:255'],
-            'account_owner' => ['required', 'min:3', 'max:255'],
-            'account_number' => ['max:255'],
-            'account_card_number' => ['max:255'],
-        ]);
-
-        $card->update($attributes);
+        $card->update($this->validateBankAccount());
 
         return redirect('/cards')->with([
             'message' => 'حساب بانکی با موفقیت بروزرسانی شد'
@@ -68,6 +50,18 @@ class BankAccountController extends Controller
 
         return redirect('/cards')->with([
             'message' => 'حساب بانکی حذف شد'
+        ]);
+    }
+
+    protected function validateBankAccount(): array
+    {
+        return request()->validate([
+            'account_name' => ['required', 'min:3', 'max:255'],
+            'account_usage' => ['min:3', 'max:255'],
+            'account_bank_name' => ['required', 'min:3', 'max:255'],
+            'account_owner' => ['required', 'min:3', 'max:255'],
+            'account_number' => ['max:255'],
+            'account_card_number' => ['max:255'],
         ]);
     }
 }
