@@ -25,7 +25,8 @@ Route::get('/', function () {
 });
 
 Route::controller(ExpenseController::class)->group(function(){
-    Route::get('/expenses', 'index');
+    Route::get('expenses', 'index');
+    Route::get('expenses/create', 'create');
 });
 
 Route::resource('/cards', BankAccountController::class)->except('show');
