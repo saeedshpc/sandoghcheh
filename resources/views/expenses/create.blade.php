@@ -5,6 +5,7 @@
             action="/expenses"
             class="flex flex-col gap-5 text-gray-700 border dark:border-gray-600 p-6 rounded-xl"
             method="POST"
+            enctype="multipart/form-data"
         >
             @csrf
             {{-- Form Header--}}
@@ -60,7 +61,7 @@
                 label="وضعیت پرداخت"
                 description="وضعیت پرداختی این هزینه تنخواه" >
                 @foreach( \App\Enums\PaymentStatus::cases() as $paymentStatus )
-                    <option value="{{ $paymentStatus->name }}">{{$paymentStatus->value}}</option>
+                    <option value="{{ $paymentStatus->value }}">{{$paymentStatus->value}}</option>
                 @endforeach
             </x-form.select>
 
