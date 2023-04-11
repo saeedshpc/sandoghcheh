@@ -45,6 +45,15 @@
                 label="خریدار"
                 description="نام شخص خریدار کالا/خدمات"
                 placeholder="میثم جوادی"/>
+
+            <!-- setting 5 textarea -->
+            <x-form.textarea
+                name="expense_description"
+                label="توضیحات"
+                description="توضیحات مرتبط با این هزینه یا پیگیری های مورد نیاز"
+                rows="5"
+                placeholder="توضیحات خرید (اختیاری)"/>
+
             <!-- mobile submit -->
             <div
                 class="lg:hidden flex justify-end gap-3 mt-5">
