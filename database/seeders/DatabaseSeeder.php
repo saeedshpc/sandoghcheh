@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         \App\Models\BankAccount::factory(10)->create();
-        \App\Models\Company::factory(5)->create();
+        \App\Models\Company::factory(10)->create();
+        \App\Models\Expense::factory(10)->create();
     }
 }

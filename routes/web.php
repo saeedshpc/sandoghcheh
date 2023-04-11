@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BankAccountController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ExpenseController;
 use App\Models\BankAccount;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('tankhah');
+    return view('expenses/index');
 });
 
+Route::controller(ExpenseController::class)->group(function(){
+    Route::get('/expenses', 'index');
+});
 
 Route::resource('/cards', BankAccountController::class)->except('show');
 Route::resource('/companies', CompanyController::class)->except('show');

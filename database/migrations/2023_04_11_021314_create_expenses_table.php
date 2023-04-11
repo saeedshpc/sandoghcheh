@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\PaymentStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,14 +15,14 @@ return new class extends Migration
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
             $table->string('expense_title');
-            $table->foreignId('company_id')->constrained();
+            $table->foreignId('companies_id')->constrained();
             $table->decimal('expense_price');
             $table->string('expense_purchaser');
-            $table->text('expense_description');
-            $table->tinyInteger('expense_payment_status');
-            $table->foreignId('expense_purchase_card');
-            $table->string('expense_invoice_image');
-            $table->timestamp('expense_purchased_date');
+            $table->text('expense_description')->nullable();
+            $table->string('expense_payment_status')->default(PaymentStatus::Pending->value);
+            $table->foreignId('bank_accounts_id')->constrained();
+            $table->string('expense_invoice_image')->nullable();
+            $table->timestamp('expense_purchased_date')->nullable();
             $table->timestamps();
         });
     }
