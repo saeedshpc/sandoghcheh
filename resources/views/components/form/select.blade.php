@@ -31,6 +31,7 @@
         >
            {{$slot}}
         </select>
+        <x-form.error name="{{$name}}" />
     </div>
 </div>
 @if($seperator)

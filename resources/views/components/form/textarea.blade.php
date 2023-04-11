@@ -29,6 +29,7 @@
                       class="{{$classes}} @error($name) {{$withErrorStyles}} @else {{$withoutErrorStyle}} @enderror"
                       {{ $attributes }}
                   >{{$slot ?? old($name)}}</textarea>
+        <x-form.error name="{{$name}}" />
     </div>
 </div>
 @if($seperator)
