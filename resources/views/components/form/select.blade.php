@@ -27,6 +27,7 @@
             class="{{$classes}} @error($name) {{$withErrorStyles}} @else {{$withoutErrorStyle}} @enderror"
             name="{{$name}}"
             id="{{$name}}"
+            {{ $attributes }}
         >
            {{$slot}}
         </select>

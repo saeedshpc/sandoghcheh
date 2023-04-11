@@ -64,6 +64,33 @@
                 @endforeach
             </x-form.select>
 
+            <!-- setting 7 select -->
+            <x-form.select
+                name="bank_account_id"
+                label="حساب بانکی پرداختی"
+                description="هزینه این خرید از کدام حساب بانکی یا کارت بانکی انجام شده است" >
+                @foreach( $bankAccounts as $bankAccount )
+                    <option value="{{ $bankAccount->id }}">{{$bankAccount->account_name}}</option>
+                @endforeach
+            </x-form.select>
+
+            <!-- setting 8 dateTime -->
+            <x-form.input
+                type="datetime-local"
+                dir="ltr"
+                name="expense_purchased_date"
+                label="تاریخ خرید"
+                description="تاریخ خرید کالا یا خدمات"
+                />
+
+            <!-- setting 8 file -->
+            <x-form.file
+                name="expense_invoice_image"
+                dir="ltr"
+                label="تصویر فاکتور یا فیش پرداختی"
+                description="تصویر فاکتور یا فیش پرداختی این هزینه"
+            />
+
             <!-- mobile submit -->
             <div
                 class="lg:hidden flex justify-end gap-3 mt-5">

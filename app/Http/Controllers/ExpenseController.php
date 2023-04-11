@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\PaymentStatus;
+use App\Models\BankAccount;
 use App\Models\Company;
 use App\Models\Expense;
 use Illuminate\Http\Request;
@@ -19,7 +20,8 @@ class ExpenseController extends Controller
     public function create()
     {
         return view('expenses.create', [
-            'companies' => Company::all()
+            'companies' => Company::all(),
+            'bankAccounts' => BankAccount::all(),
         ]);
     }
 }
