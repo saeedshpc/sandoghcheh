@@ -4,6 +4,7 @@ use App\Http\Controllers\BankAccountController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ExpenseController;
 use App\Models\BankAccount;
+use App\Models\Expense;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('expenses/index');
+    return view('expenses/index',[
+        'expenses' => Expense::latest()->get(),
+    ]);
 });
 
 Route::controller(ExpenseController::class)->group(function(){

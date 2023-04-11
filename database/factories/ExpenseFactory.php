@@ -20,11 +20,11 @@ class ExpenseFactory extends Factory
     {
         return [
             'expense_title' => fake()->sentence(),
-            'companies_id' => Company::factory(),
+            'company_id' => Company::factory(),
+            'bank_account_id' => BankAccount::factory(),
             'expense_price' => fake()->randomNumber('5'),
             'expense_purchaser' => fake()->name(),
             'expense_description' => fake()->paragraph(),
-            'bank_accounts_id' => BankAccount::factory(),
             'expense_purchased_date' => fake()->dateTime(),
         ];
     }
