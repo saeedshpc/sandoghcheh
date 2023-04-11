@@ -54,6 +54,16 @@
                 rows="5"
                 placeholder="توضیحات خرید (اختیاری)"/>
 
+            <!-- setting 6 select -->
+            <x-form.select
+                name="expense_payment_status"
+                label="وضعیت پرداخت"
+                description="وضعیت پرداختی این هزینه تنخواه" >
+                @foreach( \App\Enums\PaymentStatus::cases() as $paymentStatus )
+                    <option value="{{ $paymentStatus->name }}">{{$paymentStatus->value}}</option>
+                @endforeach
+            </x-form.select>
+
             <!-- mobile submit -->
             <div
                 class="lg:hidden flex justify-end gap-3 mt-5">

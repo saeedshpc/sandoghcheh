@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\PaymentStatus;
 use App\Models\Company;
 use App\Models\Expense;
 use Illuminate\Http\Request;
