@@ -89,7 +89,14 @@ class ExpenseController extends Controller
         ]);
     }
 
+    public function destroy(Expense $expense)
+    {
+        $expense->delete();
 
+        return redirect('/expenses')->with([
+            'message' => 'هزینه تنخواه حذف شذ!'
+        ]);
+    }
 
     protected function validateExpense()
     {

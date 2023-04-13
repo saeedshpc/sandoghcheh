@@ -30,6 +30,7 @@ Route::controller(ExpenseController::class)->group(function(){
     Route::post('expenses', 'store');
     Route::get('expenses/{expense}/edit', 'edit');
     Route::patch('expenses/{expense}', 'update');
+    Route::delete('expenses/{expense}', 'destroy');
 });
 
 Route::resource('/cards', BankAccountController::class)->except('show');
