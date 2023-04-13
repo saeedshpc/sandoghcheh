@@ -29,23 +29,11 @@ class ExpenseController extends Controller
 
     public function store()
     {
-
-       $attributes = request()->validate([
-           'expense_title' => ['required'],
-           'company_id' => ['required', Rule::exists('companies', 'id')],
-           'expense_price' => ['required'],
-           'expense_purchaser' => ['required', 'min:3', 'max:255'],
-           'expense_description' => [],
-           'expense_payment_status' => ['required'],
-           'expense_purchased_date' => [],
-           'bank_account_id' => ['required', Rule::exists('bank_accounts', 'id')],
-           'expense_invoice_image' => ['image'],
-       ]);
+        $attributes = $this->validateExpense();
 
        if(request('expense_invoice_image') ?? false) {
           $attributes['expense_invoice_image'] = request()->file('expense_invoice_image')->store('expenses_invoices');
        }
-
 
        Expense::create($attributes);
 
@@ -65,17 +53,7 @@ class ExpenseController extends Controller
 
     public function update(Expense $expense)
     {
-        $attributes = request()->validate([
-            'expense_title' => ['required'],
-            'company_id' => ['required', Rule::exists('companies', 'id')],
-            'expense_price' => ['required'],
-            'expense_purchaser' => ['required', 'min:3', 'max:255'],
-            'expense_description' => [],
-            'expense_payment_status' => ['required'],
-            'expense_purchased_date' => [],
-            'bank_account_id' => ['required', Rule::exists('bank_accounts', 'id')],
-            'expense_invoice_image' => ['image'],
-        ]);
+        $attributes = $this->validateExpense();
 
         if(request('expense_invoice_image') ?? false) {
             Storage::delete($expense->expense_invoice_image);
@@ -98,8 +76,18 @@ class ExpenseController extends Controller
         ]);
     }
 
-    protected function validateExpense()
+    protected function validateExpense(): array
     {
-
+        return request()->validate([
+            'expense_title' => ['required'],
+            'company_id' => ['required', Rule::exists('companies', 'id')],
+            'expense_price' => ['required'],
+            'expense_purchaser' => ['required', 'min:3', 'max:255'],
+            'expense_description' => [],
+            'expense_payment_status' => ['required'],
+            'expense_purchased_date' => [],
+            'bank_account_id' => ['required', Rule::exists('bank_accounts', 'id')],
+            'expense_invoice_image' => ['image'],
+        ]);
     }
 }
