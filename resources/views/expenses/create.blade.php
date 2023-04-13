@@ -35,7 +35,6 @@
             <!-- setting 3 text -->
             <x-form.input
                 name="expense_price"
-                type="number"
                 label="مبلغ هزینه"
                 description="مبلغ هزینه شده به تومان"
                 placeholder="11500 تومان"/>
@@ -53,7 +52,8 @@
                 label="توضیحات"
                 description="توضیحات مرتبط با این هزینه یا پیگیری های مورد نیاز"
                 rows="5"
-                placeholder="توضیحات خرید (اختیاری)"/>
+                placeholder="توضیحات خرید (اختیاری)">
+            </x-form.textarea>
 
             <!-- setting 6 select -->
             <x-form.select

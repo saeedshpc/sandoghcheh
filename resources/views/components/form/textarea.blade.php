@@ -23,13 +23,12 @@
         </p>
     </div>
     <div class="w-full lg:w-auto">
-                  <textarea
-                      name="{{$name}}"
-                      id="{{$name}}"
-                      class="{{$classes}} @error($name) {{$withErrorStyles}} @else {{$withoutErrorStyle}} @enderror"
-                      {{ $attributes }}
-                  >{{$slot ?? old($name)}}</textarea>
-        <x-form.error name="{{$name}}" />
+     <textarea
+         name="{{$name}}"
+         id="{{$name}}"
+         class="{{$classes}} @error($name) {{$withErrorStyles}} @else {{$withoutErrorStyle}} @enderror"
+         {{ $attributes }} >{{$slot ?? old($name)}}</textarea>
+        <x-form.error name="{{$name}}"/>
     </div>
 </div>
 @if($seperator)

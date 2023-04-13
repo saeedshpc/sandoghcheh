@@ -28,6 +28,8 @@ Route::controller(ExpenseController::class)->group(function(){
     Route::get('expenses', 'index');
     Route::get('expenses/create', 'create');
     Route::post('expenses', 'store');
+    Route::get('expenses/{expense}/edit', 'edit');
+    Route::patch('expenses/{expense}', 'update');
 });
 
 Route::resource('/cards', BankAccountController::class)->except('show');
