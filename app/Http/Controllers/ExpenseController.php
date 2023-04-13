@@ -56,7 +56,9 @@ class ExpenseController extends Controller
         $attributes = $this->validateExpense();
 
         if(request('expense_invoice_image') ?? false) {
-            Storage::delete($expense->expense_invoice_image);
+            if(!is_null($expense->expense_invoice_image)) {
+                Storage::delete($expense->expense_invoice_image);
+            }
             $attributes['expense_invoice_image'] = request()->file('expense_invoice_image')->store('expenses_invoices');
         }
 
@@ -88,6 +90,18 @@ class ExpenseController extends Controller
             'expense_purchased_date' => [],
             'bank_account_id' => ['required', Rule::exists('bank_accounts', 'id')],
             'expense_invoice_image' => ['image'],
+        ]);
+    }
+
+    public function deleteImage(Expense $expense)
+    {
+        Storage::delete($expense->expense_invoice_image);
+        $expense->update([
+            'expense_invoice_image' => null
+        ]);
+
+        return back()->with([
+            'message' => 'تصویر فاکتور از این هزینه حذف شد.'
         ]);
     }
 }
