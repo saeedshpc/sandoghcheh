@@ -7,6 +7,7 @@ use App\Models\BankAccount;
 use App\Models\Company;
 use App\Models\Expense;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 class ExpenseController extends Controller
@@ -37,7 +38,8 @@ class ExpenseController extends Controller
            'expense_description' => [],
            'expense_payment_status' => ['required'],
            'expense_purchased_date' => [],
-           'bank_account_id' => ['required', Rule::exists('bank_accounts', 'id')]
+           'bank_account_id' => ['required', Rule::exists('bank_accounts', 'id')],
+           'expense_invoice_image' => ['image'],
        ]);
 
        if(request('expense_invoice_image') ?? false) {
@@ -63,8 +65,31 @@ class ExpenseController extends Controller
 
     public function update(Expense $expense)
     {
-        dd(request()->all());
+        $attributes = request()->validate([
+            'expense_title' => ['required'],
+            'company_id' => ['required', Rule::exists('companies', 'id')],
+            'expense_price' => ['required'],
+            'expense_purchaser' => ['required', 'min:3', 'max:255'],
+            'expense_description' => [],
+            'expense_payment_status' => ['required'],
+            'expense_purchased_date' => [],
+            'bank_account_id' => ['required', Rule::exists('bank_accounts', 'id')],
+            'expense_invoice_image' => ['image'],
+        ]);
+
+        if(request('expense_invoice_image') ?? false) {
+            Storage::delete($expense->expense_invoice_image);
+            $attributes['expense_invoice_image'] = request()->file('expense_invoice_image')->store('expenses_invoices');
+        }
+
+        $expense->update($attributes);
+
+        return redirect('/expenses')->with([
+            'message' => 'تنخواه با موفقیت بروزرسانی شد.'
+        ]);
     }
+
+
 
     protected function validateExpense()
     {
