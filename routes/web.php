@@ -3,6 +3,7 @@
 use App\Http\Controllers\BankAccountController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\FreelancerExpenseController;
 use App\Models\BankAccount;
 use App\Models\Expense;
 use Illuminate\Support\Facades\Route;
@@ -24,16 +25,13 @@ Route::get('/', function () {
     ]);
 });
 
-Route::controller(ExpenseController::class)->group(function(){
-    Route::get('expenses', 'index');
-    Route::get('expenses/create', 'create');
-    Route::post('expenses', 'store');
-    Route::get('expenses/{expense}/edit', 'edit');
-    Route::patch('expenses/{expense}', 'update');
-    Route::delete('expenses/{expense}', 'destroy');
-});
+
+Route::resource('expenses', BankAccountController::class)->except('show');
 Route::get('expenses/{expense}/image/{hash}',[ExpenseController::class, 'deleteImage']);
 
-Route::resource('/cards', BankAccountController::class)->except('show');
-Route::resource('/companies', CompanyController::class)->except('show');
+Route::resource('cards', BankAccountController::class)->except('show');
+Route::resource('companies', CompanyController::class)->except('show');
 
+Route::controller(FreelancerExpenseController::class)->group(function(){
+    Route::get('freelancerExpenses', 'index');
+});
