@@ -8,10 +8,10 @@
     </div>
     <!-- boxes -->
     <x-main-info-boxes>
-        <x-report-box name="financial"/>
-        <x-report-box name="financial"/>
-        <x-report-box name="financial" :active="true"/>
-        <x-report-box name="financial"/>
+        <x-report-box name="budget"/>
+        <x-report-box name="freelancer"/>
+        <x-report-box name="freelancer" :active="true"/>
+        <x-report-box name="freelancer_number"/>
     </x-main-info-boxes>
     <!-- table and pagination -->
     <div id="table-pagination-div">
