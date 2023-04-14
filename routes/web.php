@@ -32,7 +32,7 @@ Route::controller(ExpenseController::class)->group(function(){
     Route::patch('expenses/{expense}', 'update');
     Route::delete('expenses/{expense}', 'destroy');
 });
-Route::get('expenses/{expense}/image',[ExpenseController::class, 'deleteImage']);
+Route::get('expenses/{expense}/image/{hash}',[ExpenseController::class, 'deleteImage']);
 
 Route::resource('/cards', BankAccountController::class)->except('show');
 Route::resource('/companies', CompanyController::class)->except('show');

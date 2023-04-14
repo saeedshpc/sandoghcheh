@@ -120,9 +120,14 @@
                 <div
                     class="hidden group-hover:flex gap-1 duration-200 absolute top-2 right-2"
                 >
+                    @php
+                        // to check if it's a valid request from edit page
+                        $randomNumber = str()->random(24);
+                        session()->flash('imageDeleteHash', $randomNumber)
+                    @endphp
                     <a
                         class="flex items-center justify-center w-[32px] h-[32px] rounded-full text-white bg-red-500 hover:bg-red-600 duration-200"
-                        href="/expenses/{{$expense->id}}/image"
+                        href="/expenses/{{$expense->id}}/image/{{$randomNumber }}"
                     ><x-icon name="trash" class="w-4 h-4" /></a
                     >
 

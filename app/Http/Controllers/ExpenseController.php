@@ -93,8 +93,13 @@ class ExpenseController extends Controller
         ]);
     }
 
-    public function deleteImage(Expense $expense)
+    public function deleteImage(Expense $expense, $hash)
     {
+        // check if it is a valid request that has been sent from edit page
+        if($hash !== session('imageDeleteHash')) {
+            return redirect('/expenses');
+        }
+
         Storage::delete($expense->expense_invoice_image);
         $expense->update([
             'expense_invoice_image' => null
