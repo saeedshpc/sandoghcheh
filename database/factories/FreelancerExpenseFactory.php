@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\BankAccount;
+use App\Models\Freelancer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,7 @@ class FreelancerExpenseFactory extends Factory
     public function definition(): array
     {
         return [
-            'freelancer_name' => fake()->name(),
+            'freelancer_expense_id' => Freelancer::factory(),
             'title' => fake()->sentence(),
             'price' => fake()->randomNumber(5),
             'description' => fake()->paragraph(),

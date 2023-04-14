@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('freelancers', function (Blueprint $table) {
             $table->id();
+            $table->string('fullName');
+            $table->string('expertise');
+            $table->string('bank');
+            $table->string('bank_account_number');
+            $table->string('card_number');
             $table->timestamps();
         });
     }

@@ -17,7 +17,11 @@ class FreelancerFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'fullName' => fake()->name(),
+            'expertise' => fake()->word(),
+            'bank' =>  fake()->word(),
+            'bank_account_number' => fake()->randomNumber(8),
+            'card_number' => fake()->randomNumber(9)
         ];
     }
 }
