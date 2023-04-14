@@ -40,4 +40,8 @@ Route::controller(FreelancerExpenseController::class)->group(function(){
 Route::controller(FreelancerController::class)->group(function(){
     Route::get('freelancers', 'index');
     Route::get('freelancers/create', 'create');
+    Route::post('freelancers', 'store');
+    Route::get('freelancers/{freelancer}/edit', 'edit');
+    Route::patch('freelancers/{freelancer}', 'update');
+    Route::delete('freelancers/{freelancer}', 'destroy');
 });
