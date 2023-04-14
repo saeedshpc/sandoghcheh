@@ -246,7 +246,7 @@
                     </li>
                     <li class="hover:text-gray-800 dark:hover:text-gray-400">
                         <a
-                            href="./freelancers-dashboard.html"
+                            href="/freelancerExpenses"
                             class="flex items-center gap-2"
                         >
                             <svg

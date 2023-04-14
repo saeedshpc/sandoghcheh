@@ -3,7 +3,7 @@
     <div
         class="flex flex-col md:flex-row md:items-center justify-between gap-4 py-6 px-2 md:px-4"
     >
-        <x-reports-title title="مدیریت شرکت‌ها" :records="$companies->count()"/>
+        <x-reports-title title="مدیریت حساب‌های فریلنسرها" :records="$freelancerExpenses->count()"/>
         <x-reports-filter/>
     </div>
     <!-- boxes -->
@@ -19,25 +19,22 @@
         <x-table>
             <x-slot name="tableHeader">
                 <x-table-th>کد</x-table-th>
-                <x-table-th>نام کسب و کار</x-table-th>
-                <x-table-th>حوزه فعالیت</x-table-th>
-                <x-table-th>جمع فروش سال</x-table-th>
-                <x-table-th>جمع هزینه‌های سال</x-table-th>
-                <x-table-th>جمع فروش سال گذشته</x-table-th>
-                <x-table-th>جمع هزینه‌ تنخواه سال</x-table-th>
-                <x-table-th>جمع تبلیغات سال</x-table-th>
+                <x-table-th>نام فریلنسر</x-table-th>
+                <x-table-th>توضیحات سفارش</x-table-th>
+                <x-table-th>مبلغ</x-table-th>
+                <x-table-th>حساب پرداختی</x-table-th>
+                <x-table-th>تاریخ پرداخت</x-table-th>
                 <x-table-th></x-table-th>
             </x-slot>
-            @foreach($companies as $company)
+            @foreach($freelancerExpenses as $freelancerExpense)
                 <x-table-row>
-                    <x-table-td>{{$company->id}}</x-table-td>
-                    <x-table-td>{{$company->company_name}}</x-table-td>
-                    <x-table-td>{{$company->company_work_area}}</x-table-td>
-                    <x-table-td>54/000/000</x-table-td>
-                    <x-table-td>140/000/000</x-table-td>
-                    <x-table-td>44/000/000</x-table-td>
-                    <x-table-td>41/000/000</x-table-td>
-                    <x-table-td>140/000/000</x-table-td>
+                    <x-table-td>{{$freelancerExpense->id}}</x-table-td>
+                    <x-table-td>{{$freelancerExpense->freelancer_name}}</x-table-td>
+                    <x-table-td>{{$freelancerExpense->description}}</x-table-td>
+                    <x-table-td>{{$freelancerExpense->price}}</x-table-td>
+                    <x-table-td>{{$freelancerExpense->description}}</x-table-td>
+                    <x-table-td dir="ltr">{{$freelancerExpense->purchased_date}}</x-table-td>
+
 
                     <x-table-td>
                         <div class="lg:invisible group-hover:visible">
@@ -45,13 +42,13 @@
                                 class="flex items-center justify-around gap-4 md:gap-2 w-full"
                             >
                                 <a
-                                    href="/companies/{{$company->id}}/edit"
+                                    href="/freelancerExpenses/{{$freelancerExpense->id}}/edit"
                                     class="hover:text-greenOne dark:hover:text-green-400"
                                 >
                                     <x-icon name="pencil" class="w-5 h-5" />
                                 </a>
                                 <form
-                                    action="/companies/{{$company->id}}"
+                                    action="/freelancerExpenses/{{$freelancerExpense->id}}"
                                     class="flex items-center justify-center"
                                     method="POST" >
                                     @csrf

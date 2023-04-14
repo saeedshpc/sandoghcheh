@@ -49,7 +49,7 @@
                     <x-table-td>{{$expense->expense_purchaser}}</x-table-td>
                     <x-table-td class="{{$statusColor}}">{{$expense->expense_payment_status}}</x-table-td>
                     <x-table-td>{{$expense->bankAccount->account_name}}</x-table-td>
-                    <x-table-td>{{$expense->expense_purchased_date }}</x-table-td>
+                    <x-table-td dir="ltr">{{$expense->expense_purchased_date }}</x-table-td>
 
                     <x-table-td>
                         <div class="lg:invisible group-hover:visible">
