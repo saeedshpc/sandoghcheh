@@ -10,27 +10,27 @@
             @method('PATCH')
             {{-- Form Header--}}
             <x-form.header
-                :title=" 'ویرایش کسب و کار : '. $company->company_name"
+                :title=" 'ویرایش کسب و کار : '. $company->name"
                 description="در این صفحه اطلاعات کسب و کار را ویرایش میکنید."
                 cancel_href="/companies"
             />
 
             <!-- setting 1 text -->
             <x-form.input
-                name="company_name"
+                name="name"
                 label=" نام شرکت یا کسب و کار"
                 description=" نام برند کسب کار یا شرکت "
                 placeholder="بانوریس"
-                :value="old('company_name', $company->company_name)"
+                :value="old('name', $company->name)"
             />
 
             <!-- setting 2 text -->
             <x-form.input
-                name="company_work_area"
+                name="work_area"
                 label=" حوزه فعالیت "
                 description=" حوزه فعالیت این کسب و کار یا شرکت "
                 placeholder="فروش خرد یا عمده پارچه"
-                :value="old('company_work_area', $company->company_work_area)"
+                :value="old('work_area', $company->work_area)"
                 :seperator="false"/>
             <!-- mobile submit -->
             <div

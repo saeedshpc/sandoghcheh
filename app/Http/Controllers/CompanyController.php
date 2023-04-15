@@ -56,8 +56,8 @@ class CompanyController extends Controller
     protected function validateCompany(): array
     {
         return request()->validate([
-            'company_name' => ['required', 'min:3', 'max:255'],
-            'company_work_area' => ['required', 'min:3', 'max:255']
+            'name' => ['required', 'min:3', 'max:255'],
+            'work_area' => ['required', 'min:3', 'max:255']
         ]);
     }
 }

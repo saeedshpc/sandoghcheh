@@ -31,8 +31,8 @@
             @foreach($companies as $company)
                 <x-table-row>
                     <x-table-td>{{$company->id}}</x-table-td>
-                    <x-table-td>{{$company->company_name}}</x-table-td>
-                    <x-table-td>{{$company->company_work_area}}</x-table-td>
+                    <x-table-td>{{$company->name}}</x-table-td>
+                    <x-table-td>{{$company->work_area}}</x-table-td>
                     <x-table-td>54/000/000</x-table-td>
                     <x-table-td>140/000/000</x-table-td>
                     <x-table-td>44/000/000</x-table-td>

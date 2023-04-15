@@ -16,14 +16,14 @@
 
             <!-- setting 1 text -->
             <x-form.input
-                name="company_name"
+                name="name"
                 label="نام شرکت یا کسب و کار"
                 description="نام برند کسب کار یا شرکت"
                 placeholder="بانوریس"/>
 
             <!-- setting 2 text -->
             <x-form.input
-                name="company_work_area"
+                name="work_area"
                 label="حوزه فعالیت"
                 description="حوزه فعالیت این کسب و کار یا شرکت"
                 placeholder="فروش خرد یا عمده پارچه"
