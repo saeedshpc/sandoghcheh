@@ -19,13 +19,13 @@ class ExpenseFactory extends Factory
     public function definition(): array
     {
         return [
-            'expense_title' => fake()->sentence(),
+            'title' => fake()->sentence(),
             'company_id' => Company::factory(),
             'bank_account_id' => BankAccount::factory(),
-            'expense_price' => fake()->randomNumber('5'),
-            'expense_purchaser' => fake()->name(),
-            'expense_description' => fake()->paragraph(),
-            'expense_purchased_date' => fake()->dateTime(),
+            'price' => fake()->randomNumber('5'),
+            'purchaser' => fake()->name(),
+            'description' => fake()->paragraph(),
+            'purchased_date' => fake()->dateTime(),
         ];
     }
 }

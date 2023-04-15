@@ -30,26 +30,26 @@
             @foreach($expenses as $expense)
                 @php
                     $statusColor = '';
-                     switch($expense->expense_payment_status->name) {
-                         case 'Paid' :
+                     switch($expense->payment_status) {
+                         case 'پرداخت شده' :
                              $statusColor = 'text-green-600';
                              break;
-                         case 'Pending' :
+                         case 'در انتظار پرداخت' :
                              $statusColor = 'text-orange-500';
                              break;
-                         case 'Check' :
+                         case 'صدور چک' :
                              $statusColor = 'text-purple-600';
                              break;
                      }
                 @endphp
                 <x-table-row>
                     <x-table-td>{{$expense->id}}</x-table-td>
-                    <x-table-td>{{$expense->expense_title}}</x-table-td>
-                    <x-table-td>{{$expense->expense_price}}</x-table-td>
-                    <x-table-td>{{$expense->expense_purchaser}}</x-table-td>
-                    <x-table-td class="{{$statusColor}}">{{$expense->expense_payment_status}}</x-table-td>
-                    <x-table-td>{{$expense->bankAccount->account_name}}</x-table-td>
-                    <x-table-td dir="ltr">{{$expense->expense_purchased_date }}</x-table-td>
+                    <x-table-td>{{$expense->title}}</x-table-td>
+                    <x-table-td>{{$expense->price}}</x-table-td>
+                    <x-table-td>{{$expense->purchaser}}</x-table-td>
+                    <x-table-td class="{{$statusColor}}">{{$expense->payment_status}}</x-table-td>
+                    <x-table-td>{{$expense->bankAccount->name}}</x-table-td>
+                    <x-table-td dir="ltr">{{$expense->purchased_date }}</x-table-td>
 
                     <x-table-td>
                         <div class="lg:invisible group-hover:visible">

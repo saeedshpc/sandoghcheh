@@ -17,7 +17,7 @@
 
             <!-- setting 1 text -->
             <x-form.input
-                name="expense_title"
+                name="title"
                 label="عنوان هزینه"
                 description="این هزینه برای خرید چه کالا یا سرویسی ثبت می‌شود؟"
                 placeholder="خرید بسته اینترنت"/>
@@ -28,27 +28,27 @@
                 label="شرکت/کسب و کار"
                 description="این هزینه جزو هزینه های کدام شرکت/کسب و کار می ‌باشد" >
                 @foreach( $companies as $company )
-                    <option value="{{ $company->id }}">{{$company->company_name}}</option>
+                    <option value="{{ $company->id }}">{{$company->name}}</option>
                 @endforeach
             </x-form.select>
 
             <!-- setting 3 text -->
             <x-form.input
-                name="expense_price"
+                name="price"
                 label="مبلغ هزینه"
                 description="مبلغ هزینه شده به تومان"
                 placeholder="11500 تومان"/>
 
             <!-- setting 4 text -->
             <x-form.input
-                name="expense_purchaser"
+                name="purchaser"
                 label="خریدار"
                 description="نام شخص خریدار کالا/خدمات"
                 placeholder="میثم جوادی"/>
 
             <!-- setting 5 textarea -->
             <x-form.textarea
-                name="expense_description"
+                name="description"
                 label="توضیحات"
                 description="توضیحات مرتبط با این هزینه یا پیگیری های مورد نیاز"
                 rows="5"
@@ -57,7 +57,7 @@
 
             <!-- setting 6 select -->
             <x-form.select
-                name="expense_payment_status"
+                name="payment_status"
                 label="وضعیت پرداخت"
                 description="وضعیت پرداختی این هزینه تنخواه" >
                 @foreach( \App\Enums\PaymentStatus::cases() as $paymentStatus )
@@ -71,7 +71,7 @@
                 label="حساب بانکی پرداختی"
                 description="هزینه این خرید از کدام حساب بانکی یا کارت بانکی انجام شده است" >
                 @foreach( $bankAccounts as $bankAccount )
-                    <option value="{{ $bankAccount->id }}">{{$bankAccount->account_name}}</option>
+                    <option value="{{ $bankAccount->id }}">{{$bankAccount->name}}</option>
                 @endforeach
             </x-form.select>
 
@@ -79,14 +79,14 @@
             <x-form.input
                 type="datetime-local"
                 dir="ltr"
-                name="expense_purchased_date"
+                name="purchased_date"
                 label="تاریخ خرید"
                 description="تاریخ خرید کالا یا خدمات"
                 />
 
             <!-- setting 8 file -->
             <x-form.file
-                name="expense_invoice_image"
+                name="invoice_image"
                 dir="ltr"
                 label="تصویر فاکتور یا فیش پرداختی"
                 description="تصویر فاکتور یا فیش پرداختی این هزینه"

@@ -31,8 +31,8 @@ class ExpenseController extends Controller
     {
         $attributes = $this->validateExpense();
 
-       if(request('expense_invoice_image') ?? false) {
-          $attributes['expense_invoice_image'] = request()->file('expense_invoice_image')->store('expenses_invoices');
+       if(request('invoice_image') ?? false) {
+          $attributes['invoice_image'] = request()->file('invoice_image')->store('expenses_invoices');
        }
 
        Expense::create($attributes);
@@ -55,11 +55,11 @@ class ExpenseController extends Controller
     {
         $attributes = $this->validateExpense();
 
-        if(request('expense_invoice_image') ?? false) {
-            if(!is_null($expense->expense_invoice_image)) {
-                Storage::delete($expense->expense_invoice_image);
+        if(request('invoice_image') ?? false) {
+            if(!is_null($expense->invoice_image)) {
+                Storage::delete($expense->invoice_image);
             }
-            $attributes['expense_invoice_image'] = request()->file('expense_invoice_image')->store('expenses_invoices');
+            $attributes['invoice_image'] = request()->file('invoice_image')->store('expenses_invoices');
         }
 
         $expense->update($attributes);
@@ -81,15 +81,15 @@ class ExpenseController extends Controller
     protected function validateExpense(): array
     {
         return request()->validate([
-            'expense_title' => ['required'],
+            'title' => ['required'],
             'company_id' => ['required', Rule::exists('companies', 'id')],
-            'expense_price' => ['required'],
-            'expense_purchaser' => ['required', 'min:3', 'max:255'],
-            'expense_description' => [],
-            'expense_payment_status' => ['required'],
-            'expense_purchased_date' => [],
+            'price' => ['required'],
+            'purchaser' => ['required', 'min:3', 'max:255'],
+            'description' => [],
+            'payment_status' => ['required'],
+            'purchased_date' => [],
             'bank_account_id' => ['required', Rule::exists('bank_accounts', 'id')],
-            'expense_invoice_image' => ['image'],
+            'invoice_image' => ['image'],
         ]);
     }
 
@@ -100,9 +100,9 @@ class ExpenseController extends Controller
             return redirect('/expenses');
         }
 
-        Storage::delete($expense->expense_invoice_image);
+        Storage::delete($expense->invoice_image);
         $expense->update([
-            'expense_invoice_image' => null
+            'invoice_image' => null
         ]);
 
         return back()->with([

@@ -14,15 +14,15 @@ return new class extends Migration
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
-            $table->string('expense_title');
+            $table->string('title');
             $table->foreignId('company_id')->constrained();
             $table->foreignId('bank_account_id')->constrained();
-            $table->decimal('expense_price','9', 0);
-            $table->string('expense_purchaser');
-            $table->text('expense_description')->nullable();
-            $table->string('expense_payment_status')->default(PaymentStatus::Pending->value);
-            $table->string('expense_invoice_image')->nullable();
-            $table->timestamp('expense_purchased_date')->nullable();
+            $table->decimal('price','9', 0);
+            $table->string('purchaser');
+            $table->text('description')->nullable();
+            $table->string('payment_status')->default(PaymentStatus::Pending->value);
+            $table->string('invoice_image')->nullable();
+            $table->timestamp('purchased_date')->nullable();
             $table->timestamps();
         });
     }
