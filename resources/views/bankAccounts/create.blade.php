@@ -16,42 +16,42 @@
 
             <!-- setting 1 text -->
             <x-form.input
-                name="account_name"
+                name="name"
                 label="نام حساب"
                 description="عنوان استفاده این حساب یا کارت بانکی"
                 placeholder="   کارت تنخواه بانوریس..."/>
 
             <!-- setting 2 text -->
             <x-form.input
-                name="account_usage"
+                name="usage"
                 label=" استفاده حساب"
                 description="از این حساب برای چه مصارفی استفاده می‌شود"
                 placeholder="خریدهای شرکت بانوریس"/>
 
             <!-- setting 3 text -->
             <x-form.input
-                name="account_bank_name"
+                name="bank_name"
                 label="نام بانک"
                 description="نام بانک این حساب یا کارت"
                 placeholder="ملی"/>
 
             <!-- setting 4 text -->
             <x-form.input
-                name="account_owner"
+                name="owner"
                 label="دارنده حساب"
                 description="نام مالک این حساب یا کارت بانکی"
                 placeholder="سعید شیخ الاسلامی"/>
 
             <!-- setting 5 text -->
             <x-form.input
-                name="account_number"
+                name="number"
                 label="شماره حساب"
                 description="شماره حساب بانکی"
                 placeholder="0322822822009"/>
 
             <!-- setting 6 text -->
             <x-form.input
-                name="account_card_number"
+                name="card_number"
                 label="شماره کارت"
                 description="شماره کارت بانکی"
                 placeholder="6037998119485349"

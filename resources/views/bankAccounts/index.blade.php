@@ -31,12 +31,12 @@
             </x-slot>
             @foreach($bankAccounts as $bankAccount)
             <x-table-row>
-                <x-table-td>{{$bankAccount->account_code}}</x-table-td>
-                <x-table-td>{{$bankAccount->account_name}}</x-table-td>
-                <x-table-td>{{$bankAccount->account_usage}}</x-table-td>
-                <x-table-td>{{$bankAccount->account_bank_name }}</x-table-td>
-                <x-table-td>{{$bankAccount->account_owner}}</x-table-td>
-                <x-table-td>{{$bankAccount->account_card_number ?? $bankAccount->account_number }}</x-table-td>
+                <x-table-td>{{$bankAccount->id}}</x-table-td>
+                <x-table-td>{{$bankAccount->name}}</x-table-td>
+                <x-table-td>{{$bankAccount->usage}}</x-table-td>
+                <x-table-td>{{$bankAccount->bank_name }}</x-table-td>
+                <x-table-td>{{$bankAccount->owner}}</x-table-td>
+                <x-table-td>{{$bankAccount->card_number ?? $bankAccount->number }}</x-table-td>
                 <x-table-td>23/000/000</x-table-td>
                 <x-table-td>500/000</x-table-td>
                 <x-table-td>1401-02-3</x-table-td>

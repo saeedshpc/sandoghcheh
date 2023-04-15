@@ -56,12 +56,12 @@ class BankAccountController extends Controller
     protected function validateBankAccount(): array
     {
         return request()->validate([
-            'account_name' => ['required', 'min:3', 'max:255'],
-            'account_usage' => ['min:3', 'max:255'],
-            'account_bank_name' => ['required', 'min:3', 'max:255'],
-            'account_owner' => ['required', 'min:3', 'max:255'],
-            'account_number' => ['max:255'],
-            'account_card_number' => ['max:255'],
+            'name' => ['required', 'min:3', 'max:255'],
+            'usage' => ['min:3', 'max:255'],
+            'bank_name' => ['required', 'min:3', 'max:255'],
+            'owner' => ['required', 'min:3', 'max:255'],
+            'number' => ['max:255'],
+            'card_number' => ['max:255'],
         ]);
     }
 }
