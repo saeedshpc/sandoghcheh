@@ -55,7 +55,7 @@
                 label="حساب بانکی پرداختی"
                 description="هزینه این خرید از کدام حساب بانکی یا کارت بانکی انجام شده است" >
                 @foreach( $bankAccounts as $bankAccount )
-                    <option value="{{ $bankAccount->id }}">{{$bankAccount->account_name}}</option>
+                    <option value="{{ $bankAccount->id }}">{{$bankAccount->name}}</option>
                 @endforeach
             </x-form.select>
 

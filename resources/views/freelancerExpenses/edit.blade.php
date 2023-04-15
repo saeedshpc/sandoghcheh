@@ -61,7 +61,7 @@
                 description="هزینه این خرید از کدام حساب بانکی یا کارت بانکی انجام شده است" >
                 @foreach( $bankAccounts as $bankAccount )
                     <option value="{{ $bankAccount->id }}"
-                    {{ old('bank_account_id', $expense->bank_account_id) == $bankAccount->id ? 'selected' : '' }}>{{$bankAccount->account_name}}</option>
+                    {{ old('bank_account_id', $expense->bank_account_id) == $bankAccount->id ? 'selected' : '' }}>{{$bankAccount->name}}</option>
                 @endforeach
             </x-form.select>
 

@@ -3,7 +3,7 @@
     <div
         class="flex flex-col md:flex-row md:items-center justify-between gap-4 py-6 px-2 md:px-4"
     >
-        <x-reports-title title="مدیریت تنخواه" :records="$expenses->count()"/>
+        <x-reports-title title="مدیریت تنخواه" :records="$freelancerExpense->count()"/>
         <x-reports-filter/>
     </div>
     <!-- boxes -->
@@ -27,7 +27,7 @@
                 <x-table-th>تاریخ ثبت</x-table-th>
                 <x-table-th></x-table-th>
             </x-slot>
-            @foreach($expenses as $expense)
+            @foreach($freelancerExpense as $expense)
                 @php
                     $statusColor = '';
                      switch($expense->payment_status) {

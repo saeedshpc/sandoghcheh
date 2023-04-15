@@ -7,6 +7,7 @@ use App\Models\Freelancer;
 use App\Models\FreelancerExpense;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class FreelancerExpenseController extends Controller
 {
@@ -27,16 +28,7 @@ class FreelancerExpenseController extends Controller
 
     public function store()
     {
-        $atributes = request()->validate([
-            'bank_account_id' => ['required'],
-            'freelancer_id' => ['required'],
-            'title' => ['required'],
-            'price' => ['required'],
-            'description' => [],
-            'payment_status' => ['required'],
-            'purchased_date' => ['date'],
-            'invoice_image' => ['image'],
-        ]);
+        $atributes = $this->validateFreelancerExpense();
 
         if(request('invoice_image') ?? false) {
             $atributes['invoice_image'] = request()->file('invoice_image')->store('freelancer_invoices');
@@ -49,36 +41,27 @@ class FreelancerExpenseController extends Controller
         ]);
     }
 
-    public function edit(FreelancerExpense $expense)
+    public function edit(FreelancerExpense $freelancerExpense)
     {
         return view('freelancerExpenses.edit', [
-            'expense' => $expense,
+            'expense' => $freelancerExpense,
             'freelancers' => Freelancer::all(),
             'bankAccounts' => BankAccount::all()
         ]);
     }
 
-    public function update(FreelancerExpense $expense)
+    public function update(FreelancerExpense $freelancerExpense)
     {
-        $atributes = request()->validate([
-            'bank_account_id' => ['required'],
-            'freelancer_id' => ['required'],
-            'title' => ['required'],
-            'price' => ['required'],
-            'description' => [],
-            'payment_status' => ['required'],
-            'purchased_date' => ['date'],
-            'invoice_image' => ['image'],
-        ]);
+        $atributes = $this->validateFreelancerExpense();
 
         if(request('invoice_image') ?? false) {
-            if($expense->invoice_image) {
-                Storage::delete($expense->invoice_image);
+            if($freelancerExpense->invoice_image) {
+                Storage::delete($freelancerExpense->invoice_image);
             }
             $atributes['invoice_image'] = request()->file('invoice_image')->store('freelancer_invoices');
         }
 
-        $expense->update($atributes);
+        $freelancerExpense->update($atributes);
 
         return redirect('/freelancerExpenses')->with([
             'message' => 'هزینه سفارش با موفقیت بروزرسانی شد'
@@ -86,13 +69,28 @@ class FreelancerExpenseController extends Controller
 
     }
 
-    public function destroy(FreelancerExpense $expense) {
-        $expense->delete();
+    public function destroy(FreelancerExpense $freelancerExpense) {
+        $freelancerExpense->delete();
 
         return redirect('/freelancerExpenses')->with([
             'message' => 'فاکتور فریلنسر حذف شد.'
         ]);
     }
+
+    protected function validateFreelancerExpense()
+    {
+        return request()->validate([
+            'bank_account_id' => ['required', Rule::exists('bank_accounts', 'id')],
+            'freelancer_id' => ['required', Rule::exists('freelancers','id')],
+            'title' => ['required'],
+            'price' => ['required'],
+            'description' => [],
+            'payment_status' => ['required'],
+            'purchased_date' => ['date'],
+            'invoice_image' => ['image'],
+        ]);
+    }
+
     public function deleteImage(FreelancerExpense $expense, $hash)
     {
         // check if it is a valid request that has been sent from edit page
