@@ -35,6 +35,7 @@ Route::resource('companies', CompanyController::class)->except('show');
 
 Route::controller(FreelancerExpenseController::class)->group(function(){
     Route::get('freelancerExpenses', 'index');
+    Route::get('freelancerExpenses/create', 'create');
 });
 
 Route::resource('freelancers', FreelancerController::class)->except('show');

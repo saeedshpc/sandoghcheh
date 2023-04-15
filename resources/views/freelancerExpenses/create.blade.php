@@ -18,11 +18,11 @@
 
             <!-- input 1 select -->
             <x-form.select
-                name="freelancer_name"
-                label="شرکت/نام فریلنسر"
+                name="freelancer_id"
+                label="نام فریلنسر"
                 description="نام فریلنسر را انتخاب کنید" >
-                @foreach( $companies as $company )
-                    <option value="{{ $company->id }}">{{$company->company_name}}</option>
+                @foreach( $freelancers as $freelancer )
+                    <option value="{{ $freelancer->id }}">{{$freelancer->fullName}}</option>
                 @endforeach
             </x-form.select>
 
@@ -51,11 +51,11 @@
 
             <!-- input 5 select -->
             <x-form.select
-                name="payment_status"
+                name="bank_account_id"
                 label="حساب بانکی پرداختی"
                 description="هزینه این خرید از کدام حساب بانکی یا کارت بانکی انجام شده است" >
-                @foreach( \App\Enums\PaymentStatus::cases() as $paymentStatus )
-                    <option value="{{ $paymentStatus->value }}">{{$paymentStatus->value}}</option>
+                @foreach( $bankAccounts as $bankAccount )
+                    <option value="{{ $bankAccount->id }}">{{$bankAccount->account_name}}</option>
                 @endforeach
             </x-form.select>
 
