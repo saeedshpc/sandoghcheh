@@ -83,7 +83,7 @@ class ExpenseController extends Controller
         return request()->validate([
             'title' => ['required'],
             'company_id' => ['required', Rule::exists('companies', 'id')],
-            'price' => ['required'],
+            'price' => ['required', 'integer'],
             'purchaser' => ['required', 'min:3', 'max:255'],
             'description' => [],
             'payment_status' => ['required'],

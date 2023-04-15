@@ -83,7 +83,7 @@ class FreelancerExpenseController extends Controller
             'bank_account_id' => ['required', Rule::exists('bank_accounts', 'id')],
             'freelancer_id' => ['required', Rule::exists('freelancers','id')],
             'title' => ['required'],
-            'price' => ['required'],
+            'price' => ['required','integer'],
             'description' => [],
             'payment_status' => ['required'],
             'purchased_date' => ['date'],
