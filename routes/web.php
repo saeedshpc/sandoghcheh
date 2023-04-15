@@ -40,6 +40,7 @@ Route::controller(FreelancerExpenseController::class)->group(function(){
     Route::get('/freelancerExpenses/{expense}/edit', 'edit');
     Route::patch('/freelancerExpenses/{expense}', 'update');
 });
+Route::get('freelancerExpenses/{expense}/image/{hash}',[FreelancerExpenseController::class, 'deleteImage']);
 
 Route::resource('freelancers', FreelancerController::class)->except('show');
 
