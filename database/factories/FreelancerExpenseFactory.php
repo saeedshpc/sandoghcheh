@@ -19,7 +19,7 @@ class FreelancerExpenseFactory extends Factory
     public function definition(): array
     {
         return [
-            'freelancer_expense_id' => Freelancer::factory(),
+            'freelancer_id' => Freelancer::factory(),
             'title' => fake()->sentence(),
             'price' => fake()->randomNumber(5),
             'description' => fake()->paragraph(),

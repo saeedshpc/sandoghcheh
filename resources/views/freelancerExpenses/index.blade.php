@@ -29,7 +29,7 @@
             @foreach($freelancerExpenses as $freelancerExpense)
                 <x-table-row>
                     <x-table-td>{{$freelancerExpense->id}}</x-table-td>
-                    <x-table-td>{{$freelancerExpense->freelancer_name}}</x-table-td>
+                    <x-table-td>{{$freelancerExpense->freelancer->fullName}}</x-table-td>
                     <x-table-td>{{$freelancerExpense->description}}</x-table-td>
                     <x-table-td>{{$freelancerExpense->price}}</x-table-td>
                     <x-table-td>{{$freelancerExpense->description}}</x-table-td>

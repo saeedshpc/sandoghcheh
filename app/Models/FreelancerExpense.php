@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class FreelancerExpense extends Model
 {
     use HasFactory;
+
+    public function freelancer()
+    {
+        return $this->belongsTo(Freelancer::class);
+    }
 }

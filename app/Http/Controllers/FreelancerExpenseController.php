@@ -10,7 +10,7 @@ class FreelancerExpenseController extends Controller
     public function index()
     {
         return view('freelancerExpenses.index', [
-            'freelancerExpenses' => FreelancerExpense::latest()->get(),
+            'freelancerExpenses' => FreelancerExpense::with('freelancer')->latest()->get(),
         ]);
     }
 }
