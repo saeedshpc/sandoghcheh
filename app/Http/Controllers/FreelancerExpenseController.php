@@ -6,6 +6,7 @@ use App\Models\BankAccount;
 use App\Models\Freelancer;
 use App\Models\FreelancerExpense;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FreelancerExpenseController extends Controller
 {
@@ -55,5 +56,33 @@ class FreelancerExpenseController extends Controller
             'freelancers' => Freelancer::all(),
             'bankAccounts' => BankAccount::all()
         ]);
+    }
+
+    public function update(FreelancerExpense $expense)
+    {
+        $atributes = request()->validate([
+            'bank_account_id' => ['required'],
+            'freelancer_id' => ['required'],
+            'title' => ['required'],
+            'price' => ['required'],
+            'description' => [],
+            'payment_status' => ['required'],
+            'purchased_date' => ['date'],
+            'invoice_image' => ['image'],
+        ]);
+
+        if(request('invoice_image') ?? false) {
+            if($expense->invoice_image) {
+                Storage::delete($expense->invoice_image);
+            }
+            $atributes['invoice_image'] = request()->file('invoice_image')->store('freelancer_invoices');
+        }
+
+        $expense->update($atributes);
+
+        return redirect('/freelancerExpenses')->with([
+            'message' => 'هزینه سفارش با موفقیت بروزرسانی شد'
+        ]);
+
     }
 }
