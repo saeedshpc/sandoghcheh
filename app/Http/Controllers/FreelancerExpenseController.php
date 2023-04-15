@@ -86,6 +86,13 @@ class FreelancerExpenseController extends Controller
 
     }
 
+    public function destroy(FreelancerExpense $expense) {
+        $expense->delete();
+
+        return redirect('/freelancerExpenses')->with([
+            'message' => 'فاکتور فریلنسر حذف شد.'
+        ]);
+    }
     public function deleteImage(FreelancerExpense $expense, $hash)
     {
         // check if it is a valid request that has been sent from edit page

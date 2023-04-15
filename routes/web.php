@@ -26,21 +26,20 @@ Route::get('/', function () {
     ]);
 });
 
-
+//expenses
 Route::resource('expenses', ExpenseController::class)->except('show');
 Route::get('expenses/{expense}/image/{hash}',[ExpenseController::class, 'deleteImage']);
 
+//cards
 Route::resource('cards', BankAccountController::class)->except('show');
+
+//companies
 Route::resource('companies', CompanyController::class)->except('show');
 
-Route::controller(FreelancerExpenseController::class)->group(function(){
-    Route::get('freelancerExpenses', 'index');
-    Route::get('freelancerExpenses/create', 'create');
-    Route::post('freelancerExpenses', 'store');
-    Route::get('/freelancerExpenses/{expense}/edit', 'edit');
-    Route::patch('/freelancerExpenses/{expense}', 'update');
-});
+//Freelancer Expenses
+Route::resource('freelancerExpenses', FreelancerExpenseController::class)->except('show');
 Route::get('freelancerExpenses/{expense}/image/{hash}',[FreelancerExpenseController::class, 'deleteImage']);
 
+//Freelancers
 Route::resource('freelancers', FreelancerController::class)->except('show');
 

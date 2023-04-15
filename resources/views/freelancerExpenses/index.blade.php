@@ -32,7 +32,7 @@
                     <x-table-td>{{$freelancerExpense->freelancer->fullName}}</x-table-td>
                     <x-table-td>{{$freelancerExpense->description}}</x-table-td>
                     <x-table-td>{{$freelancerExpense->price}}</x-table-td>
-                    <x-table-td>{{$freelancerExpense->description}}</x-table-td>
+                    <x-table-td>{{$freelancerExpense->bankAccount->account_name}}</x-table-td>
                     <x-table-td dir="ltr">{{$freelancerExpense->purchased_date}}</x-table-td>
 
 
