@@ -61,7 +61,7 @@
 
             <!-- input 6 select -->
             <x-form.select
-                name="bank_account_id"
+                name="payment_status"
                 label="وضعیت پرداخت"
                 description="وضعیت پرداخت این سفارش" >
                 @foreach( \App\Enums\PaymentStatus::cases() as $paymentStatus )
