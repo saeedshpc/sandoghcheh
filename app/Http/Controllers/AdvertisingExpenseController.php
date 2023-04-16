@@ -55,12 +55,17 @@ class AdvertisingExpenseController extends Controller
 
     public function edit(AdvertisingExpense $advertisingExpense)
     {
-
+        return view('advertisingExpenses.edit', [
+            'expense' => $advertisingExpense,
+            'companies' => Company::all(),
+            'bankAccounts' => BankAccount::all(),
+            'advertisers' => Advertiser::all()
+        ]);
     }
 
     public function update(AdvertisingExpense $advertisingExpense)
     {
-
+        dd(request()->all());
     }
 
     public function destroy(AdvertisingExpense $advertisingExpense)
