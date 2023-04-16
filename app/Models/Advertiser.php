@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Advertiser extends Model
 {
     use HasFactory;
+
+    public function advertisingExpenses()
+    {
+        return $this->hasMany(AdvertisingExpense::class);
+    }
 }

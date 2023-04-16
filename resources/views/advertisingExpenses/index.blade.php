@@ -33,10 +33,10 @@
                 <x-table-row>
                     <x-table-td>{{$expense->id}}</x-table-td>
                     <x-table-td>{{$expense->title}}</x-table-td>
-                    <x-table-td>{{$expense->company_id}}</x-table-td>
+                    <x-table-td>{{$expense->company->name}}</x-table-td>
                     <x-table-td>{{$expense->description}}</x-table-td>
                     <x-table-td>{{$expense->price}}</x-table-td>
-                    <x-table-td>{{$expense->advertiser_id}}</x-table-td>
+                    <x-table-td>{{$expense->advertiser->name}}</x-table-td>
                     <x-table-td>{{$expense->advertising_media}}</x-table-td>
                     <x-table-td>{{$expense->payment_status}}</x-table-td>
                     <x-table-td>{{$expense->purchased_date}}</x-table-td>

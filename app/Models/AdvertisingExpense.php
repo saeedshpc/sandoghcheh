@@ -16,4 +16,18 @@ class AdvertisingExpense extends Model
         'advertising_media' => AdvertisingMedia::class,
     ];
 
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    public function advertiser()
+    {
+        return $this->belongsTo(Advertiser::class);
+    }
+
+    public function bankAccount()
+    {
+        return $this->belongsTo(BankAccount::class, 'bank_account_id');
+    }
 }
