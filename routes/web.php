@@ -53,7 +53,7 @@ Route::controller(AdvertisingExpenseController::class)->group(function(){
     Route::get('advertisingExpenses', 'index');
     Route::get('advertisingExpenses/create', 'create');
     Route::post('advertisingExpenses', 'store');
-    Route::get('advertisingExpenses', 'edit');
-    Route::patch('advertisingExpenses', 'update');
-    Route::delete('advertisingExpenses', 'destroy');
+    Route::get('advertisingExpenses/{advertisingExpense}/edit', 'edit');
+    Route::patch('advertisingExpenses/{advertisingExpense}', 'update');
+    Route::delete('advertisingExpenses/{advertisingExpense}', 'destroy');
 });
