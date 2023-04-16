@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdvertiserController;
 use App\Http\Controllers\BankAccountController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ExpenseController;

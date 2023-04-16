@@ -116,3 +116,33 @@
     </p>
 </div>
 @endif
+
+@if($active && $name === 'advertise-A')
+<div
+    class="bg-gradient-to-b md:w-[49%] xl:w-full from-[#13bda0] to-[#0b9b82] w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-blue-300"
+>
+    <p class="text-white dark:text-white mb-1">
+        جمع هزینه تبلیغات امسال
+    </p>
+    <p class="text-white dark:text-white text-sm font-bold mb-1">
+        5/411/000 تومان
+    </p>
+    <p class="text-white dark:text-white text-xs">به 8 مجری</p>
+</div>
+@endif
+
+@if(!$active && $name === 'advertise-B')
+<div
+    class="bg-gray-100 dark:bg-slate-700 dark:border-gray-600 dark:hover:border-gray-400 w-full md:w-[49%] xl:w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-gray-200"
+>
+    <p class="text-gray-600 dark:text-white mb-1">
+        جمع هزینه های این ماه
+    </p>
+    <p class="text-gray-800 dark:text-white text-sm font-bold mb-1">
+        تومان 21/200/000
+    </p>
+    <p class="text-gray-600 dark:text-white text-xs">
+        بودجه ماهانه 25/000/000
+    </p>
+</div>
+@endif
