@@ -49,4 +49,6 @@ Route::controller(AdvertiserController::class)->group(function(){
     Route::get('advertisers', 'index');
     Route::get('advertisers/create', 'create');
     Route::post('advertisers', 'store');
+    Route::get('/advertisers/{advertiser}/edit', 'edit');
+    Route::patch('/advertisers/{advertiser}', 'update');
 });

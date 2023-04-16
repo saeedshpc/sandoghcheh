@@ -2,7 +2,7 @@
     <!-- Form -->
     <div class="py-6 px-4">
         <form
-            action="/companies/{{$company->id}}"
+            action="/advertisers/{{$advertiser->id}}"
             class="flex flex-col gap-5 text-gray-700 border dark:border-gray-600 p-6 rounded-xl"
             method="POST"
         >
@@ -10,18 +10,18 @@
             @method('PATCH')
             {{-- Form Header--}}
             <x-form.header
-                :title=" 'ویرایش کسب و کار : '. $company->name"
-                description="در این صفحه اطلاعات کسب و کار را ویرایش میکنید."
-                cancel_href="/companies"
+                :title=" 'ویرایش اطلاعات مجری : '. $advertiser->name"
+                description="در این صفحه اطلاعات مجری تبلیغات را ویرایش میکنید."
+                cancel_href="/advertisers"
             />
 
             <!-- setting 1 text -->
             <x-form.input
                 name="name"
                 label=" نام شرکت یا کسب و کار"
-                description=" نام برند کسب کار یا شرکت "
-                placeholder="بانوریس"
-                :value="old('name', $company->name)"
+                description="نام شرکت یا فرد مجری تبلیغات"
+                placeholder="شرکت یکتانت"
+                :value="old('name', $advertiser->name)"
             />
 
             <!-- setting 2 text -->
@@ -29,14 +29,14 @@
                 name="work_area"
                 label=" حوزه فعالیت "
                 description=" حوزه فعالیت این کسب و کار یا شرکت "
-                placeholder="فروش خرد یا عمده پارچه"
-                :value="old('work_area', $company->work_area)"
+                placeholder="تبلیغات کلیکی وب و موبایل"
+                :value="old('work_area', $advertiser->work_area)"
                 :seperator="false"/>
             <!-- mobile submit -->
             <div
                 class="lg:hidden flex justify-end gap-3 mt-5">
                 <x-form.submit/>
-                <x-form.cancel href="/companies"/>
+                <x-form.cancel href="/advertisers"/>
             </div>
         </form>
     </div>

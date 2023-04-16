@@ -30,6 +30,24 @@ class AdvertiserController extends Controller
         ]);
     }
 
+    public function edit(Advertiser $advertiser)
+    {
+        return view('advertisers.edit', [
+            'advertiser' => $advertiser
+        ]);
+    }
+
+    public function update(Advertiser $advertiser)
+    {
+        $attributes = $this->validateAdvertisers();
+
+        $advertiser->update($attributes);
+
+        return redirect('/advertisers')->with([
+            'message' => 'اطلاعات مجری بروزرسانی شد'
+        ]);
+    }
+
     protected function validateAdvertisers()
     {
         return request()->validate([
