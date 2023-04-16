@@ -45,11 +45,4 @@ Route::get('freelancerExpenses/{expense}/image/{hash}',[FreelancerExpenseControl
 Route::resource('freelancers', FreelancerController::class)->except('show');
 
 //Advertisers
-Route::controller(AdvertiserController::class)->group(function(){
-    Route::get('advertisers', 'index');
-    Route::get('advertisers/create', 'create');
-    Route::post('advertisers', 'store');
-    Route::get('/advertisers/{advertiser}/edit', 'edit');
-    Route::patch('/advertisers/{advertiser}', 'update');
-    Route::delete('/advertisers/{advertiser}', 'destroy');
-});
+Route::resource('advertisers', AdvertiserController::class)->except('show');
