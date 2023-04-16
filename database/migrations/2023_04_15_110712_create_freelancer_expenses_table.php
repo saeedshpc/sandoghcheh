@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('freelancer_id')->constrained();
             $table->string('title');
             $table->decimal('price',9,0);
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('payment_status')->default(PaymentStatus::Pending->value);
             $table->timestamp('purchased_date')->nullable();
             $table->string('invoice_image')->nullable();

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('bank_account_id')->constrained();
             $table->string('title');
             $table->decimal('price',9, 0);
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('advertising_media')->default(AdvertisingMedia::SMS->name);
             $table->string('payment_status')->default(PaymentStatus::Pending->value);
             $table->timestamp('purchased_date')->nullable();

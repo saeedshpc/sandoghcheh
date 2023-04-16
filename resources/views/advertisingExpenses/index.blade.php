@@ -30,6 +30,21 @@
                 <x-table-th></x-table-th>
             </x-slot>
             @foreach($advertisingExpenses as $expense)
+                @php
+
+                    $statusColor = '';
+                     switch($expense->payment_status->value) {
+                         case 'پرداخت شده' :
+                             $statusColor = 'text-green-600';
+                             break;
+                         case 'در انتظار پرداخت' :
+                             $statusColor = 'text-orange-500';
+                             break;
+                         case 'صدور چک' :
+                             $statusColor = 'text-purple-600';
+                             break;
+                     }
+                @endphp
                 <x-table-row>
                     <x-table-td>{{$expense->id}}</x-table-td>
                     <x-table-td>{{$expense->title}}</x-table-td>
@@ -38,7 +53,7 @@
                     <x-table-td>{{$expense->price}}</x-table-td>
                     <x-table-td>{{$expense->advertiser->name}}</x-table-td>
                     <x-table-td>{{$expense->advertising_media}}</x-table-td>
-                    <x-table-td>{{$expense->payment_status}}</x-table-td>
+                    <x-table-td class="{{$statusColor}}">{{$expense->payment_status}}</x-table-td>
                     <x-table-td>{{$expense->purchased_date}}</x-table-td>
 
                     <x-table-td>

@@ -30,7 +30,7 @@
             @foreach($expenses  as $expense)
                 @php
                     $statusColor = '';
-                     switch($expense->payment_status) {
+                     switch($expense->payment_status->value) {
                          case 'پرداخت شده' :
                              $statusColor = 'text-green-600';
                              break;
