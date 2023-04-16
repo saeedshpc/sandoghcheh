@@ -51,4 +51,5 @@ Route::controller(AdvertiserController::class)->group(function(){
     Route::post('advertisers', 'store');
     Route::get('/advertisers/{advertiser}/edit', 'edit');
     Route::patch('/advertisers/{advertiser}', 'update');
+    Route::delete('/advertisers/{advertiser}', 'destroy');
 });

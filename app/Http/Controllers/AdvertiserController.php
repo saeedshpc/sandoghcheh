@@ -48,6 +48,15 @@ class AdvertiserController extends Controller
         ]);
     }
 
+    public function destroy(Advertiser $advertiser)
+    {
+        $advertiser->delete();
+
+        return redirect('/advertisers')->with([
+            'message' => 'اطلاعات مجری تبلیغات حذف شد.'
+        ]);
+    }
+
     protected function validateAdvertisers()
     {
         return request()->validate([
