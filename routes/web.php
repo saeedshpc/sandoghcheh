@@ -47,4 +47,6 @@ Route::resource('freelancers', FreelancerController::class)->except('show');
 //Advertisers
 Route::controller(AdvertiserController::class)->group(function(){
     Route::get('advertisers', 'index');
+    Route::get('advertisers/create', 'create');
+    Route::post('advertisers', 'store');
 });

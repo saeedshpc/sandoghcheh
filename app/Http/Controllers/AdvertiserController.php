@@ -13,4 +13,28 @@ class AdvertiserController extends Controller
             'advertisers' => Advertiser::latest()->get(),
         ]);
     }
+
+    public function create()
+    {
+        return view('advertisers.create');
+    }
+
+    public function store()
+    {
+        $attributes = $this->validateAdvertisers();
+
+        Advertiser::create($attributes);
+
+        return redirect('/advertisers')->with([
+            'message' => 'مجری تبلیغات با موفقیت افزوده شد'
+        ]);
+    }
+
+    protected function validateAdvertisers()
+    {
+        return request()->validate([
+            'name' => ['required'],
+            'work_area' => ['required']
+        ]);
+    }
 }
