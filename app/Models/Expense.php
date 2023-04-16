@@ -11,7 +11,7 @@ class Expense extends Model
     use HasFactory;
 
     protected $casts = [
-        'expense_payment_status' => PaymentStatus::class
+        'payment_status' => PaymentStatus::class
     ];
 
     public function company()

@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Expense::factory(5)->create();
         \App\Models\FreelancerExpense::factory(5)->create();
         \App\Models\Advertiser::factory(5)->create();
+        \App\Models\AdvertisingExpense::factory(5)->create();
     }
 }

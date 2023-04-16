@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdvertiserController;
+use App\Http\Controllers\AdvertisingExpenseController;
 use App\Http\Controllers\BankAccountController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ExpenseController;
@@ -46,3 +47,13 @@ Route::resource('freelancers', FreelancerController::class)->except('show');
 
 //Advertisers
 Route::resource('advertisers', AdvertiserController::class)->except('show');
+
+//Advertising Expenses
+Route::controller(AdvertisingExpenseController::class)->group(function(){
+    Route::get('advertisingExpenses', 'index');
+    Route::get('advertisingExpenses/create', 'create');
+    Route::post('advertisingExpenses', 'store');
+    Route::get('advertisingExpenses', 'edit');
+    Route::patch('advertisingExpenses', 'update');
+    Route::delete('advertisingExpenses', 'destroy');
+});
