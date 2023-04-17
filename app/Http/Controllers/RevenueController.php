@@ -49,7 +49,16 @@ class RevenueController extends Controller
         $revenue->update($attributes);
 
         return redirect('/revenues')->with([
-            'message' => 'هزینه کسب و کار بروزرسانی شد'
+            'message' => 'درآمد کسب و کار بروزرسانی شد'
+        ]);
+    }
+
+    public function destroy(Revenue $revenue)
+    {
+        $revenue->delete();
+
+        return redirect('/revenues')->with([
+            'message' => 'درآمد کسب و کار حذف شد'
         ]);
     }
 
