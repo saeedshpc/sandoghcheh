@@ -39,7 +39,7 @@
                     <x-table-td>{{$revenue->offline_sale_share}}</x-table-td>
                     <x-table-td>250/000/000</x-table-td>
                     <x-table-td>200/000/000</x-table-td>
-                    <x-table-td>{{$revenue->created_at}}</x-table-td>
+                    <x-table-td dir="ltr">{{$revenue->created_at}}</x-table-td>
 
 
                     <x-table-td>
