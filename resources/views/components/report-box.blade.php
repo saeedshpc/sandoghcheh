@@ -146,3 +146,27 @@
     </p>
 </div>
 @endif
+
+@if($active && $name === 'revenue')
+    <div
+        class="bg-gradient-to-b md:w-[49%] xl:w-full from-[#13bda0] to-[#0b9b82] w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-blue-300"
+    >
+        <p class="text-white dark:text-white mb-1">فروش سال بانوریس</p>
+        <p class="text-white dark:text-white text-sm font-bold mb-1">
+            530/310/000 تومان
+        </p>
+        <p class="text-white dark:text-white text-xs">در 220 روز</p>
+    </div>
+@endif
+
+@if(!$active && $name === 'revenue')
+    <div
+        class="bg-gray-100 dark:bg-slate-700 dark:border-gray-600 dark:hover:border-gray-400 w-full md:w-[49%] xl:w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-gray-200"
+    >
+        <p class="text-gray-600 dark:text-white mb-1">فروش سال لباس</p>
+        <p class="text-gray-800 dark:text-white text-sm font-bold mb-1">
+            1/190/000/000 تومان
+        </p>
+        <p class="text-gray-600 dark:text-white text-xs">در 220 روز</p>
+    </div>
+@endif
