@@ -58,4 +58,6 @@ Route::controller(RevenueController::class)->group(function() {
     Route::get('revenues', 'index');
     Route::get('revenues/create', 'create');
     Route::post('revenues', 'store');
+    Route::get('revenues/{revenue}/edit', 'edit');
+    Route::patch('revenues/{revenue}', 'update');
 });

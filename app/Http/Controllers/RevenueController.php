@@ -25,19 +25,43 @@ class RevenueController extends Controller
 
     public function store()
     {
-        $attributes = request()->validate([
+        $attributes = $this->validateRevenue();
+
+        Revenue::create($attributes);
+
+        return redirect('/revenues')->with([
+            'message' => 'درآمد جدید برای یک کسب و کار ثبت شد'
+        ]);
+    }
+
+    public function edit(Revenue $revenue)
+    {
+        return view('revenues.edit', [
+            'revenue' => $revenue,
+            'companies' => Company::all()
+        ]);
+    }
+
+    public function update(Revenue $revenue)
+    {
+        $attributes = $this->validateRevenue();
+
+        $revenue->update($attributes);
+
+        return redirect('/revenues')->with([
+            'message' => 'هزینه کسب و کار بروزرسانی شد'
+        ]);
+    }
+
+    public function validateRevenue()
+    {
+        return request()->validate([
             'company_id' => ['required', Rule::exists('companies', 'id')],
             'month_of_year' => ['required'],
             'total_sale' => ['required', 'integer'],
             'online_sale_share' => ['required', 'integer'],
             'offline_sale_share' => ['required', 'integer'],
             'description' => [],
-        ]);
-
-        Revenue::create($attributes);
-
-        return redirect('/revenues')->with([
-            'message' => 'درآمد جدید برای یک کسب و کار ثبت شد'
         ]);
     }
 
