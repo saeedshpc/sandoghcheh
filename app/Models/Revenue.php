@@ -13,4 +13,9 @@ class Revenue extends Model
     protected $casts = [
         'month_of_year' => MonthOfYear::class,
     ];
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }

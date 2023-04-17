@@ -7,6 +7,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\FreelancerExpenseController;
+use App\Http\Controllers\RevenueController;
 use App\Models\BankAccount;
 use App\Models\Expense;
 use Illuminate\Support\Facades\Route;
@@ -51,3 +52,8 @@ Route::resource('advertisers', AdvertiserController::class)->except('show');
 //Advertising Expenses
 Route::resource('advertisingExpenses', AdvertisingExpenseController::class)->except('show');
 Route::get('advertisingExpenses/{expense}/image/{hash}',[AdvertisingExpenseController::class, 'deleteImage']);
+
+//Revenues
+Route::controller(RevenueController::class)->group(function(){
+    Route::get('/revenues', 'index');
+});

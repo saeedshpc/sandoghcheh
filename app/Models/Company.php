@@ -18,4 +18,9 @@ class Company extends Model
     {
         return $this->hasMany(AdvertisingExpense::class);
     }
+
+    public function revenues()
+    {
+        return $this->hasMany(Revenue::class);
+    }
 }
