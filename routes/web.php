@@ -54,6 +54,8 @@ Route::resource('advertisingExpenses', AdvertisingExpenseController::class)->exc
 Route::get('advertisingExpenses/{expense}/image/{hash}',[AdvertisingExpenseController::class, 'deleteImage']);
 
 //Revenues
-Route::controller(RevenueController::class)->group(function(){
-    Route::get('/revenues', 'index');
+Route::controller(RevenueController::class)->group(function() {
+    Route::get('revenues', 'index');
+    Route::get('revenues/create', 'create');
+    Route::post('revenues', 'store');
 });

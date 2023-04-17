@@ -2,115 +2,75 @@
     <!-- Form -->
     <div class="py-6 px-4">
         <form
-            action="/advertisingExpenses"
+            action="/revenues"
             class="flex flex-col gap-5 text-gray-700 border dark:border-gray-600 p-6 rounded-xl"
             method="POST"
-            enctype="multipart/form-data"
         >
             @csrf
             {{-- Form Header--}}
             <x-form.header
-                title="ثبت هزینه تبلیغات"
-                description="در این صفحه هزینه جدید برای تبلیغات ثبت می‌نمایید."
-                cancel_href="/advertisingExpenses"
+                title="ثبت درآمد برای کسب و کار"
+                description="در این صفحه برای کسب و کار درآمد جدید ثبت کنید."
+                cancel_href="/revenues"
             />
 
-            <!-- input 1 text -->
-            <x-form.input
-                name="title"
-                label="عنوان هزینه"
-                description="این هزینه برای کدام تبلیغ ثبت می‌شود؟"
-                placeholder="تبلیغ کمپین یلدا..."/>
 
-
-            <!-- input 2 select -->
+            <!-- input 1 select -->
             <x-form.select
                 name="company_id"
-                label="شرکت/کسب و کار"
-                description="این هزینه جزو هزینه های کدام شرکت/کسب و کار می ‌باشد" >
+                label="نام کسب و کار"
+                description="این درآمد متعلق به کدام کسب و کار است." >
                 @foreach( $companies as $company )
                     <option value="{{ $company->id }}">{{$company->name}}</option>
                 @endforeach
             </x-form.select>
 
+            <!-- input 2 select -->
+            <x-form.select
+                name="month_of_year"
+                label="ماه سال"
+                description="این درآمد متعلق به کدام ماه در سال است" >
+                @foreach( \App\Enums\MonthOfYear::cases() as $monthOfYear )
+                    <option value="{{ $monthOfYear->value }}">{{$monthOfYear->value}}</option>
+                @endforeach
+            </x-form.select>
+
             <!-- input 3 text -->
             <x-form.input
-                name="price"
-                label="مبلغ هزینه"
-                description="مبلغ هزینه شده به تومان"
-                placeholder="11500 تومان"/>
+                name="total_sale"
+                label="جمع فروش ماه"
+                description="جمع فروش این ماه به تومان"
+                placeholder="73/000/000 تومان"/>
 
-            <!-- input 4 textarea -->
+            <!-- input 4 text -->
+            <x-form.input
+                name="online_sale_share"
+                label="سهم فروش آنلاین"
+                description="سهم فروش آنلاین از فروش کل ماه به تومان"
+                placeholder="51/000/000 تومان"/>
+
+            <!-- input 5 text -->
+            <x-form.input
+                name="offline_sale_share"
+                label="سهم فروش آفلاین"
+                description="سهم فروش آفلاین از فروش کل ماه به تومان"
+                placeholder="12/000/000 تومان"/>
+
+            <!-- input 6 textarea -->
             <x-form.textarea
                 name="description"
                 label="توضیحات"
                 description="توضیحات مرتبط با این هزینه یا پیگیری های مورد نیاز"
                 rows="5"
-                placeholder="توضیحات سفارش (اختیاری)">
+                placeholder="توضیحات درآمد (اختیاری)">
             </x-form.textarea>
 
-            <!-- input 5 select -->
-            <x-form.select
-                name="advertiser_id"
-                label="مجری تبلیغ"
-                description="این تبلیغ توسط کدام مجری انجام شده است" >
-                @foreach( $advertisers as $advertiser )
-                    <option value="{{ $advertiser->id }}">{{$advertiser->name}}</option>
-                @endforeach
-            </x-form.select>
-
-            <!-- input 6 select -->
-            <x-form.select
-                name="advertising_media"
-                label="رسانه تبلیغاتی"
-                description="این تبلیغ توسط چه بستری انجام شده است" >
-                @foreach( \App\Enums\AdvertisingMedia::cases() as $advertisingMedia )
-                    <option value="{{ $advertisingMedia->value }}">{{$advertisingMedia->value}}</option>
-                @endforeach
-            </x-form.select>
-
-            <!-- input 7 select -->
-            <x-form.select
-                name="bank_account_id"
-                label="حساب بانکی پرداختی"
-                description="هزینه این خرید از کدام حساب بانکی یا کارت بانکی انجام شده است" >
-                @foreach( $bankAccounts as $bankAccount )
-                    <option value="{{ $bankAccount->id }}">{{$bankAccount->name}}</option>
-                @endforeach
-            </x-form.select>
-
-            <!-- input 8 select -->
-            <x-form.select
-                name="payment_status"
-                label="وضعیت پرداخت"
-                description="وضعیت پرداخت این تبلیغ" >
-                @foreach( \App\Enums\PaymentStatus::cases() as $paymentStatus )
-                    <option value="{{ $paymentStatus->value }}">{{$paymentStatus->value}}</option>
-                @endforeach
-            </x-form.select>
-
-            <!-- input 9 dateTime -->
-            <x-form.input
-                type="datetime-local"
-                dir="ltr"
-                name="purchased_date"
-                label="تاریخ پرداخت"
-                description="تاریخ واریز هزینه تبلیغ"
-            />
-
-            <!-- input 10 file -->
-            <x-form.file
-                name="invoice_image"
-                dir="ltr"
-                label="تصویر فیش پرداختی"
-                description="تصویر فیش پرداختی این سفارش"
-            />
 
             <!-- mobile submit -->
             <div
                 class="lg:hidden flex justify-end gap-3 mt-5">
                 <x-form.submit/>
-                <x-form.cancel href="/advertisingExpenses"/>
+                <x-form.cancel href="/revenues"/>
             </div>
         </form>
     </div>
