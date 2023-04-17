@@ -49,11 +49,5 @@ Route::resource('freelancers', FreelancerController::class)->except('show');
 Route::resource('advertisers', AdvertiserController::class)->except('show');
 
 //Advertising Expenses
-Route::controller(AdvertisingExpenseController::class)->group(function(){
-    Route::get('advertisingExpenses', 'index');
-    Route::get('advertisingExpenses/create', 'create');
-    Route::post('advertisingExpenses', 'store');
-    Route::get('advertisingExpenses/{advertisingExpense}/edit', 'edit');
-    Route::patch('advertisingExpenses/{advertisingExpense}', 'update');
-    Route::delete('advertisingExpenses/{advertisingExpense}', 'destroy');
-});
+Route::resource('advertisingExpenses', AdvertisingExpenseController::class)->except('show');
+Route::get('advertisingExpenses/{expense}/image/{hash}',[AdvertisingExpenseController::class, 'deleteImage']);

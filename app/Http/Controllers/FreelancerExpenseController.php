@@ -28,13 +28,13 @@ class FreelancerExpenseController extends Controller
 
     public function store()
     {
-        $atributes = $this->validateFreelancerExpense();
+        $attributes = $this->validateFreelancerExpense();
 
         if(request('invoice_image') ?? false) {
-            $atributes['invoice_image'] = request()->file('invoice_image')->store('freelancer_invoices');
+            $attributes['invoice_image'] = request()->file('invoice_image')->store('freelancer_invoices');
         }
 
-        FreelancerExpense::create($atributes);
+        FreelancerExpense::create($attributes);
 
         return redirect('freelancerExpenses')->with([
             'message' => 'هزینه فریلسنر با موفقیت افزوده شد'
@@ -52,16 +52,16 @@ class FreelancerExpenseController extends Controller
 
     public function update(FreelancerExpense $freelancerExpense)
     {
-        $atributes = $this->validateFreelancerExpense();
+        $attributes = $this->validateFreelancerExpense();
 
         if(request('invoice_image') ?? false) {
             if($freelancerExpense->invoice_image) {
                 Storage::delete($freelancerExpense->invoice_image);
             }
-            $atributes['invoice_image'] = request()->file('invoice_image')->store('freelancer_invoices');
+            $attributes['invoice_image'] = request()->file('invoice_image')->store('freelancer_invoices');
         }
 
-        $freelancerExpense->update($atributes);
+        $freelancerExpense->update($attributes);
 
         return redirect('/freelancerExpenses')->with([
             'message' => 'هزینه سفارش با موفقیت بروزرسانی شد'
