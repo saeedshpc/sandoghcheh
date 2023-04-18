@@ -63,3 +63,7 @@ Route::controller(SettingController::class)->group(function(){
     Route::get('settings', 'index');
     Route::patch('settings', 'update');
 });
+
+Route::controller(UserController::class)->group(function(){
+    Route::get('users', 'index');
+});
