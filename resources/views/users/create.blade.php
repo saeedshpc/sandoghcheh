@@ -5,6 +5,7 @@
             action="/users"
             class="flex flex-col gap-5 text-gray-700 border dark:border-gray-600 p-6 rounded-xl"
             method="POST"
+            enctype="multipart/form-data"
         >
             @csrf
             {{-- Form Header--}}
@@ -27,6 +28,14 @@
                 label="نام خانوادگی"
                 description="نام خانوادگی کاربر سامانه"
                 placeholder="شیخ الاسلامی"/>
+
+            <!-- input 2 text -->
+            <x-form.input
+                type="email"
+                name="email"
+                label="آدرس ایمیل"
+                description="ایمیل کاربر در سامانه"
+                placeholder="saeed.shpc@gmail.com"/>
 
             <!-- input 3 select -->
             <x-form.select
