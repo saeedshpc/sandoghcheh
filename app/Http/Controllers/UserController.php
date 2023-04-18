@@ -15,4 +15,11 @@ class UserController extends Controller
             'companies' => Company::all()
         ]);
     }
+
+    public function create()
+    {
+        return view('users.create', [
+            'companies' => Company::all(),
+        ]);
+    }
 }

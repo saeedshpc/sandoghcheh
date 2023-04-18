@@ -6,13 +6,7 @@
         <x-reports-title title="مدیریت کاربران سامانه" :records="$users->count()"/>
         <x-reports-filter/>
     </div>
-    <!-- boxes -->
-{{--    <x-main-info-boxes>--}}
-{{--        <x-report-box name="revenue" :active="true"/>--}}
-{{--        <x-report-box name="revenue"/>--}}
-{{--        <x-report-box name="revenue"/>--}}
-{{--        <x-report-box name="revenue"/>--}}
-{{--    </x-main-info-boxes>--}}
+
     <!-- table and pagination -->
     <div id="table-pagination-div">
         <!-- tables -->
@@ -30,9 +24,9 @@
             @foreach($users as $user)
                 <x-table-row>
                     <x-table-td>{{$user->id}}</x-table-td>
-                    <x-table-td>{{$user->name}}</x-table-td>
+                    <x-table-td>{{$user->firstName .' ' .  $user->lastName}}</x-table-td>
                     <x-table-td>{{$user->username}}</x-table-td>
-                    <x-table-td>{{$user->company_id}}</x-table-td>
+                    <x-table-td>{{$user->company->name}}</x-table-td>
                     <x-table-td>{{$user->position}}</x-table-td>
                     <x-table-td>{{$user->access_level}}</x-table-td>
                     <x-table-td dir="ltr">{{$user->created_at}}</x-table-td>

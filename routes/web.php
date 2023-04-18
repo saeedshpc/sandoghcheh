@@ -67,4 +67,6 @@ Route::controller(SettingController::class)->group(function(){
 
 Route::controller(UserController::class)->group(function(){
     Route::get('users', 'index');
+    Route::get('users/create', 'create');
+    Route::post('users', 'store');
 });

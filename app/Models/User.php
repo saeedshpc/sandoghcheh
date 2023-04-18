@@ -43,4 +43,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'access_level' => AccessLevels::class,
     ];
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }
