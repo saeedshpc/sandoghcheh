@@ -26,5 +26,11 @@ class DatabaseSeeder extends Seeder
         \App\Models\Advertiser::factory(5)->create();
         \App\Models\AdvertisingExpense::factory(5)->create();
         \App\Models\Revenue::factory(4)->create();
+        \App\Models\Setting::create([
+            'banoris_expenses_budget' => 300000,
+            'toucan_expenses_budget' => 500000,
+            'freelancers_budget' => 2000000,
+            'advertising_budget' => 30000,
+            ]);
     }
 }

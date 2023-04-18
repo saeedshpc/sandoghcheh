@@ -8,6 +8,7 @@ use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\FreelancerExpenseController;
 use App\Http\Controllers\RevenueController;
+use App\Http\Controllers\SettingController;
 use App\Models\BankAccount;
 use App\Models\Expense;
 use Illuminate\Support\Facades\Route;
@@ -55,3 +56,10 @@ Route::get('advertisingExpenses/{expense}/image/{hash}',[AdvertisingExpenseContr
 
 //Revenues
 Route::resource('revenues', RevenueController::class)->except('show');
+
+//Setting
+//These Routes are just placeholders for the complete version of the setting page and will be changed later
+Route::controller(SettingController::class)->group(function(){
+    Route::get('settings', 'index');
+    Route::patch('settings', 'update');
+});
