@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
+use App\Enums\Events;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Activity extends Model
 {
     use HasFactory;
+
+    protected $casts = [
+        'activity' => Events::class,
+    ];
 
     public function user()
     {

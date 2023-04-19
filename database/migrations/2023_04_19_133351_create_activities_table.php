@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Events;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +16,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('company_id')->constrained();
-            $table->string('activity');
+            $table->string('event')->default(Events::AddExpense->value);
+            $table->string('affected_id');
             $table->string('table');
             $table->timestamps();
         });
