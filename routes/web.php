@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AdvertiserController;
 use App\Http\Controllers\AdvertisingExpenseController;
 use App\Http\Controllers\BankAccountController;
@@ -67,3 +68,5 @@ Route::controller(SettingController::class)->group(function(){
 //Users
 Route::resource('users', UserController::class)->except('show');
 Route::get('users/{user}/image/{hash}',[UserController::class, 'deleteImage']);
+
+Route::get('activities', [ActivityController::class, 'index']);
