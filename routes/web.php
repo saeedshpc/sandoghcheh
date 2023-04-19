@@ -10,7 +10,6 @@ use App\Http\Controllers\FreelancerExpenseController;
 use App\Http\Controllers\RevenueController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
-use App\Models\BankAccount;
 use App\Models\Expense;
 use Illuminate\Support\Facades\Route;
 
