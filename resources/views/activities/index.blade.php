@@ -19,7 +19,7 @@
                 <x-table-th>بخش</x-table-th>
                 <x-table-th>تاریخ</x-table-th>
                 @chief
-                    <x-table-th></x-table-th>
+                <x-table-th></x-table-th>
                 @endchief
             </x-slot>
             @foreach($activities as $activity)
@@ -40,11 +40,11 @@
                                 <form
                                     action="/users/{{$activity->id}}"
                                     class="flex items-center justify-center"
-                                    method="POST" >
+                                    method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="hover:text-greenOne dark:hover:text-green-400">
-                                        <x-icon name="trash" class="w-5 h-5" />
+                                        <x-icon name="trash" class="w-5 h-5"/>
                                     </button>
                                 </form>
                             </div>
