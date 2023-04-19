@@ -1,9 +1,15 @@
-<li class="h-8 border-r-4 border-green-300 pr-2">
-    <a href="#" class="text-green-600 dark:text-green-400"
-    >تنخواه جدید</a
-    >
-    برای بانوریس توسط سعید شیخ الاسلامی ثبت شد
-</li>
+
+@foreach($activites as $activiy)
+    <li class="h-8 border-r-4 border-green-300 pr-2">
+        <a href="#" class="text-green-600 dark:text-green-400"
+        >{{ $activiy->event_info }}</a
+        >
+        برای بانوریس توسط سعید شیخ الاسلامی ثبت شد
+    </li>
+@endforeach
+
+{{--
+
 <div class="border-b border-b-gray-200 pb-2"></div>
 <li class="h-8 border-r-4 border-blue-300 pr-2">
     <a href="#" class="text-blue-500 dark:text-blue-400"
@@ -60,3 +66,4 @@
     >
     برای فریلنسر فاطمه جعفری توسط شد
 </li>
+--}}

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\PaymentStatus;
+use App\Enums\Events;
+use App\Enums\EventsInfo;
+use App\Models\Activity;
 use App\Models\BankAccount;
 use App\Models\Company;
 use App\Models\Expense;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
@@ -37,6 +38,14 @@ class ExpenseController extends Controller
 
        Expense::create($attributes);
 
+       //I should replace this with event
+       Activity::create([
+           'user_id' => request()->auth(),
+           'company_id' => $attributes['company_id'],
+           'event' => Events::Add->value,
+           'event_info' => EventsInfo::AddExpense->value ,
+       ]);
+
        return redirect('/expenses')->with([
            'message' => 'تنخواه جدید با موفقیت ثبت شد'
        ]);
@@ -64,6 +73,14 @@ class ExpenseController extends Controller
 
         $expense->update($attributes);
 
+        //I should replace this with event
+        Activity::create([
+            'user_id' => request()->auth(),
+            'company_id' => $attributes['company_id'],
+            'event' => Events::Edit->value,
+            'event_info' => EventsInfo::EditExpense->value ,
+        ]);
+
         return redirect('/expenses')->with([
             'message' => 'تنخواه با موفقیت بروزرسانی شد.'
         ]);
@@ -71,6 +88,14 @@ class ExpenseController extends Controller
 
     public function destroy(Expense $expense)
     {
+        //I should replace this with event
+        Activity::create([
+            'user_id' => request()->auth(),
+            'company_id' => $expense->company_id,
+            'event' => Events::Delete->value,
+            'event_info' => EventsInfo::DeleteExpense->value ,
+        ]);
+
         $expense->delete();
 
         return redirect('/expenses')->with([

@@ -21,7 +21,6 @@ class ActivityFactory extends Factory
         return [
             'user_id' => User::factory(),
             'company_id' => Company::factory(),
-            'affected_id'=> '1',
             'table' => fake()->word(),
         ];
     }
