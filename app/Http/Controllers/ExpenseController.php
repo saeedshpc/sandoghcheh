@@ -40,7 +40,7 @@ class ExpenseController extends Controller
 
        //I should replace this with event
        Activity::create([
-           'user_id' => request()->auth(),
+           'user_id' => request()->user()->id,
            'company_id' => $attributes['company_id'],
            'event' => Events::Add->value,
            'event_info' => EventsInfo::AddExpense->value ,
@@ -75,7 +75,7 @@ class ExpenseController extends Controller
 
         //I should replace this with event
         Activity::create([
-            'user_id' => request()->auth(),
+            'user_id' => request()->user()->id,
             'company_id' => $attributes['company_id'],
             'event' => Events::Edit->value,
             'event_info' => EventsInfo::EditExpense->value ,
@@ -90,7 +90,7 @@ class ExpenseController extends Controller
     {
         //I should replace this with event
         Activity::create([
-            'user_id' => request()->auth(),
+            'user_id' => request()->user()->id,
             'company_id' => $expense->company_id,
             'event' => Events::Delete->value,
             'event_info' => EventsInfo::DeleteExpense->value ,

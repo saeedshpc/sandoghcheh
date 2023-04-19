@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('company_id')->constrained();
-            $table->string('event')->default(Events::Add);
+            $table->string('event')->default(Events::Add->value);
             $table->string('event_info')->default(EventsInfo::AddExpense->value);
-            $table->string('table');
+            $table->string('table')->nullable();
             $table->timestamps();
         });
     }

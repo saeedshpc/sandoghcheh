@@ -1,5 +1,5 @@
 
-@foreach($activites as $activiy)
+@foreach($activities as $activiy)
     <li class="h-8 border-r-4 border-green-300 pr-2">
         <a href="#" class="text-green-600 dark:text-green-400"
         >{{ $activiy->event_info }}</a
