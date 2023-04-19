@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 class UserController extends Controller
@@ -26,21 +27,12 @@ class UserController extends Controller
 
     public function store()
     {
-        $attributes = request()->validate([
-            'firstName' => ['required', 'min:3', 'max:255'],
-            'lastName' => ['required', 'min:3', 'max:255'],
-            'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')],
-            'company_id' => ['required', Rule::exists('companies', 'id')],
-            'position' => ['required', 'min:3', 'max:255'],
-            'username' => ['required', 'min:3', 'max:255', Rule::unique('users', 'username')],
-            'password' => ['required', 'min:8', 'max:255'],
-            'access_level' => ['required'],
-            'profile_image' => ['image'],
-        ]);
+
+        $attributes = $this->validateUser();
 
         $attributes['password'] = bcrypt($attributes['password']);
 
-        if(request('profile_image')) {
+        if(request('profile_image') ?? false) {
             $attributes['profile_image'] = request()->file('profile_image')->store('profile_images');
         }
 
@@ -57,5 +49,74 @@ class UserController extends Controller
         ]);
     }
 
+    public function update(User $user)
+    {
+
+        $attributes = $this->validateUser($user);
+
+        if(request('password')) {
+            $attributes['password'] = bcrypt($attributes['password']);
+        } else {
+            $attributes['password'] = $user->password;
+        }
+        if(request('profile_image') ?? false) {
+            if($user->profile_image) {
+                Storage::delete($user->profile_image);
+            }
+            $attributes['profile_image'] = request()->file('profile_image')->store('profile_images');
+        }
+
+
+        $user->update($attributes);
+
+        return redirect('/users')->with('message', 'اطلاعات کاربر ویرایش شد.');
+    }
+
+    public function destroy(User $user)
+    {
+
+        if ($user->profile_image) {
+            Storage::delete($user->profile_image);
+        }
+
+        $user->delete();
+
+        return redirect('/users')->with('message', 'اطلاعات کاربر حذف شد');
+    }
+
+    public function validateUser(?User $user = null): array
+    {
+        $user ??= new User();
+
+        return request()->validate([
+            'firstName' => ['required', 'min:3', 'max:255'],
+            'lastName' => ['required', 'min:3', 'max:255'],
+            'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')->ignore($user)],
+            'company_id' => ['required', Rule::exists('companies', 'id')],
+            'position' => ['required', 'min:3', 'max:255'],
+            'username' => ['required', 'min:3', 'max:255', Rule::unique('users', 'username')->ignore($user)],
+            'password' => $user->exists ? ['nullable','min:8', 'max:255'] : ['required', 'min:8', 'max:255'],
+            'access_level' => ['required'],
+            'profile_image' => ['image'],
+        ]);
+    }
+
+    public function deleteImage(User $user, $hash)
+    {
+        // check if it is a valid request that has been sent from edit page
+        if($hash !== session('imageDeleteHash')) {
+            return redirect('/users');
+        }
+
+        Storage::delete($user->profile_image);
+
+        $user->update([
+            'profile_image' => null
+        ]);
+
+        return back()->with([
+            'message' => 'تضویر پروفایل حذف شد'
+        ]);
+    }
 
 }

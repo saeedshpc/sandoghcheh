@@ -65,10 +65,6 @@ Route::controller(SettingController::class)->group(function(){
     Route::patch('settings', 'update');
 });
 
-Route::controller(UserController::class)->group(function(){
-    Route::get('users', 'index');
-    Route::get('users/create', 'create');
-    Route::post('users', 'store');
-    Route::get('users/{user}/edit', 'edit');
-    Route::patch('users/{user}', 'update');
-});
+//Users
+Route::resource('users', UserController::class)->except('show');
+Route::get('users/{user}/image/{hash}',[UserController::class, 'deleteImage']);

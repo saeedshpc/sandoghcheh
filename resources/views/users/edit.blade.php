@@ -83,7 +83,7 @@
                 description="سطح دسترسی کاربر در صندوقچه" >
                 @foreach( \App\Enums\AccessLevels::cases() as $accessLevel )
                     <option value="{{ $accessLevel->value }}"
-                        {{old('access_level', $user->access_level) == $accessLevel->value ? 'selected' : ''}}>{{$accessLevel->value}}</option>
+                        {{old('access_level', $user->access_level->value) == $accessLevel->value ? 'selected' : ''}}>{{$accessLevel->value}}</option>
                 @endforeach
             </x-form.select>
 
