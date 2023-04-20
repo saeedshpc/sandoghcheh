@@ -8,19 +8,21 @@ use App\Models\Activity;
 use App\Models\BankAccount;
 use App\Models\Company;
 use App\Models\Expense;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
+use Illuminate\View\View;
 
 class ExpenseController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('expenses.index', [
             'expenses' => Expense::latest()->get(),
         ]);
     }
 
-    public function create()
+    public function create(): View
     {
         return view('expenses.create', [
             'companies' => Company::all(),
@@ -28,7 +30,7 @@ class ExpenseController extends Controller
         ]);
     }
 
-    public function store()
+    public function store(): RedirectResponse
     {
         $attributes = $this->validateExpense();
 
@@ -51,7 +53,7 @@ class ExpenseController extends Controller
        ]);
     }
 
-    public function edit(Expense $expense)
+    public function edit(Expense $expense): View
     {
         return view('expenses.edit', [
             'expense' => $expense,
@@ -60,7 +62,7 @@ class ExpenseController extends Controller
         ]);
     }
 
-    public function update(Expense $expense)
+    public function update(Expense $expense): RedirectResponse
     {
         $attributes = $this->validateExpense();
 
@@ -86,7 +88,7 @@ class ExpenseController extends Controller
         ]);
     }
 
-    public function destroy(Expense $expense)
+    public function destroy(Expense $expense): RedirectResponse
     {
         //I should replace this with event
         Activity::create([
@@ -118,7 +120,7 @@ class ExpenseController extends Controller
         ]);
     }
 
-    public function deleteImage(Expense $expense, $hash)
+    public function deleteImage(Expense $expense, $hash): RedirectResponse
     {
         // check if it is a valid request that has been sent from edit page
         if($hash !== session('imageDeleteHash')) {

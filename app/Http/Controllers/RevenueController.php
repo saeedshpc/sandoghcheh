@@ -4,26 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\Revenue;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\View\View;
 
 class RevenueController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('revenues.index', [
             'revenues' => Revenue::latest()->get(),
         ]);
     }
 
-    public function create()
+    public function create(): View
     {
         return view('revenues.create',[
             'companies' => Company::all()
         ]);
     }
 
-    public function store()
+    public function store(): RedirectResponse
     {
         $attributes = $this->validateRevenue();
 
@@ -34,7 +36,7 @@ class RevenueController extends Controller
         ]);
     }
 
-    public function edit(Revenue $revenue)
+    public function edit(Revenue $revenue): View
     {
         return view('revenues.edit', [
             'revenue' => $revenue,
@@ -42,7 +44,7 @@ class RevenueController extends Controller
         ]);
     }
 
-    public function update(Revenue $revenue)
+    public function update(Revenue $revenue): RedirectResponse
     {
         $attributes = $this->validateRevenue();
 
@@ -53,7 +55,7 @@ class RevenueController extends Controller
         ]);
     }
 
-    public function destroy(Revenue $revenue)
+    public function destroy(Revenue $revenue): RedirectResponse
     {
         $revenue->delete();
 
@@ -62,7 +64,7 @@ class RevenueController extends Controller
         ]);
     }
 
-    public function validateRevenue()
+    public function validateRevenue(): array
     {
         return request()->validate([
             'company_id' => ['required', Rule::exists('companies', 'id')],

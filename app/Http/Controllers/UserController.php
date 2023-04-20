@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
+use Illuminate\View\View;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('users.index', [
             'users' => User::all(),
@@ -18,14 +20,14 @@ class UserController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(): View
     {
         return view('users.create', [
             'companies' => Company::all(),
         ]);
     }
 
-    public function store()
+    public function store(): RedirectResponse
     {
 
         $attributes = $this->validateUser();
@@ -41,7 +43,7 @@ class UserController extends Controller
         return redirect('/users')->with('message', 'کاربر جدید اضافه شد');
     }
 
-    public function edit(User $user)
+    public function edit(User $user): View
     {
         return view('users.edit', [
             'user' => $user,
@@ -49,7 +51,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function update(User $user)
+    public function update(User $user): RedirectResponse
     {
 
         $attributes = $this->validateUser($user);
@@ -72,7 +74,7 @@ class UserController extends Controller
         return redirect('/users')->with('message', 'اطلاعات کاربر ویرایش شد.');
     }
 
-    public function destroy(User $user)
+    public function destroy(User $user): RedirectResponse
     {
 
         if ($user->profile_image) {
@@ -101,7 +103,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function deleteImage(User $user, $hash)
+    public function deleteImage(User $user, $hash): RedirectResponse
     {
         // check if it is a valid request that has been sent from edit page
         if($hash !== session('imageDeleteHash')) {

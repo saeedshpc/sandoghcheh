@@ -6,20 +6,22 @@ use App\Models\Advertiser;
 use App\Models\AdvertisingExpense;
 use App\Models\BankAccount;
 use App\Models\Company;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
+use Illuminate\View\View;
 
 class AdvertisingExpenseController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('advertisingExpenses.index', [
             'advertisingExpenses' => AdvertisingExpense::latest()->get()
         ]);
     }
 
-    public function create()
+    public function create(): View
     {
         return view('advertisingExpenses.create', [
             'companies' => Company::all(),
@@ -28,7 +30,7 @@ class AdvertisingExpenseController extends Controller
         ]);
     }
 
-    public function store()
+    public function store(): RedirectResponse
     {
         $attributes = $this->validateAdvertisingExpense();
 
@@ -43,7 +45,7 @@ class AdvertisingExpenseController extends Controller
         ]);
     }
 
-    public function edit(AdvertisingExpense $advertisingExpense)
+    public function edit(AdvertisingExpense $advertisingExpense): View
     {
         return view('advertisingExpenses.edit', [
             'expense' => $advertisingExpense,
@@ -53,7 +55,7 @@ class AdvertisingExpenseController extends Controller
         ]);
     }
 
-    public function update(AdvertisingExpense $advertisingExpense)
+    public function update(AdvertisingExpense $advertisingExpense): RedirectResponse
     {
 
         $attributes = $this->validateAdvertisingExpense();
@@ -73,7 +75,7 @@ class AdvertisingExpenseController extends Controller
 
     }
 
-    public function destroy(AdvertisingExpense $advertisingExpense)
+    public function destroy(AdvertisingExpense $advertisingExpense): RedirectResponse
     {
         $advertisingExpense->delete();
 
@@ -82,7 +84,7 @@ class AdvertisingExpenseController extends Controller
         ]);
     }
 
-    protected function validateAdvertisingExpense()
+    protected function validateAdvertisingExpense(): array
     {
         return request()->validate([
             'company_id' => ['required', Rule::exists('companies', 'id')],

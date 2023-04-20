@@ -3,23 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Advertiser;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class AdvertiserController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('advertisers.index', [
             'advertisers' => Advertiser::latest()->get(),
         ]);
     }
 
-    public function create()
+    public function create(): View
     {
         return view('advertisers.create');
     }
 
-    public function store()
+    public function store(): RedirectResponse
     {
         $attributes = $this->validateAdvertisers();
 
@@ -30,14 +32,14 @@ class AdvertiserController extends Controller
         ]);
     }
 
-    public function edit(Advertiser $advertiser)
+    public function edit(Advertiser $advertiser): View
     {
         return view('advertisers.edit', [
             'advertiser' => $advertiser
         ]);
     }
 
-    public function update(Advertiser $advertiser)
+    public function update(Advertiser $advertiser): RedirectResponse
     {
         $attributes = $this->validateAdvertisers();
 
@@ -48,7 +50,7 @@ class AdvertiserController extends Controller
         ]);
     }
 
-    public function destroy(Advertiser $advertiser)
+    public function destroy(Advertiser $advertiser): RedirectResponse
     {
         $advertiser->delete();
 

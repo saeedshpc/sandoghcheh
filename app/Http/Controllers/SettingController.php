@@ -3,21 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Setting;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class SettingController extends Controller
 {
 
 //    This controllr is just placeholder for the complete version of the setting page
 
-    public function index()
+    public function index(): View
     {
         return view('settings.index', [
             'setting' => Setting::first(),
         ]);
     }
 
-    public function update()
+    public function update(): RedirectResponse
     {
 
         $attributes = request()->validate([

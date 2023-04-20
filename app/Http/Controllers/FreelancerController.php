@@ -3,23 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Freelancer;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class FreelancerController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('freelancers.index', [
             'freelancers' => Freelancer::latest()->get(),
         ]);
     }
 
-    public function create()
+    public function create(): View
     {
         return view('freelancers.create');
     }
 
-    public function store()
+    public function store(): RedirectResponse
     {
         $attributes = request()->validate([
             'fullName' => ['required'],
@@ -36,14 +38,14 @@ class FreelancerController extends Controller
         ]);
     }
 
-    public function edit(Freelancer $freelancer)
+    public function edit(Freelancer $freelancer): View
     {
         return view('freelancers.edit', [
             'freelancer' => $freelancer
         ]);
     }
 
-    public function update(Freelancer $freelancer)
+    public function update(Freelancer $freelancer): RedirectResponse
     {
         $attributes = request()->validate([
             'fullName' => ['required'],
@@ -60,7 +62,7 @@ class FreelancerController extends Controller
         ]);
     }
 
-    public function destroy(Freelancer $freelancer)
+    public function destroy(Freelancer $freelancer): RedirectResponse
     {
         $freelancer->delete();
 

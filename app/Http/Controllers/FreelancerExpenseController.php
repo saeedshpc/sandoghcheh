@@ -5,20 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\BankAccount;
 use App\Models\Freelancer;
 use App\Models\FreelancerExpense;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
+use Illuminate\View\View;
 
 class FreelancerExpenseController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('freelancerExpenses.index', [
             'freelancerExpenses' => FreelancerExpense::with('freelancer')->latest()->get(),
         ]);
     }
 
-    public function create()
+    public function create(): View
     {
         return view('freelancerExpenses.create',[
             'freelancers' => Freelancer::all(),
@@ -26,7 +28,7 @@ class FreelancerExpenseController extends Controller
         ]);
     }
 
-    public function store()
+    public function store(): RedirectResponse
     {
         $attributes = $this->validateFreelancerExpense();
 
@@ -41,7 +43,7 @@ class FreelancerExpenseController extends Controller
         ]);
     }
 
-    public function edit(FreelancerExpense $freelancerExpense)
+    public function edit(FreelancerExpense $freelancerExpense): View
     {
         return view('freelancerExpenses.edit', [
             'expense' => $freelancerExpense,
@@ -50,7 +52,7 @@ class FreelancerExpenseController extends Controller
         ]);
     }
 
-    public function update(FreelancerExpense $freelancerExpense)
+    public function update(FreelancerExpense $freelancerExpense): RedirectResponse
     {
         $attributes = $this->validateFreelancerExpense();
 
@@ -69,7 +71,8 @@ class FreelancerExpenseController extends Controller
 
     }
 
-    public function destroy(FreelancerExpense $freelancerExpense) {
+    public function destroy(FreelancerExpense $freelancerExpense): RedirectResponse
+    {
         $freelancerExpense->delete();
 
         return redirect('/freelancerExpenses')->with([
@@ -77,7 +80,7 @@ class FreelancerExpenseController extends Controller
         ]);
     }
 
-    protected function validateFreelancerExpense()
+    protected function validateFreelancerExpense(): array
     {
         return request()->validate([
             'bank_account_id' => ['required', Rule::exists('bank_accounts', 'id')],

@@ -3,23 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\BankAccount;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class BankAccountController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('bankAccounts.index',[
             'bankAccounts' => BankAccount::latest()->get(),
         ]);
     }
 
-    public function create()
+    public function create(): View
     {
         return view('bankAccounts.create');
     }
 
-    public function store()
+    public function store(): RedirectResponse
     {
         BankAccount::create($this->validateBankAccount());
 
@@ -28,14 +30,14 @@ class BankAccountController extends Controller
         ]);
     }
 
-    public function edit(BankAccount $card)
+    public function edit(BankAccount $card): View
     {
         return view('bankAccounts.edit',[
             'bankAccount' => $card
         ]);
     }
 
-    public function update(BankAccount $card)
+    public function update(BankAccount $card): RedirectResponse
     {
         $card->update($this->validateBankAccount());
 
@@ -44,7 +46,7 @@ class BankAccountController extends Controller
         ]);
     }
 
-    public function destroy(BankAccount $card)
+    public function destroy(BankAccount $card): RedirectResponse
     {
         $card->delete();
 
