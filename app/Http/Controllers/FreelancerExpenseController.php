@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\EventsInfo;
+use App\Models\Activity;
 use App\Models\BankAccount;
 use App\Models\Freelancer;
 use App\Models\FreelancerExpense;
@@ -38,6 +40,12 @@ class FreelancerExpenseController extends Controller
 
         FreelancerExpense::create($attributes);
 
+        //I should replace this with event
+        Activity::add(
+            request()->user()->id,
+            EventsInfo::AddFreelancerCost->value
+        );
+
         return redirect('freelancerExpenses')->with([
             'message' => 'هزینه فریلسنر با موفقیت افزوده شد'
         ]);
@@ -65,6 +73,12 @@ class FreelancerExpenseController extends Controller
 
         $freelancerExpense->update($attributes);
 
+        //I should replace this with event
+        Activity::edit(
+            request()->user()->id,
+            EventsInfo::EditFreelancerCost->value
+        );
+
         return redirect('/freelancerExpenses')->with([
             'message' => 'هزینه سفارش با موفقیت بروزرسانی شد'
         ]);
@@ -74,6 +88,12 @@ class FreelancerExpenseController extends Controller
     public function destroy(FreelancerExpense $freelancerExpense): RedirectResponse
     {
         $freelancerExpense->delete();
+
+        //I should replace this with event
+        Activity::remove(
+            request()->user()->id,
+            EventsInfo::DeleteFreelancerCost->value
+        );
 
         return redirect('/freelancerExpenses')->with([
             'message' => 'فاکتور فریلنسر حذف شد.'
