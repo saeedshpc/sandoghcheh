@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\EventsInfo;
+use App\Models\Activity;
 use App\Models\Company;
 use App\Models\Revenue;
 use Illuminate\Http\RedirectResponse;
@@ -31,6 +33,12 @@ class RevenueController extends Controller
 
         Revenue::create($attributes);
 
+        //I should replace this with event
+        Activity::add(
+            request()->user()->id,
+            EventsInfo::AddIncome->value
+        );
+
         return redirect('/revenues')->with([
             'message' => 'درآمد جدید برای یک کسب و کار ثبت شد'
         ]);
@@ -50,6 +58,12 @@ class RevenueController extends Controller
 
         $revenue->update($attributes);
 
+        //I should replace this with event
+        Activity::edit(
+            request()->user()->id,
+            EventsInfo::EditIncome->value
+        );
+
         return redirect('/revenues')->with([
             'message' => 'درآمد کسب و کار بروزرسانی شد'
         ]);
@@ -58,6 +72,12 @@ class RevenueController extends Controller
     public function destroy(Revenue $revenue): RedirectResponse
     {
         $revenue->delete();
+
+        //I should replace this with event
+        Activity::remove(
+            request()->user()->id,
+            EventsInfo::DeleteIncome->value
+        );
 
         return redirect('/revenues')->with([
             'message' => 'درآمد کسب و کار حذف شد'

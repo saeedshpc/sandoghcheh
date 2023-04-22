@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\EventsInfo;
+use App\Models\Activity;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
@@ -40,6 +42,12 @@ class UserController extends Controller
 
         User::create($attributes);
 
+        //I should replace this with event
+        Activity::add(
+            request()->user()->id,
+            EventsInfo::AddUser->value
+        );
+
         return redirect('/users')->with('message', 'کاربر جدید اضافه شد');
     }
 
@@ -71,6 +79,12 @@ class UserController extends Controller
 
         $user->update($attributes);
 
+        //I should replace this with event
+        Activity::edit(
+            request()->user()->id,
+            EventsInfo::EditUser->value
+        );
+
         return redirect('/users')->with('message', 'اطلاعات کاربر ویرایش شد.');
     }
 
@@ -82,6 +96,12 @@ class UserController extends Controller
         }
 
         $user->delete();
+
+        //I should replace this with event
+        Activity::remove(
+            request()->user()->id,
+            EventsInfo::DeleteUser->value
+        );
 
         return redirect('/users')->with('message', 'اطلاعات کاربر حذف شد');
     }
