@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\Events;
 use App\Enums\EventsInfo;
 use App\Models\Activity;
 use App\Models\BankAccount;
@@ -34,23 +33,21 @@ class ExpenseController extends Controller
     {
         $attributes = $this->validateExpense();
 
-       if(request('invoice_image') ?? false) {
-          $attributes['invoice_image'] = request()->file('invoice_image')->store('expenses_invoices');
-       }
+        if (request('invoice_image') ?? false) {
+            $attributes['invoice_image'] = request()->file('invoice_image')->store('expenses_invoices');
+        }
 
-       Expense::create($attributes);
+        Expense::create($attributes);
 
-       //I should replace this with event
-       Activity::create([
-           'user_id' => request()->user()->id,
-           'company_id' => $attributes['company_id'],
-           'event' => Events::Add->value,
-           'event_info' => EventsInfo::AddExpense->value ,
-       ]);
+        //I should replace this with event
+        Activity::add(
+            request()->user()->id,
+            EventsInfo::AddExpense->value
+        );
 
-       return redirect('/expenses')->with([
-           'message' => 'تنخواه جدید با موفقیت ثبت شد'
-       ]);
+        return redirect('/expenses')->with([
+            'message' => 'تنخواه جدید با موفقیت ثبت شد'
+        ]);
     }
 
     public function edit(Expense $expense): View
@@ -66,8 +63,8 @@ class ExpenseController extends Controller
     {
         $attributes = $this->validateExpense();
 
-        if(request('invoice_image') ?? false) {
-            if(!is_null($expense->invoice_image)) {
+        if (request('invoice_image') ?? false) {
+            if (!is_null($expense->invoice_image)) {
                 Storage::delete($expense->invoice_image);
             }
             $attributes['invoice_image'] = request()->file('invoice_image')->store('expenses_invoices');
@@ -76,12 +73,10 @@ class ExpenseController extends Controller
         $expense->update($attributes);
 
         //I should replace this with event
-        Activity::create([
-            'user_id' => request()->user()->id,
-            'company_id' => $attributes['company_id'],
-            'event' => Events::Edit->value,
-            'event_info' => EventsInfo::EditExpense->value ,
-        ]);
+        Activity::edit(
+            request()->user()->id,
+            EventsInfo::EditExpense->value
+        );
 
         return redirect('/expenses')->with([
             'message' => 'تنخواه با موفقیت بروزرسانی شد.'
@@ -91,12 +86,10 @@ class ExpenseController extends Controller
     public function destroy(Expense $expense): RedirectResponse
     {
         //I should replace this with event
-        Activity::create([
-            'user_id' => request()->user()->id,
-            'company_id' => $expense->company_id,
-            'event' => Events::Delete->value,
-            'event_info' => EventsInfo::DeleteExpense->value ,
-        ]);
+        Activity::remove(
+            request()->user()->id,
+            EventsInfo::DeleteExpense->value
+        );
 
         $expense->delete();
 
@@ -123,7 +116,7 @@ class ExpenseController extends Controller
     public function deleteImage(Expense $expense, $hash): RedirectResponse
     {
         // check if it is a valid request that has been sent from edit page
-        if($hash !== session('imageDeleteHash')) {
+        if ($hash !== session('imageDeleteHash')) {
             return redirect('/expenses');
         }
 

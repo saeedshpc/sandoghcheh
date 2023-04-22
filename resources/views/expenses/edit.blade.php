@@ -72,7 +72,7 @@
                 @foreach( \App\Enums\PaymentStatus::cases() as $paymentStatus )
                     <option
                         value="{{ $paymentStatus->value }}"
-                        {{old('payment_status', $expense->payment_status) == $paymentStatus->value ? 'selected' : ''}} >
+                        {{old('payment_status', $expense->payment_status->value) == $paymentStatus->value ? 'selected' : ''}} >
                         {{$paymentStatus->value}}</option>
                 @endforeach
             </x-form.select>

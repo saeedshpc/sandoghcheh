@@ -20,8 +20,6 @@ class ActivityFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'company_id' => Company::factory(),
-            'table' => fake()->word(),
         ];
     }
 }

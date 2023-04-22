@@ -16,10 +16,8 @@ return new class extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('company_id')->constrained();
             $table->string('event')->default(Events::Add->value);
             $table->string('event_info')->default(EventsInfo::AddExpense->value);
-            $table->string('table')->nullable();
             $table->timestamps();
         });
     }

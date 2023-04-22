@@ -25,4 +25,31 @@ class Activity extends Model
     {
         return $this->belongsTo(Company::class);
     }
+
+    public static function add($user, $eventInfo)
+    {
+        $actitivy = new static();
+        $actitivy->user_id = $user;
+        $actitivy->event = Events::Add->value;
+        $actitivy->event_info = $eventInfo;
+        $actitivy->save();
+    }
+
+    public static function edit($user, $eventInfo)
+    {
+        $actitivy = new static();
+        $actitivy->user_id = $user;
+        $actitivy->event = Events::Edit->value;
+        $actitivy->event_info = $eventInfo;
+        $actitivy->save();
+    }
+
+    public static function remove($user, $eventInfo)
+    {
+        $actitivy = new static();
+        $actitivy->user_id = $user;
+        $actitivy->event = Events::Delete->value;
+        $actitivy->event_info = $eventInfo;
+        $actitivy->save();
+    }
 }

@@ -1,69 +1,27 @@
-
 @foreach($activities as $activiy)
-    <li class="h-8 border-r-4 border-green-300 pr-2">
-        <a href="#" class="text-green-600 dark:text-green-400"
+    @php
+        $borderColor = '';
+        $textColor = '';
+        switch($activiy->event->value) {
+            case 'افزودن':
+                $borderColor = 'border-green-300';
+                $textColor= 'text-green-600 dark:text-green-400';
+                break;
+            case 'ویرایش':
+                $borderColor = 'border-purple-300';
+                $textColor= 'text-purple-500 dark:text-purple-400';
+                break;
+            case 'حذف':
+                $borderColor = 'border-blue-300';
+                $textColor= 'text-red-500 dark:text-blue-400';
+                break;
+        }
+
+    @endphp
+    <li class="h-8 border-r-4 {{$borderColor}} pr-2">
+        <a href="#" class="{{$textColor}}"
         >{{ $activiy->event_info }}</a
-        >
-        برای بانوریس توسط سعید شیخ الاسلامی ثبت شد
+        > توسط {{ $activiy->user->firstName .' ' . $activiy->user->lastName }}
+        <span class="text-xs text-gray-400">{{$activiy->created_at->diffForHumans()}}</span>
     </li>
 @endforeach
-
-{{--
-
-<div class="border-b border-b-gray-200 pb-2"></div>
-<li class="h-8 border-r-4 border-blue-300 pr-2">
-    <a href="#" class="text-blue-500 dark:text-blue-400"
-    >دستمزد جدید</a
-    >
-    برای فریلنسر فاطمه جعفری توسط شد
-</li>
-<div class="border-b border-b-gray-200 pb-2"></div>
-<li class="h-8 border-r-4 border-green-300 pr-2">
-    <a href="#" class="text-green-600 dark:text-green-400"
-    >تنخواه جدید</a
-    >
-    برای بانوریس توسط سعید شیخ الاسلامی ثبت شد
-</li>
-<div class="border-b border-b-gray-200 pb-2"></div>
-<li class="h-8 border-r-4 border-purple-300 pr-2">
-    <a href="#" class="text-purple-500 dark:text-purple-400"
-    >فریلنسر جدید</a
-    >
-    اضافه شد
-</li>
-<div class="border-b border-b-gray-200 pb-2"></div>
-<li class="h-8 border-r-4 border-green-300 pr-2">
-    <a href="#" class="text-green-600 dark:text-green-400"
-    >تنخواه جدید</a
-    >
-    برای بانوریس توسط سعید شیخ الاسلامی ثبت شد
-</li>
-<div class="border-b border-b-gray-200 pb-2"></div>
-<li class="h-8 border-r-4 border-green-300 pr-2">
-    <a href="#" class="text-green-600 dark:text-green-400"
-    >تنخواه جدید</a
-    >
-    برای بانوریس توسط سعید شیخ الاسلامی ثبت شد
-</li>
-<div class="border-b border-b-gray-200 pb-2"></div>
-<li class="h-8 border-r-4 border-purple-300 pr-2">
-    <a href="#" class="text-purple-500 dark:text-purple-400"
-    >فریلنسر جدید</a
-    >
-    اضافه شد
-</li>
-<div class="border-b border-b-gray-200 pb-2"></div>
-<li class="h-8 border-r-4 border-green-300 pr-2">
-    <a href="#" class="text-green-600 dark:text-green-400"
-    >تنخواه جدید</a
-    >
-    برای بانوریس توسط سعید شیخ الاسلامی ثبت شد
-</li>
-<div class="border-b border-b-gray-200 pb-2"></div>
-<li class="h-8 border-r-4 border-blue-300 pr-2">
-    <a href="#" class="text-blue-500 dark:text-blue-400"
-    >دستمزد جدید</a
-    >
-    برای فریلنسر فاطمه جعفری توسط شد
-</li>
---}}
