@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\EventsInfo;
+use App\Models\Activity;
 use App\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -25,6 +27,12 @@ class CompanyController extends Controller
     {
         Company::create($this->validateCompany());
 
+        //I should replace this with event
+        Activity::add(
+            request()->user()->id,
+            EventsInfo::AddCompany->value
+        );
+
         return redirect('/companies')->with([
             'message' => 'کسب و کار با موفقیت افزوده شد'
         ]);
@@ -41,6 +49,12 @@ class CompanyController extends Controller
     {
         $company->update($this->validateCompany());
 
+        //I should replace this with event
+        Activity::edit(
+            request()->user()->id,
+            EventsInfo::EditCompany->value
+        );
+
         return redirect('/companies')->with([
             'message' => 'کسب و کار بروزرسانی شد'
         ]);
@@ -49,6 +63,12 @@ class CompanyController extends Controller
     public function destroy(Company $company): RedirectResponse
     {
         $company->delete();
+
+        //I should replace this with event
+        Activity::remove(
+            request()->user()->id,
+            EventsInfo::DeleteCompany->value
+        );
 
         return redirect('/companies')->with([
             'message' => 'کسب و کار حذف شد'

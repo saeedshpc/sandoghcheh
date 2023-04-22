@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\EventsInfo;
+use App\Models\Activity;
 use App\Models\Advertiser;
 use App\Models\AdvertisingExpense;
 use App\Models\BankAccount;
@@ -40,6 +42,12 @@ class AdvertisingExpenseController extends Controller
 
         AdvertisingExpense::create($attributes);
 
+        //I should replace this with event
+        Activity::add(
+            request()->user()->id,
+            EventsInfo::AddAdvertisingExpense->value
+        );
+
         return redirect('/advertisingExpenses')->with([
             'message' => 'هزینه جدید تبلیغات ثبت شد.'
         ]);
@@ -69,6 +77,12 @@ class AdvertisingExpenseController extends Controller
 
         $advertisingExpense->update($attributes);
 
+        //I should replace this with event
+        Activity::edit(
+            request()->user()->id,
+            EventsInfo::EditAdvertisingExpense->value
+        );
+
         return redirect('/advertisingExpenses')->with([
             'message' => 'اطلاعات تبلیغات بروزرسانی شد'
         ]);
@@ -78,6 +92,12 @@ class AdvertisingExpenseController extends Controller
     public function destroy(AdvertisingExpense $advertisingExpense): RedirectResponse
     {
         $advertisingExpense->delete();
+
+        //I should replace this with event
+        Activity::remove(
+            request()->user()->id,
+            EventsInfo::DeleteAdvertisingExpense->value
+        );
 
         return redirect('/advertisingExpenses')->with([
             'message' => 'هزینه تبلیغات حذف شد!'

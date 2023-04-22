@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\EventsInfo;
+use App\Models\Activity;
 use App\Models\BankAccount;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -25,6 +27,12 @@ class BankAccountController extends Controller
     {
         BankAccount::create($this->validateBankAccount());
 
+        //I should replace this with event
+        Activity::add(
+            request()->user()->id,
+            EventsInfo::AddBankAccount->value
+        );
+
         return redirect('/cards')->with([
             'message' => 'حساب بانکی با موفقیت افزوده شد'
         ]);
@@ -41,6 +49,12 @@ class BankAccountController extends Controller
     {
         $card->update($this->validateBankAccount());
 
+        //I should replace this with event
+        Activity::edit(
+            request()->user()->id,
+            EventsInfo::EditBankAccount->value
+        );
+
         return redirect('/cards')->with([
             'message' => 'حساب بانکی با موفقیت بروزرسانی شد'
         ]);
@@ -49,6 +63,12 @@ class BankAccountController extends Controller
     public function destroy(BankAccount $card): RedirectResponse
     {
         $card->delete();
+
+        //I should replace this with event
+        Activity::remove(
+            request()->user()->id,
+            EventsInfo::DeleteBankAccount->value
+        );
 
         return redirect('/cards')->with([
             'message' => 'حساب بانکی حذف شد'

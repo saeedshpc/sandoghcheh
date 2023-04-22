@@ -14,9 +14,7 @@
             <x-slot name="tableHeader">
                 <x-table-th>کد</x-table-th>
                 <x-table-th>نام</x-table-th>
-                <x-table-th>کسب و کار</x-table-th>
                 <x-table-th>عملیات</x-table-th>
-                <x-table-th>بخش</x-table-th>
                 <x-table-th>تاریخ</x-table-th>
                 @chief
                 <x-table-th></x-table-th>
@@ -26,9 +24,7 @@
                 <x-table-row>
                     <x-table-td>{{$activity->id}}</x-table-td>
                     <x-table-td>{{$activity->user->firstName .' '. $activity->user->lastName}}</x-table-td>
-                    <x-table-td>{{$activity->company->name}}</x-table-td>
-                    <x-table-td>{{$activity->activity}}</x-table-td>
-                    <x-table-td>{{$activity->table}}</x-table-td>
+                    <x-table-td>{{$activity->event_info}}</x-table-td>
                     <x-table-td dir="ltr">{{$activity->created_at}}</x-table-td>
 
                     @chief

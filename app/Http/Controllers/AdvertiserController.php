@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\EventsInfo;
+use App\Models\Activity;
 use App\Models\Advertiser;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -27,6 +29,12 @@ class AdvertiserController extends Controller
 
         Advertiser::create($attributes);
 
+        //I should replace this with event
+        Activity::add(
+            request()->user()->id,
+            EventsInfo::AddAdvertiser->value
+        );
+
         return redirect('/advertisers')->with([
             'message' => 'مجری تبلیغات با موفقیت افزوده شد'
         ]);
@@ -45,6 +53,12 @@ class AdvertiserController extends Controller
 
         $advertiser->update($attributes);
 
+        //I should replace this with event
+        Activity::edit(
+            request()->user()->id,
+            EventsInfo::EditAdvertiser->value
+        );
+
         return redirect('/advertisers')->with([
             'message' => 'اطلاعات مجری بروزرسانی شد'
         ]);
@@ -53,6 +67,12 @@ class AdvertiserController extends Controller
     public function destroy(Advertiser $advertiser): RedirectResponse
     {
         $advertiser->delete();
+
+        //I should replace this with event
+        Activity::remove(
+            request()->user()->id,
+            EventsInfo::DeleteAdvertiser->value
+        );
 
         return redirect('/advertisers')->with([
             'message' => 'اطلاعات مجری تبلیغات حذف شد.'
