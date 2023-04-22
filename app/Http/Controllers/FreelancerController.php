@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\EventsInfo;
+use App\Models\Activity;
 use App\Models\Freelancer;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -33,6 +35,12 @@ class FreelancerController extends Controller
 
         Freelancer::create($attributes);
 
+        //I should replace this with event
+        Activity::add(
+            request()->user()->id,
+            EventsInfo::AddFreelancer->value
+        );
+
         return redirect('/freelancers')->with([
             'message' => 'فریلنسر با موفقیت افزوده شد.'
         ]);
@@ -57,6 +65,12 @@ class FreelancerController extends Controller
 
         $freelancer->update($attributes);
 
+        //I should replace this with event
+        Activity::edit(
+            request()->user()->id,
+            EventsInfo::EditFreelancer->value
+        );
+
         return redirect('/freelancers')->with([
             'message' => 'فریلنسر با موفقیت افزوده شد.'
         ]);
@@ -65,6 +79,12 @@ class FreelancerController extends Controller
     public function destroy(Freelancer $freelancer): RedirectResponse
     {
         $freelancer->delete();
+
+        //I should replace this with event
+        Activity::remove(
+            request()->user()->id,
+            EventsInfo::DeleteFreelancer->value
+        );
 
         return redirect('/freelancers')->with([
             'message' => 'فریلسنر حذف شد'
