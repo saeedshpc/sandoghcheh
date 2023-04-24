@@ -31,7 +31,7 @@ Route::get('/', function () {
 });
 
 //expenses
-Route::resource('expenses', ExpenseController::class)->except('show');
+Route::resource('expenses', ExpenseController::class);
 Route::get('expenses/{expense}/image/{hash}', [ExpenseController::class, 'deleteImage']);
 
 //cards

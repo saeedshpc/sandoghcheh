@@ -22,6 +22,13 @@ class ExpenseController extends Controller
         ]);
     }
 
+    public function show(Expense $expense)
+    {
+        return view('expenses.show', [
+            'expense' => $expense,
+        ]);
+    }
+
     public function create(): View
     {
         return view('expenses.create', [
