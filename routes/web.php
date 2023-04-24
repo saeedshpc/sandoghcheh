@@ -27,14 +27,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     \Illuminate\Support\Facades\Auth::login(\App\Models\User::first());
-    return view('expenses/index',[
-        'expenses' => Expense::latest()->get(),
-    ]);
+    return redirect('/expenses');
 });
 
 //expenses
 Route::resource('expenses', ExpenseController::class)->except('show');
-Route::get('expenses/{expense}/image/{hash}',[ExpenseController::class, 'deleteImage']);
+Route::get('expenses/{expense}/image/{hash}', [ExpenseController::class, 'deleteImage']);
 
 //cards
 Route::resource('cards', BankAccountController::class)->except('show');
@@ -44,7 +42,7 @@ Route::resource('companies', CompanyController::class)->except('show');
 
 //Freelancer Expenses
 Route::resource('freelancerExpenses', FreelancerExpenseController::class)->except('show');
-Route::get('freelancerExpenses/{expense}/image/{hash}',[FreelancerExpenseController::class, 'deleteImage']);
+Route::get('freelancerExpenses/{expense}/image/{hash}', [FreelancerExpenseController::class, 'deleteImage']);
 
 //Freelancers
 Route::resource('freelancers', FreelancerController::class)->except('show');
@@ -54,20 +52,20 @@ Route::resource('advertisers', AdvertiserController::class)->except('show');
 
 //Advertising Expenses
 Route::resource('advertisingExpenses', AdvertisingExpenseController::class)->except('show');
-Route::get('advertisingExpenses/{expense}/image/{hash}',[AdvertisingExpenseController::class, 'deleteImage']);
+Route::get('advertisingExpenses/{expense}/image/{hash}', [AdvertisingExpenseController::class, 'deleteImage']);
 
 //Revenues
 Route::resource('revenues', RevenueController::class)->except('show');
 
 //Setting
 //These Routes are just placeholders for the complete version of the setting page and will be changed later
-Route::controller(SettingController::class)->group(function(){
+Route::controller(SettingController::class)->group(function () {
     Route::get('settings', 'index');
     Route::patch('settings', 'update');
 });
 
 //Users
 Route::resource('users', UserController::class)->except('show');
-Route::get('users/{user}/image/{hash}',[UserController::class, 'deleteImage']);
+Route::get('users/{user}/image/{hash}', [UserController::class, 'deleteImage']);
 
 Route::get('activities', [ActivityController::class, 'index']);

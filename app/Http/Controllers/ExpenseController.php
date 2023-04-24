@@ -18,6 +18,7 @@ class ExpenseController extends Controller
     {
         return view('expenses.index', [
             'expenses' => Expense::latest()->get(),
+            'textColor' => [$this, 'textColor'],
         ]);
     }
 
@@ -128,5 +129,22 @@ class ExpenseController extends Controller
         return back()->with([
             'message' => 'تصویر فاکتور از این هزینه حذف شد.'
         ]);
+    }
+
+    public function textColor($expense)
+    {
+        $statusColor = '';
+        switch ($expense->payment_status->value) {
+            case 'پرداخت شده' :
+                $statusColor = 'text-green-600';
+                break;
+            case 'در انتظار پرداخت' :
+                $statusColor = 'text-orange-500';
+                break;
+            case 'صدور چک' :
+                $statusColor = 'text-purple-600';
+                break;
+        }
+        return $statusColor;
     }
 }
