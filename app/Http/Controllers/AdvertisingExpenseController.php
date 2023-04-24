@@ -19,7 +19,8 @@ class AdvertisingExpenseController extends Controller
     public function index(): View
     {
         return view('advertisingExpenses.index', [
-            'advertisingExpenses' => AdvertisingExpense::latest()->get()
+            'advertisingExpenses' => AdvertisingExpense::latest()->get(),
+            'textColor' => [$this, 'textColor']
         ]);
     }
 
@@ -136,5 +137,22 @@ class AdvertisingExpenseController extends Controller
         return back()->with([
             'message' => 'تصویر فاکتور از این هزینه حذف شد.'
         ]);
+    }
+
+    public function textColor($expense)
+    {
+        $statusColor = '';
+        switch ($expense->payment_status->value) {
+            case 'پرداخت شده' :
+                $statusColor = 'text-green-600';
+                break;
+            case 'در انتظار پرداخت' :
+                $statusColor = 'text-orange-500';
+                break;
+            case 'صدور چک' :
+                $statusColor = 'text-purple-600';
+                break;
+        }
+        return $statusColor;
     }
 }
