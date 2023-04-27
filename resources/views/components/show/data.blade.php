@@ -11,7 +11,7 @@
         </p>
     </div>
     <div class="w-full lg:w-auto lg:basis-1/2 text-right">
-        <p class="pr-2 border-r-2 border-purple-500">
+        <p {{$attributes(['class' => 'pr-2 border-r-2 border-purple-500'])}}>
             {{ $slot }}
         </p>
     </div>
