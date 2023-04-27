@@ -4,36 +4,7 @@
         <div
             class="flex flex-col gap-5 text-gray-700 border dark:border-gray-600 p-6 rounded-xl"
         >
-            <div
-                class="flex flex-col items-start justify-between lg:flex-row lg:items-center"
-            >
-                <div>
-                    <h2 class="text-lg font-bold mb-2 dark:text-gray-100">
-                        تنخواه :
-                        <span class="font-normal"
-                        >خرید بسته اینترنت (فروشگاه بانوریس)</span
-                        >
-                    </h2>
-                    <p class="text-gray-500 text-sm dark:text-gray-300">
-                        در اینجا اطلاعات این هزینه را مشاهده میکنید.
-                    </p>
-                </div>
-                <div class="hidden lg:flex">
-                    <a
-                        class="p-2 px-8 rounded-lg ml-2 bg-blue-800 text-white duration-200 hover:bg-blue-600 text-sm dark:bg-slate-600 dark:border dark:border-gray-300"
-                    >
-                        ویرایش
-                    </a>
-                    <a
-                        href="#"
-                        class="p-2 px-2 rounded-lg bg-white border hover:bg-gray-100 duration-200 text-sm"
-                    >بازگشت</a
-                    >
-                </div>
-            </div>
-            <div
-                class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
-            ></div>
+            <x-show.header />
             <!-- div 1 -->
             <div
                 class="flex flex-col gap-4 items-start justify-between lg:flex-row lg:items-center lg:gap-0"

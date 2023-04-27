@@ -29,8 +29,8 @@
             </x-slot>
             @foreach($expenses  as $expense)
                 <x-table-row>
-                    <x-table-td>{{$expense->id}}</x-table-td>
-                    <x-table-td>{{$expense->title}}</x-table-td>
+                    <x-table-td><a class="hover:text-blue-500 duration-200" href="/expenses/{{$expense->id}}">{{$expense->id}}</a></x-table-td>
+                    <x-table-td><a class="hover:text-blue-500 duration-200" href="/expenses/{{$expense->id}}">{{$expense->title}}</a></x-table-td>
                     <x-table-td>{{$expense->price}}</x-table-td>
                     <x-table-td>{{$expense->purchaser}}</x-table-td>
                     <x-table-td class="{{ $textColor($expense) }}">{{$expense->payment_status}}</x-table-td>
