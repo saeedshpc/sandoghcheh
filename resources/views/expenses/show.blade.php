@@ -4,173 +4,53 @@
         <div
             class="flex flex-col gap-5 text-gray-700 border dark:border-gray-600 p-6 rounded-xl"
         >
-            <x-show.header />
+            <x-show.header
+            title="گزارش 1"
+            description="توضیحات گزارش 1"
+            cancel_href="#"
+            edit_href="#"
+            />
             <!-- div 1 -->
-            <div
-                class="flex flex-col gap-4 items-start justify-between lg:flex-row lg:items-center lg:gap-0"
-            >
-                <div>
-                    <h3 class="text-md font-bold mb-2 dark:text-gray-100">
-                        عنوان هزینه
-                    </h3>
-                    <p class="text-gray-500 text-sm dark:text-gray-300">
-                        این هزینه برای خرید چه کالا یا سرویسی ثبت شده است ؟
-                    </p>
-                </div>
-                <div class="w-full lg:w-auto lg:basis-1/2 text-right">
-                    <p class="pr-2 border-r-2 border-purple-500">
-                        خرید بسته اینترنت
-                    </p>
-                </div>
-            </div>
-            <div
-                class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
-            ></div>
-            <!-- div 2  select -->
-            <div
-                class="flex flex-col gap-4 items-start justify-between lg:flex-row lg:items-center lg:gap-0"
-            >
-                <div>
-                    <h3 class="text-md font-bold mb-2 dark:text-gray-100">
-                        شرکت/کسب و کار
-                    </h3>
-                    <p class="text-gray-500 text-sm dark:text-gray-300">
-                        این هزینه جزو هزینه های کدام شرکت/کسب و کار می ‌باشد
-                    </p>
-                </div>
-                <div class="w-full lg:w-auto lg:basis-1/2 text-right">
-                    <p class="pr-2 border-r-2 border-purple-500">
-                        فروشگاه اینترنتی بانوریس
-                    </p>
-                </div>
-            </div>
-            <div
-                class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
-            ></div>
-            <!-- div 3 text -->
-            <div
-                class="flex flex-col gap-4 items-start justify-between lg:flex-row lg:items-center lg:gap-0"
-            >
-                <div>
-                    <h3 class="text-md font-bold mb-2 dark:text-gray-100">
-                        مبلغ هزینه
-                    </h3>
-                    <p class="text-gray-500 text-sm dark:text-gray-300">
-                        مبلغ هزینه شده به تومان
-                    </p>
-                </div>
-                <div class="w-full lg:w-auto lg:basis-1/2 text-right">
-                    <p class="pr-2 border-r-2 border-purple-500">11/500 تومان</p>
-                </div>
-            </div>
-            <div
-                class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
-            ></div>
-            <!-- div 4 text -->
-            <div
-                class="flex flex-col gap-4 items-start justify-between lg:flex-row lg:items-center lg:gap-0"
-            >
-                <div>
-                    <h3 class="text-md font-bold mb-2 dark:text-gray-100">
-                        خریدار
-                    </h3>
-                    <p class="text-gray-500 text-sm dark:text-gray-300">
-                        نام شخص خریدار کالا/خدمات
-                    </p>
-                </div>
-                <div class="w-full lg:w-auto lg:basis-1/2 text-right">
-                    <p class="pr-2 border-r-2 border-purple-500">میثم دوستی</p>
-                </div>
-            </div>
-            <div
-                class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
-            ></div>
-            <!-- div 5 textarea -->
-            <div
-                class="flex flex-col gap-4 items-start justify-between lg:flex-row lg:items-start lg:gap-0"
-            >
-                <div>
-                    <h3 class="text-md font-bold mb-2 dark:text-gray-100">
-                        توضیحات
-                    </h3>
-                    <p class="text-gray-500 text-sm dark:text-gray-300">
-                        توضیحات مرتبط با این هزینه یا پیگیری های مورد نیاز
-                    </p>
-                </div>
+            <x-show.data
+            label="لیبل"
+            description="توضیحات لیبل">
+            </x-show.data>
 
-                <div class="w-full lg:w-auto lg:basis-1/2 text-right">
-                    <p class="pr-2 border-r-2 border-purple-500">
-                        این سفارش جهت خرید برخی کالاهای اینترنتی شرکت انجام شده است
-                        و تمامی هزینه ها با کارت اعتباری پرداخت شده که باید مجددا در
-                        دفتر ثبت گردد.
-                    </p>
-                </div>
-            </div>
-            <div
-                class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
-            ></div>
+            <!-- div 2  select -->
+            <x-show.data
+                label="لیبل"
+                description="توضیحات لیبل">
+            </x-show.data>
+            <!-- div 3 text -->
+            <x-show.data
+                label="لیبل"
+                description="توضیحات لیبل">
+            </x-show.data>
+            <!-- div 4 text -->
+            <x-show.data
+                label="لیبل"
+                description="توضیحات لیبل">
+            </x-show.data>
+            <!-- div 5 textarea -->
+            <x-show.data
+                label="لیبل"
+                description="توضیحات لیبل">
+            </x-show.data>
             <!-- div 6 select -->
-            <div
-                class="flex flex-col gap-4 items-start justify-between lg:flex-row lg:items-center lg:gap-0"
-            >
-                <div>
-                    <h3 class="text-md font-bold mb-2 dark:text-gray-100">
-                        وضعیت پرداخت
-                    </h3>
-                    <p class="text-gray-500 text-sm dark:text-gray-300">
-                        وضعیت پرداختی این هزینه تنخواه
-                    </p>
-                </div>
-                <div class="w-full lg:w-auto lg:basis-1/2 text-right">
-                    <p class="pr-2 border-r-2 border-purple-500">پرداخت شده</p>
-                </div>
-            </div>
-            <div
-                class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
-            ></div>
+            <x-show.data
+                label="لیبل"
+                description="توضیحات لیبل">
+            </x-show.data>
             <!-- div 7 select -->
-            <div
-                class="flex flex-col gap-4 items-start justify-between lg:flex-row lg:items-center lg:gap-0"
-            >
-                <div>
-                    <h3 class="text-md font-bold mb-2 dark:text-gray-100">
-                        حساب بانکی پرداختی
-                    </h3>
-                    <p class="text-gray-500 text-sm dark:text-gray-300">
-                        هزینه این خرید از کدام حساب بانکی یا کارت بانکی انجام شده
-                        است
-                    </p>
-                </div>
-                <div class="w-full lg:w-auto lg:basis-1/2 text-right">
-                    <p class="pr-2 border-r-2 border-purple-500">
-                        کارت تنخواه بانوریس
-                    </p>
-                </div>
-            </div>
-            <div
-                class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
-            ></div>
+            <x-show.data
+                label="لیبل"
+                description="توضیحات لیبل">
+            </x-show.data>
             <!-- div 8 date-time -->
-            <div
-                class="flex flex-col gap-4 items-start justify-between lg:flex-row lg:items-center lg:gap-0"
-            >
-                <div>
-                    <h3 class="text-md font-bold mb-2 dark:text-gray-100">
-                        تاریخ خرید
-                    </h3>
-                    <p class="text-gray-500 text-sm dark:text-gray-300">
-                        تاریخ خرید کالا یا خدمات
-                    </p>
-                </div>
-                <div class="w-full lg:w-auto lg:basis-1/2 text-right">
-                    <p class="pr-2 border-r-2 border-purple-500">
-                        1402-11-10 14:30
-                    </p>
-                </div>
-            </div>
-            <div
-                class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
-            ></div>
+            <x-show.data
+                label="لیبل"
+                description="توضیحات لیبل">123
+            </x-show.data>
             <!-- div 9 file upload -->
             <div
                 class="flex flex-col gap-4 items-start justify-between md:flex-row md:items-center md:gap-0"
