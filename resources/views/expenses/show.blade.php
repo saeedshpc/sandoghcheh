@@ -61,19 +61,11 @@
                     {{ $expense->purchased_date }}
             </x-show.data>
             <!-- div 9 file upload -->
-           <x-show.invoice :expense="$expense"  />
+           <x-show.invoice :expense="$expense" />
             <!-- mobile actions -->
             <div class="lg:hidden flex justify-end gap-3 mt-5">
-                <a
-                    class="p-2 px-8 rounded-lg ml-2 bg-blue-800 text-white duration-200 hover:bg-blue-500 text-sm dark:bg-slate-600 dark:border dark:border-gray-300"
-                >
-                    ویرایش
-                </a>
-                <a
-                    href="#"
-                    class="p-2 px-2 rounded-lg bg-white border hover:bg-gray-100 duration-200 text-sm"
-                >انصراف</a
-                >
+                <x-show.edit-button href="/expenses/{{$expense->id}}/edit" />
+                <x-form.cancel href="/expenses" />
             </div>
         </div>
     </div>

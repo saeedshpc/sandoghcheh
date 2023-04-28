@@ -14,13 +14,13 @@
 </div>
 
 <!-- test new template for images -->
-<div class="relative mt-4 group overflow-hidden w-1/4">
+<div class="relative mt-4 group overflow-hidden w-1/2 md:w-1/4">
     <img
         class="border rounded p-4 shadow-md hover:scale-110 duration-300"
         src="{{asset('storage/'. $expense->invoice_image)}}"
     />
     <div
-        class="hidden group-hover:flex gap-1 duration-200 absolute top-2 right-2"
+        class="md:hidden group-hover:flex gap-1 duration-200 absolute top-2 right-2"
     >
         <a
             class="flex items-center justify-center w-[32px] h-[32px] rounded-full text-white bg-blue-500 hover:bg-blue-600 duration-200"
