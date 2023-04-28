@@ -34,15 +34,16 @@ Route::get('/', function () {
 Route::resource('expenses', ExpenseController::class);
 Route::get('expenses/{expense}/image/{hash}', [ExpenseController::class, 'deleteImage']);
 
+//Freelancer Expenses
+Route::resource('freelancerExpenses', FreelancerExpenseController::class);
+Route::get('freelancerExpenses/{expense}/image/{hash}', [FreelancerExpenseController::class, 'deleteImage']);
+
 //cards
 Route::resource('cards', BankAccountController::class)->except('show');
 
 //companies
 Route::resource('companies', CompanyController::class)->except('show');
 
-//Freelancer Expenses
-Route::resource('freelancerExpenses', FreelancerExpenseController::class)->except('show');
-Route::get('freelancerExpenses/{expense}/image/{hash}', [FreelancerExpenseController::class, 'deleteImage']);
 
 //Freelancers
 Route::resource('freelancers', FreelancerController::class)->except('show');

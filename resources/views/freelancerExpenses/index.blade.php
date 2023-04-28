@@ -28,9 +28,9 @@
             </x-slot>
             @foreach($freelancerExpenses as $freelancerExpense)
                 <x-table-row>
-                    <x-table-td>{{$freelancerExpense->id}}</x-table-td>
+                    <x-table-td><a class="hover:text-blue-500 duration-200" href="/freelancerExpenses/{{$freelancerExpense->id}}">{{$freelancerExpense->id}}</a></x-table-td>
                     <x-table-td>{{$freelancerExpense->freelancer->fullName}}</x-table-td>
-                    <x-table-td>{{$freelancerExpense->description}}</x-table-td>
+                    <x-table-td><a class="hover:text-blue-500 duration-200" href="/freelancerExpenses/{{$freelancerExpense->id}}">{{$freelancerExpense->description}}</a></x-table-td>
                     <x-table-td>{{$freelancerExpense->price}}</x-table-td>
                     <x-table-td>{{$freelancerExpense->bankAccount->account_name}}</x-table-td>
                     <x-table-td dir="ltr">{{$freelancerExpense->purchased_date}}</x-table-td>

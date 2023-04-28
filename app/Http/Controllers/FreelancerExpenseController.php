@@ -22,6 +22,13 @@ class FreelancerExpenseController extends Controller
         ]);
     }
 
+    public function show(FreelancerExpense $freelancerExpense): View
+    {
+        return view('freelancerExpenses.show', [
+            'expense' => $freelancerExpense,
+        ]);
+    }
+
     public function create(): View
     {
         return view('freelancerExpenses.create',[
