@@ -38,6 +38,10 @@ Route::get('expenses/{expense}/image/{hash}', [ExpenseController::class, 'delete
 Route::resource('freelancerExpenses', FreelancerExpenseController::class);
 Route::get('freelancerExpenses/{expense}/image/{hash}', [FreelancerExpenseController::class, 'deleteImage']);
 
+//Advertising Expenses
+Route::resource('advertisingExpenses', AdvertisingExpenseController::class);
+Route::get('advertisingExpenses/{expense}/image/{hash}', [AdvertisingExpenseController::class, 'deleteImage']);
+
 //cards
 Route::resource('cards', BankAccountController::class)->except('show');
 
@@ -51,9 +55,6 @@ Route::resource('freelancers', FreelancerController::class)->except('show');
 //Advertisers
 Route::resource('advertisers', AdvertiserController::class)->except('show');
 
-//Advertising Expenses
-Route::resource('advertisingExpenses', AdvertisingExpenseController::class)->except('show');
-Route::get('advertisingExpenses/{expense}/image/{hash}', [AdvertisingExpenseController::class, 'deleteImage']);
 
 //Revenues
 Route::resource('revenues', RevenueController::class)->except('show');

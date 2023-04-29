@@ -24,6 +24,13 @@ class AdvertisingExpenseController extends Controller
         ]);
     }
 
+    public function show(AdvertisingExpense $advertisingExpense): View
+    {
+        return view('advertisingExpenses.show', [
+            'expenses' => $advertisingExpense
+        ]);
+    }
+
     public function create(): View
     {
         return view('advertisingExpenses.create', [
