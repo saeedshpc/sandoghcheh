@@ -27,7 +27,7 @@ class AdvertisingExpenseController extends Controller
     public function show(AdvertisingExpense $advertisingExpense): View
     {
         return view('advertisingExpenses.show', [
-            'expenses' => $advertisingExpense
+            'expense' => $advertisingExpense
         ]);
     }
 
