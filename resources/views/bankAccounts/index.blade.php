@@ -31,8 +31,8 @@
             </x-slot>
             @foreach($bankAccounts as $bankAccount)
             <x-table-row>
-                <x-table-td>{{$bankAccount->id}}</x-table-td>
-                <x-table-td>{{$bankAccount->name}}</x-table-td>
+                <x-table-td><a class="hover:text-blue-500 duration-200" href="/cards/{{$bankAccount->id}}">{{$bankAccount->id}}</a></x-table-td>
+                <x-table-td><a class="hover:text-blue-500 duration-200" href="/cards/{{$bankAccount->id}}">{{$bankAccount->name}}</a></x-table-td>
                 <x-table-td>{{$bankAccount->usage}}</x-table-td>
                 <x-table-td>{{$bankAccount->bank_name }}</x-table-td>
                 <x-table-td>{{$bankAccount->owner}}</x-table-td>
