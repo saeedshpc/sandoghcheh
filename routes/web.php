@@ -42,12 +42,11 @@ Route::get('freelancerExpenses/{expense}/image/{hash}', [FreelancerExpenseContro
 Route::resource('advertisingExpenses', AdvertisingExpenseController::class);
 Route::get('advertisingExpenses/{expense}/image/{hash}', [AdvertisingExpenseController::class, 'deleteImage']);
 
+//companies
+Route::resource('companies', CompanyController::class);
+
 //cards
 Route::resource('cards', BankAccountController::class)->except('show');
-
-//companies
-Route::resource('companies', CompanyController::class)->except('show');
-
 
 //Freelancers
 Route::resource('freelancers', FreelancerController::class)->except('show');

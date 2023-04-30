@@ -18,6 +18,13 @@ class CompanyController extends Controller
         ]);
     }
 
+    public function show(Company $company)
+    {
+        return view('companies.show', [
+            'company' => $company
+        ]);
+    }
+
     public function create(): View
     {
         return view('companies.create');

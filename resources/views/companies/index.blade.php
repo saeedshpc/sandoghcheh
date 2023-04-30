@@ -30,8 +30,8 @@
             </x-slot>
             @foreach($companies as $company)
                 <x-table-row>
-                    <x-table-td>{{$company->id}}</x-table-td>
-                    <x-table-td>{{$company->name}}</x-table-td>
+                    <x-table-td><a class="hover:text-blue-500 duration-200" href="/companies/{{$company->id}}">{{$company->id}}</a></x-table-td>
+                    <x-table-td><a class="hover:text-blue-500 duration-200" href="/companies/{{$company->id}}">{{$company->name}}</a></x-table-td>
                     <x-table-td>{{$company->work_area}}</x-table-td>
                     <x-table-td>54/000/000</x-table-td>
                     <x-table-td>140/000/000</x-table-td>
