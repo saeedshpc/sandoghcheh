@@ -6,7 +6,6 @@ use App\Enums\EventsInfo;
 use App\Models\Activity;
 use App\Models\Company;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class CompanyController extends Controller
@@ -18,7 +17,7 @@ class CompanyController extends Controller
         ]);
     }
 
-    public function show(Company $company)
+    public function show(Company $company): View
     {
         return view('companies.show', [
             'company' => $company

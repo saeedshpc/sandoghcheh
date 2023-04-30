@@ -6,7 +6,6 @@ use App\Enums\EventsInfo;
 use App\Models\Activity;
 use App\Models\BankAccount;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class BankAccountController extends Controller
@@ -15,6 +14,13 @@ class BankAccountController extends Controller
     {
         return view('bankAccounts.index',[
             'bankAccounts' => BankAccount::latest()->get(),
+        ]);
+    }
+
+    public function show(BankAccount $card): View
+    {
+        return view('bankAccounts.show', [
+            'bankAccount' => $card
         ]);
     }
 

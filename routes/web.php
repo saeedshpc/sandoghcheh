@@ -46,7 +46,7 @@ Route::get('advertisingExpenses/{expense}/image/{hash}', [AdvertisingExpenseCont
 Route::resource('companies', CompanyController::class);
 
 //cards
-Route::resource('cards', BankAccountController::class)->except('show');
+Route::resource('cards', BankAccountController::class);
 
 //Freelancers
 Route::resource('freelancers', FreelancerController::class)->except('show');
