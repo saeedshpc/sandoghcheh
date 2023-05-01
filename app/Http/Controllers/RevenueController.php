@@ -20,6 +20,13 @@ class RevenueController extends Controller
         ]);
     }
 
+    public function show(Revenue $revenue): View
+    {
+        return view('revenues.show', [
+            'revenue' => $revenue
+        ]);
+    }
+
     public function create(): View
     {
         return view('revenues.create',[

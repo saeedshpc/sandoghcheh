@@ -31,8 +31,8 @@
             </x-slot>
             @foreach($revenues as $revenue)
                 <x-table-row>
-                    <x-table-td>{{$revenue->id}}</x-table-td>
-                    <x-table-td>{{$revenue->company->name}}</x-table-td>
+                    <x-table-td><a class="hover:text-blue-500 duration-200" href="/revenues/{{$revenue->id}}">{{$revenue->id}}</a></x-table-td>
+                    <x-table-td><a class="hover:text-blue-500 duration-200" href="/revenues/{{$revenue->id}}">{{$revenue->company->name}}</a></x-table-td>
                     <x-table-td>{{$revenue->month_of_year}}</x-table-td>
                     <x-table-td>{{$revenue->total_sale}}</x-table-td>
                     <x-table-td>{{$revenue->online_sale_share}}</x-table-td>

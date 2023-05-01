@@ -51,12 +51,11 @@ Route::resource('cards', BankAccountController::class);
 //Freelancers
 Route::resource('freelancers', FreelancerController::class);
 
+//Revenues
+Route::resource('revenues', RevenueController::class);
+
 //Advertisers
 Route::resource('advertisers', AdvertiserController::class)->except('show');
-
-
-//Revenues
-Route::resource('revenues', RevenueController::class)->except('show');
 
 //Setting
 //These Routes are just placeholders for the complete version of the setting page and will be changed later
