@@ -28,8 +28,8 @@
             </x-slot>
             @foreach($advertisers as $advertiser)
                 <x-table-row>
-                    <x-table-td>{{$advertiser->id}}</x-table-td>
-                    <x-table-td>{{$advertiser->name}}</x-table-td>
+                    <x-table-td><a class="hover:text-blue-500 duration-200" href="/advertisers/{{$advertiser->id}}">{{$advertiser->id}}</a></x-table-td>
+                    <x-table-td><a class="hover:text-blue-500 duration-200" href="/advertisers/{{$advertiser->id}}">{{$advertiser->name}}</a></x-table-td>
                     <x-table-td>{{$advertiser->work_area}}</x-table-td>
                     <x-table-td>15</x-table-td>
                     <x-table-td>140/000/000</x-table-td>

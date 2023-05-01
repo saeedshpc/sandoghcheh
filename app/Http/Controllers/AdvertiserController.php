@@ -18,6 +18,13 @@ class AdvertiserController extends Controller
         ]);
     }
 
+    public function show(Advertiser $advertiser): View
+    {
+        return view('advertisers.show', [
+            'advertiser' => $advertiser
+        ]);
+    }
+
     public function create(): View
     {
         return view('advertisers.create');

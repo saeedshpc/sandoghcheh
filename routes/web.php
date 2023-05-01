@@ -55,7 +55,7 @@ Route::resource('freelancers', FreelancerController::class);
 Route::resource('revenues', RevenueController::class);
 
 //Advertisers
-Route::resource('advertisers', AdvertiserController::class)->except('show');
+Route::resource('advertisers', AdvertiserController::class);
 
 //Setting
 //These Routes are just placeholders for the complete version of the setting page and will be changed later
