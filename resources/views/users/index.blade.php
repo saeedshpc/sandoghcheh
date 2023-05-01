@@ -23,8 +23,8 @@
             </x-slot>
             @foreach($users as $user)
                 <x-table-row>
-                    <x-table-td>{{$user->id}}</x-table-td>
-                    <x-table-td>{{$user->firstName .' ' .  $user->lastName}}</x-table-td>
+                    <x-table-td><a class="hover:text-blue-500 duration-200" href="/users/{{$user->id}}">{{$user->id}}</a></x-table-td>
+                    <x-table-td><a class="hover:text-blue-500 duration-200" href="/users/{{$user->id}}">{{$user->firstName .' ' .  $user->lastName}}</a></x-table-td>
                     <x-table-td>{{$user->username}}</x-table-td>
                     <x-table-td>{{$user->company->name}}</x-table-td>
                     <x-table-td>{{$user->position}}</x-table-td>

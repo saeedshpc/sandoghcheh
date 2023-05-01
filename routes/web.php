@@ -42,6 +42,13 @@ Route::get('freelancerExpenses/{expense}/image/{hash}', [FreelancerExpenseContro
 Route::resource('advertisingExpenses', AdvertisingExpenseController::class);
 Route::get('advertisingExpenses/{expense}/image/{hash}', [AdvertisingExpenseController::class, 'deleteImage']);
 
+//Setting
+//These Routes are just placeholders for the complete version of the setting page and will be changed later
+Route::controller(SettingController::class)->group(function () {
+    Route::get('settings', 'index');
+    Route::patch('settings', 'update');
+});
+
 //companies
 Route::resource('companies', CompanyController::class);
 
@@ -57,15 +64,10 @@ Route::resource('revenues', RevenueController::class);
 //Advertisers
 Route::resource('advertisers', AdvertiserController::class);
 
-//Setting
-//These Routes are just placeholders for the complete version of the setting page and will be changed later
-Route::controller(SettingController::class)->group(function () {
-    Route::get('settings', 'index');
-    Route::patch('settings', 'update');
-});
+//Activities
+Route::get('activities', [ActivityController::class, 'index']);
 
 //Users
-Route::resource('users', UserController::class)->except('show');
+Route::resource('users', UserController::class);
 Route::get('users/{user}/image/{hash}', [UserController::class, 'deleteImage']);
 
-Route::get('activities', [ActivityController::class, 'index']);

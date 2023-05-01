@@ -1,5 +1,5 @@
 @props(['expense'])
-@if($expense->invoice_image ?? false)
+@if($expense->invoice_image ?? false || $expense->profile_image ?? false)
 <div
     class="flex flex-col gap-4 items-start justify-between md:flex-row md:items-center md:gap-0"
 >
