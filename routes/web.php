@@ -49,7 +49,7 @@ Route::resource('companies', CompanyController::class);
 Route::resource('cards', BankAccountController::class);
 
 //Freelancers
-Route::resource('freelancers', FreelancerController::class)->except('show');
+Route::resource('freelancers', FreelancerController::class);
 
 //Advertisers
 Route::resource('advertisers', AdvertiserController::class)->except('show');

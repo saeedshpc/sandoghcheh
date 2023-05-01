@@ -30,8 +30,8 @@
             </x-slot>
             @foreach($freelancers as $freelancer)
                 <x-table-row>
-                    <x-table-td>{{$freelancer->id}}</x-table-td>
-                    <x-table-td>{{$freelancer->fullName}}</x-table-td>
+                    <x-table-td><a class="hover:text-blue-500 duration-200" href="/freelancers/{{$freelancer->id}}">{{$freelancer->id}}</a></x-table-td>
+                    <x-table-td><a class="hover:text-blue-500 duration-200" href="/freelancers/{{$freelancer->id}}">{{$freelancer->fullName}}</a></x-table-td>
                     <x-table-td>{{$freelancer->expertise}}</x-table-td>
                     <x-table-td>14</x-table-td>
                     <x-table-td>1402-01-22</x-table-td>

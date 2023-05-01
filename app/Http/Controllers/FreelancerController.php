@@ -23,6 +23,13 @@ class FreelancerController extends Controller
         return view('freelancers.create');
     }
 
+    public function show(Freelancer $freelancer): View
+    {
+        return view('freelancers.show', [
+            'freelancer' => $freelancer
+        ]);
+    }
+
     public function store(): RedirectResponse
     {
         $attributes = request()->validate([
