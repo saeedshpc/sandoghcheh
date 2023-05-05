@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('freelancer_expenses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('bank_account_id')->constrained();
-            $table->foreignId('freelancer_id')->constrained();
+            $table->foreignId('freelancer_id')->nullable()->constrained()->nullOnDelete();
             $table->string('title');
             $table->decimal('price',9,0);
             $table->text('description')->nullable();

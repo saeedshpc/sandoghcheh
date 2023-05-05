@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('advertising_expenses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('company_id')->constrained();
-            $table->foreignId('advertiser_id')->constrained();
+            $table->foreignId('advertiser_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('bank_account_id')->constrained();
             $table->string('title');
             $table->decimal('price',9, 0);

@@ -21,7 +21,7 @@
     <li class="h-8 border-r-4 {{$borderColor}} pr-2">
         <a href="#" class="{{$textColor}}"
         >{{ $activiy->event_info }}</a
-        > توسط {{ $activiy->user->firstName .' ' . $activiy->user->lastName }}
+        > توسط {{ $activiy->user->firstName ?? 'کاربر حذف شده' .' ' . $activiy->user?->lastName }}
         <span class="text-xs text-gray-400">{{$activiy->created_at->diffForHumans()}}</span>
     </li>
 @endforeach

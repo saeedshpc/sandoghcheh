@@ -23,7 +23,7 @@
             @foreach($activities as $activity)
                 <x-table-row>
                     <x-table-td>{{$activity->id}}</x-table-td>
-                    <x-table-td>{{$activity->user->firstName .' '. $activity->user->lastName}}</x-table-td>
+                    <x-table-td>{{$activity->user->firstName ?? 'کاربر حذف شده' .' '. $activity->user?->lastName}}</x-table-td>
                     <x-table-td>{{$activity->event_info}}</x-table-td>
                     <x-table-td dir="ltr">{{$activity->created_at}}</x-table-td>
 
