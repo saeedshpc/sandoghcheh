@@ -53,7 +53,7 @@
             </x-show.data>
 
             <!-- div 7  -->
-            <x-show.invoice :expense="$user" />
+            <x-show.profile-image :user="$user" />
 
             <!-- mobile actions -->
             <div class="lg:hidden flex justify-end gap-3 mt-5">
