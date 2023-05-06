@@ -8,7 +8,11 @@
     </div>
     <!-- boxes -->
     <x-main-info-boxes>
-        <x-report-box name="simple"/>
+        <x-report-box2
+            title="بودجه باقی مانده بانوریس"
+            middleType="expense"
+            middleValue="25/000"
+        />
         <x-report-box name="simple"/>
         <x-report-box name="simple" :active="true"/>
         <x-report-box name="simple"/>
