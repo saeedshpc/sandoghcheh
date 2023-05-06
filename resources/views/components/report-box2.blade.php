@@ -1,23 +1,60 @@
-@props(['title' => 'عنوان','middleType' => null, 'middleValue' => 'متن وسط', 'below' => 'متن پایین', 'active' => false])
+@props([
+    'title' => 'عنوان',
+    'middleType' => null,
+    'middleValue' => 'متن وسط',
+    'bottomType' => null,
+    'bottomValue' => 'متن پایین',
+    'active' => false])
 
 @php
     $boxClasses = "w-full md:w-[49%] xl:w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white";
-    $middle = '';
+    $middleText = '';
+    $bottomText = '';
+
         switch ($middleType) {
             case 'expense':
-                $middle = "$middleValue تومان ";
+                $middleText = "$middleValue تومان ";
                 break;
             case 'people':
-                $middle = "$middleValue نفر ";
+                $middleText = "$middleValue نفر ";
                 break;
             case 'advertiser':
-                 $middle = "$middleValue مجری ";
+                 $middleText = "$middleValue مجری ";
                  break;
             case 'media':
-                 $middle = "$middleValue رسانه ";
+                 $middleText = "$middleValue رسانه ";
                  break;
             default:
-                 $middle = 'متن وسط';
+                 $middleText = 'متن وسط';
+        }
+
+        switch ($bottomType) {
+            case 'fromExpense':
+                $bottomText = "از $bottomValue تومان ";
+                break;
+            case 'monthlyBudget':
+                $bottomText = "بودجه ماهانه: $bottomValue تومان";
+                break;
+            case 'freelancer':
+                $bottomText = "به $bottomValue فریلنسر";
+                break;
+            case 'advertiser':
+                 $bottomText = "به $bottomValue مجری";
+                 break;
+            case 'topAdvertiser':
+                 $bottomText = "برترین مجری بر اساس تعداد تبلیغات: $bottomValue";
+                 break;
+            case 'topMedia':
+                 $bottomText = "برترین رسانه بر اساس تعداد تبلیغات: $bottomValue";
+                 break;
+            case 'yearTotalSale':
+                 $bottomText = "فروش امسال: $bottomValue";
+                 break;
+            case 'inDays':
+                 $bottomText = "در $bottomValue روز";
+                 break;
+            default:
+                 $bottomText = '';
         }
 
         if($active) {
@@ -30,11 +67,17 @@
 @endphp
 
 <div class="{{ $boxClasses }}">
+
     <p class="{{ $active ? 'text-white' : 'text-gray-600' }} dark:text-white mb-1">
         {{ $title }}
     </p>
+
     <p class="{{ $active ? 'text-white' : 'text-gray-800' }} dark:text-white text-sm font-bold mb-1">
-        {{ $middle }}
+        {{ $middleText }}
     </p>
-    <p class="{{ $active ? 'text-white' : 'text-gray-600' }} text-xs">از 500/000</p>
+
+    <p class="{{ $active ? 'text-white' : 'text-gray-600' }} text-xs">
+        {{ $bottomText }}
+    </p>
+
 </div>

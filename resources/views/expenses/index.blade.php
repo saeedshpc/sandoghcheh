@@ -12,6 +12,8 @@
             title="بودجه باقی مانده بانوریس"
             middleType="expense"
             middleValue="25/000"
+            bottomType="fromExpense"
+            bottomValue="225/000"
         />
         <x-report-box name="simple"/>
         <x-report-box name="simple" :active="true"/>
