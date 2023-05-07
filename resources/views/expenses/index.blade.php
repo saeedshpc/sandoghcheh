@@ -9,15 +9,35 @@
     <!-- boxes -->
     <x-main-info-boxes>
         <x-report-box2
+            title="بودجه باقی مانده توکان"
+            middleType="expense"
+            middleValue="317/000 تومان"
+            bottomType="fromExpense"
+            bottomValue="از 500/000"
+        />
+        <x-report-box2
             title="بودجه باقی مانده بانوریس"
             middleType="expense"
-            middleValue="25/000"
+            middleValue="317/000 تومان"
             bottomType="fromExpense"
-            bottomValue="225/000"
+            bottomValue="از 500/000"
+            :active="true"
         />
-        <x-report-box name="simple"/>
-        <x-report-box name="simple" :active="true"/>
-        <x-report-box name="simple"/>
+        <x-report-box2
+            title="هزینه بانوریس از اول سال"
+            middleType="expense"
+            middleValue="317/000 تومان"
+            bottomType="fromExpense"
+            bottomValue="از 500/000"
+        />
+        <x-report-box2
+            title="هزینه توکان از اول سال"
+            middleType="expense"
+            middleValue="317/000 تومان"
+            bottomType="fromExpense"
+            bottomValue="از 500/000"
+        />
+
     </x-main-info-boxes>
     <!-- table and pagination -->
     <div id="table-pagination-div">

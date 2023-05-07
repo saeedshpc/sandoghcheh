@@ -8,10 +8,35 @@
     </div>
     <!-- boxes -->
     <x-main-info-boxes>
-        <x-report-box name="budget"/>
-        <x-report-box name="freelancer"/>
-        <x-report-box name="freelancer" :active="true"/>
-        <x-report-box name="freelancer_number"/>
+        <x-report-box2
+            title="بودجه فریلنسرها"
+            middleType="expense"
+            middleValue="21/870/000"
+            bottomType="monthlyBudget"
+            bottomValue="2/000/000"
+        />
+        <x-report-box2
+            title="واریزی های 30 روز گذشته"
+            middleType="expense"
+            middleValue="1/420/000"
+            bottomType="freelancer"
+            bottomValue="7"
+        />
+        <x-report-box2
+            title="جمع واریزی‌های سال"
+            middleType="expense"
+            middleValue="5/350/000"
+            bottomType="freelancer"
+            bottomValue="7"
+            :active="true"
+        />
+        <x-report-box2
+            title="تعداد فریلنسرها"
+            middleType="people"
+            middleValue="14"
+            bottomType=""
+            bottomValue=""
+        />
     </x-main-info-boxes>
     <!-- table and pagination -->
     <div id="table-pagination-div">

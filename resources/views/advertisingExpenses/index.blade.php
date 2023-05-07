@@ -8,10 +8,35 @@
     </div>
     <!-- boxes -->
     <x-main-info-boxes>
-        <x-report-box name="advertise-A" :active="true"/>
-        <x-report-box name="advertise-B"/>
-        <x-report-box name="advertise-B"/>
-        <x-report-box name="advertise-B"/>
+        <x-report-box2
+            title="جمع هزینه تبلیغات امسال"
+            middleType="expense"
+            middleValue="5/411/000"
+            bottomType="advertiser"
+            bottomValue="8"
+            :active="true"
+        />
+        <x-report-box2
+            title="جمع هزینه های این ماه"
+            middleType="expense"
+            middleValue="21/200/000"
+            bottomType="monthlyBudget"
+            bottomValue="25/000/000"
+        />
+        <x-report-box2
+            title="تعداد مجریان تبلیغاتی"
+            middleType="advertiser"
+            middleValue="17"
+            bottomType="topAdvertiser"
+            bottomValue="رنگی رنگی - اینستاگرام"
+        />
+        <x-report-box2
+            title="تعداد رسانه‌های تبلیغاتی"
+            middleType="media"
+            middleValue="9"
+            bottomType="topMedia"
+            bottomValue="اینستاگرام"
+        />
     </x-main-info-boxes>
     <!-- table and pagination -->
     <div id="table-pagination-div">
