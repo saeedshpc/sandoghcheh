@@ -8,10 +8,35 @@
     </div>
     <!-- boxes -->
     <x-main-info-boxes>
-        <x-report-box name="financial"/>
-        <x-report-box name="financial"/>
-        <x-report-box name="financial" :active="true"/>
-        <x-report-box name="financial"/>
+        <x-report-box2
+            title="جمع هزینه‌های امسال بانوریس"
+            middleType="expense"
+            middleValue="3/317/000"
+            bottomType="yearTotalSale"
+            bottomValue="500/000/000"
+            :active="true"
+        />
+        <x-report-box2
+            title="جمع هزینه‌های امسال فروشگاه لباس"
+            middleType="expense"
+            middleValue="41/07/000"
+            bottomType="yearTotalSale"
+            bottomValue="950/000/000"
+        />
+        <x-report-box2
+            title="جمع هزینه های امسال فروشگاه آرایشی"
+            middleType="expense"
+            middleValue="11/300/000 "
+            bottomType="yearTotalSale"
+            bottomValue="3/100/400/000"
+        />
+        <x-report-box2
+            title="جمع هزینه‌های امسال فروشگاه ماگ"
+            middleType="expense"
+            middleValue="22/980/000"
+            bottomType="yearTotalSale"
+            bottomValue="215/00/000"
+        />
     </x-main-info-boxes>
     <!-- table and pagination -->
     <div id="table-pagination-div">
