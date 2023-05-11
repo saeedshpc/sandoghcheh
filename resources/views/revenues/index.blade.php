@@ -8,10 +8,35 @@
     </div>
     <!-- boxes -->
     <x-main-info-boxes>
-        <x-report-box name="revenue" :active="true"/>
-        <x-report-box name="revenue"/>
-        <x-report-box name="revenue"/>
-        <x-report-box name="revenue"/>
+        <x-report-box2
+            title="فروش سال بانوریس"
+            middleType="expense"
+            middleValue="21/870/000"
+            bottomType="inDays"
+            bottomValue="220"
+            :active="true"
+        />
+        <x-report-box2
+            title="فروش سال لباس"
+            middleType="expense"
+            middleValue="21/870/000"
+            bottomType="inDays"
+            bottomValue="220"
+        />
+        <x-report-box2
+            title="فروش سال لوازم آرایشی"
+            middleType="expense"
+            middleValue="21/870/000"
+            bottomType="inDays"
+            bottomValue="220"
+        />
+        <x-report-box2
+            title="فروش سال ماگ"
+            middleType="expense"
+            middleValue="21/870/000"
+            bottomType="inDays"
+            bottomValue="220"
+        />
     </x-main-info-boxes>
     <!-- table and pagination -->
     <div id="table-pagination-div">
