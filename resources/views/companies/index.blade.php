@@ -8,7 +8,7 @@
     </div>
     <!-- boxes -->
     <x-main-info-boxes>
-        <x-report-box2
+        <x-report-box
             title="جمع هزینه‌های امسال بانوریس"
             middleType="expense"
             middleValue="3/317/000"
@@ -16,21 +16,21 @@
             bottomValue="500/000/000"
             :active="true"
         />
-        <x-report-box2
+        <x-report-box
             title="جمع هزینه‌های امسال فروشگاه لباس"
             middleType="expense"
             middleValue="41/07/000"
             bottomType="yearTotalSale"
             bottomValue="950/000/000"
         />
-        <x-report-box2
+        <x-report-box
             title="جمع هزینه های امسال فروشگاه آرایشی"
             middleType="expense"
             middleValue="11/300/000 "
             bottomType="yearTotalSale"
             bottomValue="3/100/400/000"
         />
-        <x-report-box2
+        <x-report-box
             title="جمع هزینه‌های امسال فروشگاه ماگ"
             middleType="expense"
             middleValue="22/980/000"

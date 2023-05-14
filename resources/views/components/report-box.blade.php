@@ -1,172 +1,83 @@
-@props(['name' , 'active' => false])
+@props([
+    'title' => 'عنوان',
+    'middleType' => null,
+    'middleValue' => 'متن وسط',
+    'bottomType' => null,
+    'bottomValue' => 'متن پایین',
+    'active' => false])
 
-@if(!$active && $name === 'simple')
-    <div
-        class="bg-gray-100 dark:bg-slate-700 dark:border-gray-600 dark:hover:border-gray-400 w-full md:w-[49%] xl:w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-gray-200"
-    >
-        <p class="text-gray-600 dark:text-white mb-1">
-            بودجه باقی مانده توکان
-        </p>
-        <p class="text-gray-800 dark:text-white text-sm font-bold mb-1">
-            317/000 تومان
-        </p>
-        <p class="text-gray-600 dark:text-white text-xs">از 500/000</p>
-    </div>
-@endif
-@if($active && $name === 'simple')
-<div
-    class="bg-gradient-to-b md:w-[49%] xl:w-full from-[#13bda0] to-[#0b9b82] w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-blue-300"
->
-    <p class="text-white dark:text-white mb-1">
-        بودجه باقی مانده بانوریس
+@php
+    $boxClasses = "w-full md:w-[49%] xl:w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white";
+    $middleText = '';
+    $bottomText = '';
+
+        switch ($middleType) {
+            case 'expense':
+                $middleText = "$middleValue تومان ";
+                break;
+            case 'people':
+                $middleText = "$middleValue نفر ";
+                break;
+            case 'advertiser':
+                 $middleText = "$middleValue مجری ";
+                 break;
+            case 'media':
+                 $middleText = "$middleValue رسانه ";
+                 break;
+            default:
+                 $middleText = 'متن وسط';
+        }
+
+        switch ($bottomType) {
+            case 'fromExpense':
+                $bottomText = "از $bottomValue تومان ";
+                break;
+            case 'monthlyBudget':
+                $bottomText = "بودجه ماهانه: $bottomValue تومان";
+                break;
+            case 'freelancer':
+                $bottomText = "به $bottomValue فریلنسر";
+                break;
+            case 'advertiser':
+                 $bottomText = "به $bottomValue مجری";
+                 break;
+            case 'topAdvertiser':
+                 $bottomText = "برترین مجری بر اساس تعداد تبلیغات: $bottomValue";
+                 break;
+            case 'topMedia':
+                 $bottomText = "برترین رسانه بر اساس تعداد تبلیغات: $bottomValue";
+                 break;
+            case 'yearTotalSale':
+                 $bottomText = "فروش امسال: $bottomValue";
+                 break;
+            case 'inDays':
+                 $bottomText = "در $bottomValue روز";
+                 break;
+            default:
+                 $bottomText = '';
+        }
+
+        if($active) {
+            $boxClasses .= " bg-gradient-to-b from-[#13bda0] to-[#0b9b82] hover:border-blue-300";
+        } else {
+            $boxClasses .= " bg-gray-100 dark:bg-slate-700 dark:border-gray-600 dark:hover:border-gray-400 hover:border-gray-200";
+        }
+
+
+@endphp
+
+<div class="{{ $boxClasses }}">
+
+    <p class="{{ $active ? 'text-white' : 'text-gray-600' }} dark:text-white mb-1">
+        {{ $title }}
     </p>
-    <p class="text-white dark:text-white text-sm font-bold mb-1">
-        317/000 تومان
+
+    <p class="{{ $active ? 'text-white' : 'text-gray-800' }} dark:text-white text-sm font-bold mb-1">
+        {{ $middleText }}
     </p>
-    <p class="text-white dark:text-white text-xs">از 500/000</p>
+
+    <p class="{{ $active ? 'text-white' : 'text-gray-600' }} text-xs">
+        {{ $bottomText }}
+    </p>
+
 </div>
-@endif
-
-@if(!$active && $name === 'financial')
-    <div
-        class="bg-gray-100 dark:bg-slate-700 dark:border-gray-600 dark:hover:border-gray-400 w-full md:w-[49%] xl:w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-gray-200"
-    >
-        <p class="text-gray-600 dark:text-white mb-1">
-            جمع هزینه‌های امسال بانوریس
-        </p>
-        <p class="text-gray-800 dark:text-white text-sm font-bold mb-1">
-            5/3400/000 تومان
-        </p>
-        <p class="text-gray-600 dark:text-white text-xs">
-            فروش امسال: 700/000/000
-        </p>
-    </div>
-@endif
-@if($active && $name === 'financial')
-    <div
-        class="bg-gradient-to-b md:w-[49%] xl:w-full from-[#13bda0] to-[#0b9b82] w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-blue-300"
-    >
-        <p class="text-white dark:text-white mb-1">
-            جمع هزینه‌های امسال فروشگاه آرایشی
-        </p>
-        <p class="text-white dark:text-white text-sm font-bold mb-1">
-            31/220/000 تومان
-        </p>
-        <p class="text-white dark:text-white text-xs">
-            فروش امسال: 2/856/00/000
-        </p>
-    </div>
-@endif
-
-@if(!$active && $name === 'budget')
-    <div
-        class="bg-gray-100 dark:bg-slate-700 dark:border-gray-600 dark:hover:border-gray-400 w-full md:w-[49%] xl:w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-gray-200"
-    >
-        <p class="text-gray-600 dark:text-white mb-1">
-            بودجه فریلنسرها
-        </p>
-        <p class="text-gray-800 dark:text-white text-sm font-bold mb-1">
-            21/870/000 تومان
-        </p>
-        <p class="text-gray-600 dark:text-white text-xs">
-            بودجه ماهانه 2/000/000
-        </p>
-    </div>
-@endif
-
-@if(!$active && $name === 'freelancer')
-    <div
-        class="bg-gray-100 dark:bg-slate-700 dark:border-gray-600 dark:hover:border-gray-400 w-full md:w-[49%] xl:w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-gray-200"
-    >
-        <p class="text-gray-600 dark:text-white mb-1">
-            واریزی های 30 روز گذشته
-        </p>
-        <p class="text-gray-800 dark:text-white text-sm font-bold mb-1">
-            1/420/000 تومان
-        </p>
-        <p class="text-gray-600 dark:text-white text-xs">
-            به 7 فریلنسر
-        </p>
-    </div>
-@endif
-
-@if($active && $name === 'freelancer')
-<div
-    class="bg-gradient-to-b md:w-[49%] xl:w-full from-[#13bda0] to-[#0b9b82] w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-blue-300"
->
-    <p class="text-white dark:text-white mb-1">
-        جمع واریزی‌های سال
-    </p>
-    <p class="text-white dark:text-white text-sm font-bold">
-        5/350/000 تومان
-    </p>
-    <p class="text-white dark:text-white text-xs">به 7 فریلنسر</p>
-</div>
-@endif
-
-@if(!$active && $name === 'freelancer_number')
-<div
-    class="bg-gray-100 dark:bg-slate-700 dark:border-gray-600 dark:hover:border-gray-400 w-full md:w-[49%] xl:w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-gray-200"
->
-    <p class="text-gray-600 dark:text-white mb-1">
-        تعداد فریلنسرها
-    </p>
-    <p class="text-gray-800 dark:text-white text-sm font-bold">
-        14 نفر
-    </p>
-</div>
-@endif
-
-@if($active && $name === 'advertise-A')
-<div
-    class="bg-gradient-to-b md:w-[49%] xl:w-full from-[#13bda0] to-[#0b9b82] w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-blue-300"
->
-    <p class="text-white dark:text-white mb-1">
-        جمع هزینه تبلیغات امسال
-    </p>
-    <p class="text-white dark:text-white text-sm font-bold mb-1">
-        5/411/000 تومان
-    </p>
-    <p class="text-white dark:text-white text-xs">به 8 مجری</p>
-</div>
-@endif
-
-@if(!$active && $name === 'advertise-B')
-<div
-    class="bg-gray-100 dark:bg-slate-700 dark:border-gray-600 dark:hover:border-gray-400 w-full md:w-[49%] xl:w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-gray-200"
->
-    <p class="text-gray-600 dark:text-white mb-1">
-        جمع هزینه های این ماه
-    </p>
-    <p class="text-gray-800 dark:text-white text-sm font-bold mb-1">
-        تومان 21/200/000
-    </p>
-    <p class="text-gray-600 dark:text-white text-xs">
-        بودجه ماهانه 25/000/000
-    </p>
-</div>
-@endif
-
-@if($active && $name === 'revenue')
-    <div
-        class="bg-gradient-to-b md:w-[49%] xl:w-full from-[#13bda0] to-[#0b9b82] w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-blue-300"
-    >
-        <p class="text-white dark:text-white mb-1">فروش سال بانوریس</p>
-        <p class="text-white dark:text-white text-sm font-bold mb-1">
-            530/310/000 تومان
-        </p>
-        <p class="text-white dark:text-white text-xs">در 220 روز</p>
-    </div>
-@endif
-
-@if(!$active && $name === 'revenue')
-    <div
-        class="bg-gray-100 dark:bg-slate-700 dark:border-gray-600 dark:hover:border-gray-400 w-full md:w-[49%] xl:w-full py-4 px-4 rounded-lg md:h-32 border duration-200 border-white hover:border-gray-200"
-    >
-        <p class="text-gray-600 dark:text-white mb-1">فروش سال لباس</p>
-        <p class="text-gray-800 dark:text-white text-sm font-bold mb-1">
-            1/190/000/000 تومان
-        </p>
-        <p class="text-gray-600 dark:text-white text-xs">در 220 روز</p>
-    </div>
-@endif

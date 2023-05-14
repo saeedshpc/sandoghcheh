@@ -8,14 +8,14 @@
     </div>
     <!-- boxes -->
     <x-main-info-boxes>
-        <x-report-box2
+        <x-report-box
             title="بودجه باقی مانده توکان"
             middleType="expense"
             middleValue="317/000 تومان"
             bottomType="fromExpense"
             bottomValue="از 500/000"
         />
-        <x-report-box2
+        <x-report-box
             title="بودجه باقی مانده بانوریس"
             middleType="expense"
             middleValue="317/000 تومان"
@@ -23,14 +23,14 @@
             bottomValue="از 500/000"
             :active="true"
         />
-        <x-report-box2
+        <x-report-box
             title="هزینه بانوریس از اول سال"
             middleType="expense"
             middleValue="317/000 تومان"
             bottomType="fromExpense"
             bottomValue="از 500/000"
         />
-        <x-report-box2
+        <x-report-box
             title="هزینه توکان از اول سال"
             middleType="expense"
             middleValue="317/000 تومان"

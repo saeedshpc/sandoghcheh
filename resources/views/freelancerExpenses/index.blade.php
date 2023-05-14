@@ -8,21 +8,21 @@
     </div>
     <!-- boxes -->
     <x-main-info-boxes>
-        <x-report-box2
+        <x-report-box
             title="بودجه فریلنسرها"
             middleType="expense"
             middleValue="21/870/000"
             bottomType="monthlyBudget"
             bottomValue="2/000/000"
         />
-        <x-report-box2
+        <x-report-box
             title="واریزی های 30 روز گذشته"
             middleType="expense"
             middleValue="1/420/000"
             bottomType="freelancer"
             bottomValue="7"
         />
-        <x-report-box2
+        <x-report-box
             title="جمع واریزی‌های سال"
             middleType="expense"
             middleValue="5/350/000"
@@ -30,7 +30,7 @@
             bottomValue="7"
             :active="true"
         />
-        <x-report-box2
+        <x-report-box
             title="تعداد فریلنسرها"
             middleType="people"
             middleValue="14"

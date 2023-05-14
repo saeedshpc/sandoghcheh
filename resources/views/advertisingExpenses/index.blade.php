@@ -8,7 +8,7 @@
     </div>
     <!-- boxes -->
     <x-main-info-boxes>
-        <x-report-box2
+        <x-report-box
             title="جمع هزینه تبلیغات امسال"
             middleType="expense"
             middleValue="5/411/000"
@@ -16,21 +16,21 @@
             bottomValue="8"
             :active="true"
         />
-        <x-report-box2
+        <x-report-box
             title="جمع هزینه های این ماه"
             middleType="expense"
             middleValue="21/200/000"
             bottomType="monthlyBudget"
             bottomValue="25/000/000"
         />
-        <x-report-box2
+        <x-report-box
             title="تعداد مجریان تبلیغاتی"
             middleType="advertiser"
             middleValue="17"
             bottomType="topAdvertiser"
             bottomValue="رنگی رنگی - اینستاگرام"
         />
-        <x-report-box2
+        <x-report-box
             title="تعداد رسانه‌های تبلیغاتی"
             middleType="media"
             middleValue="9"

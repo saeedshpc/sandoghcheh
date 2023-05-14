@@ -8,7 +8,7 @@
     </div>
     <!-- boxes -->
     <x-main-info-boxes>
-        <x-report-box2
+        <x-report-box
             title="فروش سال بانوریس"
             middleType="expense"
             middleValue="21/870/000"
@@ -16,21 +16,21 @@
             bottomValue="220"
             :active="true"
         />
-        <x-report-box2
+        <x-report-box
             title="فروش سال لباس"
             middleType="expense"
             middleValue="21/870/000"
             bottomType="inDays"
             bottomValue="220"
         />
-        <x-report-box2
+        <x-report-box
             title="فروش سال لوازم آرایشی"
             middleType="expense"
             middleValue="21/870/000"
             bottomType="inDays"
             bottomValue="220"
         />
-        <x-report-box2
+        <x-report-box
             title="فروش سال ماگ"
             middleType="expense"
             middleValue="21/870/000"
