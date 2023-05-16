@@ -13,7 +13,8 @@
     <script src="/js/script.js" defer></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
     <title>صندوقچه</title>
-    <link rel="stylesheet" href="/css/style.css"/>
+{{--    <link rel="stylesheet" href="/css/style.css"/>--}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
 <section>

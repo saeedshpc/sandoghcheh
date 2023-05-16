@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.login-section {
+    /* background-color: #f5f2ea; */
+    background-image: url("/images/desktop-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.table-row {
+    @apply odd:bg-gray-100 dark:odd:bg-slate-700 even:bg-white hover:bg-gray-200 dark:hover:bg-slate-500 dark:even:bg-slate-600;
+}
+.table-th {
+    @apply font-normal pb-3 px-6 whitespace-nowrap md:px-2;
+}
+.table-td {
+    @apply py-3 first:pr-3 px-6 whitespace-nowrap md:px-2;
+}
+
+@media (max-width: 830px) {
+    .login-section {
+        background-image: url("/images/tablet-bg.jpg");
+        /* background-color: #f5f2eb; */
+    }
+}
+
+@media (max-width: 576px) {
+    .login-section {
+        background-image: none;
+        background-color: #f5f2eb;
+    }
+}
+
+.hamburger {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+    width: 24px;
+    height: 2px;
+    top: 0;
+    left: 0;
+    background: gray;
+    position: absolute;
+    transition: all 0.25s;
+    transform: rotate(0);
+}
+
+.hamburger-middle {
+    transform: translateY(7px);
+}
+
+.hamburger-bottom {
+    transform: translateY(14px);
+}
+
+.open {
+    transform: rotate(90deg);
+}
+
+.open .hamburger-top {
+    transform: rotate(45deg) translateX(6px) translateY(6px);
+}
+
+.open .hamburger-middle {
+    display: none;
+}
+
+.open .hamburger-bottom {
+    transform: rotate(-45deg) translateX(-6px) translateY(6px);
+}
+
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: 100;
+    src: url("/fonts/woff/YekanBakhFaNum-thin.woff") format("woff"),
+    url("/fonts/woff2/YekanBakhFaNum-thin.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: 300;
+    src: url("/fonts/woff/YekanBakhFaNum-Light.woff") format("woff"),
+    url("/fonts/woff2/YekanBakhFaNum-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: normal;
+    src: url("/fonts/woff/YekanBakhFaNum-Regular.woff") format("woff"),
+    url("/fonts/woff2/YekanBakhFaNum-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: 600;
+    src: url("/onts/woff/YekanBakhFaNum-SemiBold.woff") format("woff"),
+    url("/fonts/woff2/YekanBakhFaNum-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: bold;
+    src: url("/fonts/woff/YekanBakhFaNum-Bold.woff") format("woff"),
+    url("/fonts/woff2/YekanBakhFaNum-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: 800;
+    src: url("/fonts/woff/Yekan Bakh FaNum-ExtraBold.woff") format("woff"),
+    url("/fonts/woff2/Yekan Bakh FaNum-ExtraBold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: 900;
+    src: url("/fonts/woff/Yekan Bakh FaNum-Black.woff") format("woff"),
+    url("/fonts/woff2/Yekan Bakh FaNum-Black.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: 950;
+    src: url("/fonts/woff/Yekan Bakh FaNum-ExtraBlack.woff") format("woff"),
+    url("/onts/woff2/Yekan Bakh FaNum-ExtraBlack.woff2") format("woff2");
+}
