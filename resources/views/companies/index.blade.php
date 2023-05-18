@@ -95,7 +95,7 @@
         </x-table>
 
         <!-- pagination -->
-        <div dir="ltr" class="my-8">
+        <div dir="ltr">
             {{ $companies->links() }}
         </div>
 {{--        <x-pagination></x-pagination>--}}
