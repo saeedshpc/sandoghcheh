@@ -4,7 +4,7 @@
     >
         @if ($paginator->onFirstPage())
             <span
-                class="p-2 px-4 rounded-lg bg-white border hover:bg-gray-100 dark:bg-slate-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600 duration-200 text-xs"
+                class="text-gray-400 p-2 px-4 rounded-lg bg-white border dark:bg-slate-700 dark:text-white dark:border-gray-600 duration-200 text-xs"
             >صفحه قبل</span
             >
         @else
@@ -31,7 +31,7 @@
                 @if (is_array($element))
                     @foreach ($element as $page => $url)
                         @if ($page == $paginator->currentPage())
-                            <span href="#" class="hover:text-[#32bba4]">{{ $page }}</span>
+                            <span href="#" class="text-[#32bba4]">{{ $page }}</span>
                         @else
                             <a href="{{ $url }}" class="hover:text-[#32bba4]">{{ $page }}</a>
                         @endif
@@ -47,7 +47,7 @@
             >صفحه بعد</a
         @else
             <span
-                class="p-2 px-4 rounded-lg bg-white dark:bg-slate-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600 border hover:bg-gray-100 duration-200 text-xs"
+                class="text-gray-400 p-2 px-4 rounded-lg bg-white border dark:bg-slate-700 dark:text-white dark:border-gray-600 duration-200 text-xs"
             >صفحه بعد</span
         @endif
 
