@@ -17,7 +17,7 @@ class ExpenseController extends Controller
     public function index(): View
     {
         return view('expenses.index', [
-            'expenses' => Expense::latest()->get(),
+            'expenses' => Expense::latest()->paginate(8),
             'textColor' => [$this, 'textColor'],
         ]);
     }
