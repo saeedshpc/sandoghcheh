@@ -19,7 +19,7 @@ class AdvertisingExpenseController extends Controller
     public function index(): View
     {
         return view('advertisingExpenses.index', [
-            'advertisingExpenses' => AdvertisingExpense::latest()->get(),
+            'advertisingExpenses' => AdvertisingExpense::latest()->paginate(8),
             'textColor' => [$this, 'textColor']
         ]);
     }
