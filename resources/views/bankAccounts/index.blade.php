@@ -96,6 +96,8 @@
         </x-table>
 
         <!-- pagination -->
-        <x-pagination></x-pagination>
+        <div dir="ltr">
+            {{ $bankAccounts->links() }}
+        </div>
     </div>
 </x-layout>

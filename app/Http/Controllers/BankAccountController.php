@@ -13,7 +13,7 @@ class BankAccountController extends Controller
     public function index(): View
     {
         return view('bankAccounts.index',[
-            'bankAccounts' => BankAccount::latest()->get(),
+            'bankAccounts' => BankAccount::latest()->paginate(8),
         ]);
     }
 
