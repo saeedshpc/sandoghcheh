@@ -14,7 +14,7 @@ class FreelancerController extends Controller
     public function index(): View
     {
         return view('freelancers.index', [
-            'freelancers' => Freelancer::latest()->get(),
+            'freelancers' => Freelancer::latest()->paginate(8),
         ]);
     }
 

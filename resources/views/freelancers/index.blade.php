@@ -90,8 +90,10 @@
             @endforeach
 
         </x-table>
-
+        
         <!-- pagination -->
-        <x-pagination></x-pagination>
+        <div>
+            {{ $freelancers->links() }}
+        </div>
     </div>
 </x-layout>
