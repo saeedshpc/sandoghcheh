@@ -94,7 +94,7 @@
         </x-table>
 
         <!-- pagination -->
-        <div dir="ltr">
+        <div>
             {{ $expenses->links() }}
         </div>
     </div>
