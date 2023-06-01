@@ -98,6 +98,8 @@
         </x-table>
 
         <!-- pagination -->
-        <x-pagination></x-pagination>
+        <div>
+            {{ $revenues->links() }}
+        </div>
     </div>
 </x-layout>

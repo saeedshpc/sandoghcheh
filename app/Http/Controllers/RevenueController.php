@@ -16,7 +16,7 @@ class RevenueController extends Controller
     public function index(): View
     {
         return view('revenues.index', [
-            'revenues' => Revenue::latest()->get(),
+            'revenues' => Revenue::latest()->paginate(8),
         ]);
     }
 
