@@ -14,7 +14,7 @@ class AdvertiserController extends Controller
     public function index(): View
     {
         return view('advertisers.index', [
-            'advertisers' => Advertiser::latest()->get(),
+            'advertisers' => Advertiser::latest()->paginate(8),
         ]);
     }
 

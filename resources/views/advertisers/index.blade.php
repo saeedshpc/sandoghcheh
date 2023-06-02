@@ -91,6 +91,8 @@
         </x-table>
 
         <!-- pagination -->
-        <x-pagination></x-pagination>
+        <div>
+            {{ $advertisers->links() }}
+        </div>
     </div>
 </x-layout>
