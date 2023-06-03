@@ -63,6 +63,8 @@
         </x-table>
 
         <!-- pagination -->
-        <x-pagination></x-pagination>
+        <div>
+            {{ $users->links() }}
+        </div>
     </div>
 </x-layout>
