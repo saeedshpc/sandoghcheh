@@ -11,7 +11,7 @@ class ActivityController extends Controller
     public function index(): View
     {
         return view('activities.index', [
-            'activities' => Activity::all()
+            'activities' => Activity::latest()->paginate()
         ]);
     }
 }

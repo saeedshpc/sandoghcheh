@@ -54,6 +54,8 @@
         </x-table>
 
         <!-- pagination -->
-        <x-pagination></x-pagination>
+        <div>
+            {{ $activities->links() }}
+        </div>
     </div>
 </x-layout>
