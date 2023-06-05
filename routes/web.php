@@ -32,7 +32,6 @@ Route::get('/', function () {
 
 //expenses
 Route::resource('expenses', ExpenseController::class);
-Route::get('expenses/{expense}/image/{hash}', [ExpenseController::class, 'deleteImage']);
 
 //Freelancer Expenses
 Route::resource('freelancerExpenses', FreelancerExpenseController::class);
@@ -71,3 +70,4 @@ Route::get('activities', [ActivityController::class, 'index']);
 Route::resource('users', UserController::class);
 Route::get('users/{user}/image/{hash}', [UserController::class, 'deleteImage']);
 
+Route::get('deleteImage/{model}/{recordId}/{hash}', \App\Http\Controllers\ImageDeletionController::class)->name('delete-image');
