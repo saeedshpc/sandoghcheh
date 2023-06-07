@@ -111,7 +111,7 @@
                         @endphp
                         <a
                             class="flex items-center justify-center w-[32px] h-[32px] rounded-full text-white bg-red-500 hover:bg-red-600 duration-200"
-                            href="/freelancerExpenses/{{$expense->id}}/image/{{$randomNumber }}"
+                            href="{{ route('delete-image', ['model' => 'FreelancerExpense', 'recordId' => $expense->id, 'hash' => $randomNumber]) }}"
                         ><x-icon name="trash" class="w-4 h-4" /></a
                         >
 

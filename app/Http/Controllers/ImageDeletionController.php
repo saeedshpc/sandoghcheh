@@ -12,7 +12,6 @@ class ImageDeletionController extends Controller
     {
         //  find the model
         $modelClass = 'App\Models\\' . ucfirst($model);
-
         //   check if the model exists
         if (!class_exists($modelClass)) {
             abort(404);
