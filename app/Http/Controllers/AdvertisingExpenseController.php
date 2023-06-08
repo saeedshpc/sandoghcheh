@@ -128,24 +128,6 @@ class AdvertisingExpenseController extends Controller
         ]);
     }
 
-    public function deleteImage(AdvertisingExpense $expense, $hash)
-    {
-        // check if it is a valid request that has been sent from edit page
-        if($hash !== session('imageDeleteHash')) {
-            return redirect('/advertisingExpenses');
-        }
-
-        Storage::delete($expense->invoice_image);
-
-        $expense->update([
-            'invoice_image' => null
-        ]);
-
-        return back()->with([
-            'message' => 'تصویر فاکتور از این هزینه حذف شد.'
-        ]);
-    }
-
     public function textColor($expense)
     {
         $statusColor = '';

@@ -38,7 +38,6 @@ Route::resource('freelancerExpenses', FreelancerExpenseController::class);
 
 //Advertising Expenses
 Route::resource('advertisingExpenses', AdvertisingExpenseController::class);
-Route::get('advertisingExpenses/{expense}/image/{hash}', [AdvertisingExpenseController::class, 'deleteImage']);
 
 //Setting
 //These Routes are just placeholders for the complete version of the setting page and will be changed later
