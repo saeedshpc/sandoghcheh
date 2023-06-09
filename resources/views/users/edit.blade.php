@@ -89,18 +89,18 @@
 
             <!-- input 8 file -->
             <x-form.file
-                name="profile_image"
+                name="image"
                 dir="ltr"
                 label="تصویر پروفایل"
                 description="تصویر پروفایل کاربر"
             />
 
-            @if($user->profile_image ?? false)
+            @if($user->image ?? false)
                 <!-- test new template for images -->
                 <div class="relative mt-4 group overflow-hidden w-1/4">
                     <img
                         class="border rounded p-4 shadow-md hover:scale-110 duration-300"
-                        src="{{asset('storage/'. $user->profile_image)}}"
+                        src="{{asset('storage/'. $user->image)}}"
                     />
                     <div
                         class="hidden group-hover:flex gap-1 duration-200 absolute top-2 right-2"
@@ -118,7 +118,7 @@
 
                         <a
                             class="flex items-center justify-center w-[32px] h-[32px] rounded-full text-white bg-blue-500 hover:bg-blue-600 duration-200"
-                            href="{{asset('storage/'. $user->profile_image)}}"
+                            href="{{asset('storage/'. $user->image)}}"
                             target="_blank"
                         >
                             <x-icon name="magnifier" class="w-4 h-4" />

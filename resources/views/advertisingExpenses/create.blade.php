@@ -100,7 +100,7 @@
 
             <!-- input 10 file -->
             <x-form.file
-                name="invoice_image"
+                name="image"
                 dir="ltr"
                 label="تصویر فیش پرداختی"
                 description="تصویر فیش پرداختی این سفارش"

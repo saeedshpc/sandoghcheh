@@ -86,7 +86,7 @@
 
             <!-- setting 8 file -->
             <x-form.file
-                name="invoice_image"
+                name="image"
                 dir="ltr"
                 label="تصویر فاکتور یا فیش پرداختی"
                 description="تصویر فاکتور یا فیش پرداختی این هزینه"

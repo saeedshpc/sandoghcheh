@@ -81,7 +81,7 @@
 
             <!-- input 8 file -->
             <x-form.file
-                name="profile_image"
+                name="image"
                 dir="ltr"
                 label="تصویر پروفایل"
                 description="تصویر پروفایل کاربر"
