@@ -130,22 +130,4 @@ class UserController extends Controller
         ]);
     }
 
-    public function deleteImage(User $user, $hash): RedirectResponse
-    {
-        // check if it is a valid request that has been sent from edit page
-        if($hash !== session('imageDeleteHash')) {
-            return redirect('/users');
-        }
-
-        Storage::delete($user->profile_image);
-
-        $user->update([
-            'profile_image' => null
-        ]);
-
-        return back()->with([
-            'message' => 'تضویر پروفایل حذف شد'
-        ]);
-    }
-
 }

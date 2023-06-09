@@ -66,6 +66,5 @@ Route::get('activities', [ActivityController::class, 'index']);
 
 //Users
 Route::resource('users', UserController::class);
-Route::get('users/{user}/image/{hash}', [UserController::class, 'deleteImage']);
 
 Route::get('deleteImage/{model}/{recordId}/{hash}', \App\Http\Controllers\ImageDeletionController::class)->name('delete-image');
