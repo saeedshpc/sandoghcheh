@@ -26,10 +26,10 @@ class ImageDeletionController extends Controller
             abort(404);
         }
 
-        if (!is_null($record->invoice_image)) {
-            Storage::delete($record->invoice_image);
+        if (!is_null($record->image)) {
+            Storage::delete($record->image);
             $record->update([
-                'invoice_image' => null
+                'image' => null
             ]);
 
             $message = 'تصویر فاکتور از این هزینه حذف شد.';
