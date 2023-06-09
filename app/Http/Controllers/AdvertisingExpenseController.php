@@ -44,8 +44,8 @@ class AdvertisingExpenseController extends Controller
     {
         $attributes = $this->validateAdvertisingExpense();
 
-        if(request('invoice_image') ?? false) {
-            $attributes['invoice_image'] = request()->file('invoice_image')->store('advertising_invoices');
+        if(request('image') ?? false) {
+            $attributes['image'] = request()->file('image')->store('advertising_invoices');
         }
 
         AdvertisingExpense::create($attributes);
@@ -76,11 +76,11 @@ class AdvertisingExpenseController extends Controller
 
         $attributes = $this->validateAdvertisingExpense();
 
-        if(request('invoice_image') ?? false) {
-            if($advertisingExpense->invoice_image) {
-                Storage::delete($advertisingExpense->invoice_image);
+        if(request('image') ?? false) {
+            if($advertisingExpense->image) {
+                Storage::delete($advertisingExpense->image);
             }
-            $attributes['invoice_image'] = request()->file('invoice_image')->store('advertising_invoices');
+            $attributes['image'] = request()->file('image')->store('advertising_invoices');
         }
 
         $advertisingExpense->update($attributes);
@@ -124,7 +124,7 @@ class AdvertisingExpenseController extends Controller
             'advertising_media' => ['required'],
             'payment_status' => ['required'],
             'purchased_date' => [],
-            'invoice_image' => ['image'],
+            'image' => ['image'],
         ]);
     }
 

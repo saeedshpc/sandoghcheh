@@ -43,8 +43,8 @@ class UserController extends Controller
 
         $attributes['password'] = bcrypt($attributes['password']);
 
-        if(request('profile_image') ?? false) {
-            $attributes['profile_image'] = request()->file('profile_image')->store('profile_images');
+        if(request('image') ?? false) {
+            $attributes['image'] = request()->file('image')->store('profile_images');
         }
 
         User::create($attributes);
@@ -76,11 +76,11 @@ class UserController extends Controller
         } else {
             $attributes['password'] = $user->password;
         }
-        if(request('profile_image') ?? false) {
-            if($user->profile_image) {
-                Storage::delete($user->profile_image);
+        if(request('image') ?? false) {
+            if($user->image) {
+                Storage::delete($user->image);
             }
-            $attributes['profile_image'] = request()->file('profile_image')->store('profile_images');
+            $attributes['image'] = request()->file('image')->store('profile_images');
         }
 
 
@@ -98,8 +98,8 @@ class UserController extends Controller
     public function destroy(User $user): RedirectResponse
     {
 
-        if ($user->profile_image) {
-            Storage::delete($user->profile_image);
+        if ($user->image) {
+            Storage::delete($user->image);
         }
 
         $user->delete();
@@ -126,7 +126,7 @@ class UserController extends Controller
             'username' => ['required', 'min:3', 'max:255', Rule::unique('users', 'username')->ignore($user)],
             'password' => $user->exists ? ['nullable','min:8', 'max:255'] : ['required', 'min:8', 'max:255'],
             'access_level' => ['required'],
-            'profile_image' => ['image'],
+            'image' => ['image'],
         ]);
     }
 

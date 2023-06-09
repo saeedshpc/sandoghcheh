@@ -41,8 +41,8 @@ class ExpenseController extends Controller
     {
         $attributes = $this->validateExpense();
 
-        if (request('invoice_image') ?? false) {
-            $attributes['invoice_image'] = request()->file('invoice_image')->store('expenses_invoices');
+        if (request('image') ?? false) {
+            $attributes['image'] = request()->file('image')->store('expenses_invoices');
         }
 
         Expense::create($attributes);
@@ -71,11 +71,11 @@ class ExpenseController extends Controller
     {
         $attributes = $this->validateExpense();
 
-        if (request('invoice_image') ?? false) {
-            if (!is_null($expense->invoice_image)) {
-                Storage::delete($expense->invoice_image);
+        if (request('image') ?? false) {
+            if (!is_null($expense->image)) {
+                Storage::delete($expense->image);
             }
-            $attributes['invoice_image'] = request()->file('invoice_image')->store('expenses_invoices');
+            $attributes['image'] = request()->file('image')->store('expenses_invoices');
         }
 
         $expense->update($attributes);
@@ -117,10 +117,10 @@ class ExpenseController extends Controller
             'payment_status' => ['required'],
             'purchased_date' => [],
             'bank_account_id' => ['required', Rule::exists('bank_accounts', 'id')],
-            'invoice_image' => ['image'],
+            'image' => ['image'],
         ]);
     }
-    
+
 
     public function textColor($expense)
     {

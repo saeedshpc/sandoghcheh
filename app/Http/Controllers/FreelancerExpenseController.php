@@ -41,8 +41,8 @@ class FreelancerExpenseController extends Controller
     {
         $attributes = $this->validateFreelancerExpense();
 
-        if(request('invoice_image') ?? false) {
-            $attributes['invoice_image'] = request()->file('invoice_image')->store('freelancer_invoices');
+        if(request('image') ?? false) {
+            $attributes['image'] = request()->file('image')->store('freelancer_invoices');
         }
 
         FreelancerExpense::create($attributes);
@@ -71,11 +71,11 @@ class FreelancerExpenseController extends Controller
     {
         $attributes = $this->validateFreelancerExpense();
 
-        if(request('invoice_image') ?? false) {
-            if($freelancerExpense->invoice_image) {
-                Storage::delete($freelancerExpense->invoice_image);
+        if(request('image') ?? false) {
+            if($freelancerExpense->image) {
+                Storage::delete($freelancerExpense->image);
             }
-            $attributes['invoice_image'] = request()->file('invoice_image')->store('freelancer_invoices');
+            $attributes['image'] = request()->file('image')->store('freelancer_invoices');
         }
 
         $freelancerExpense->update($attributes);
@@ -117,25 +117,8 @@ class FreelancerExpenseController extends Controller
             'description' => [],
             'payment_status' => ['required'],
             'purchased_date' => ['date'],
-            'invoice_image' => ['image'],
+            'image' => ['image'],
         ]);
     }
 
-    public function deleteImage(FreelancerExpense $expense, $hash)
-    {
-        // check if it is a valid request that has been sent from edit page
-        if($hash !== session('imageDeleteHash')) {
-            return redirect('/freelancerExpenses');
-        }
-
-        Storage::delete($expense->invoice_image);
-
-        $expense->update([
-            'invoice_image' => null
-        ]);
-
-        return back()->with([
-            'message' => 'تصویر فاکتور از این هزینه حذف شد.'
-        ]);
-    }
 }
