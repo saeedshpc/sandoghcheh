@@ -94,6 +94,11 @@ class FreelancerExpenseController extends Controller
 
     public function destroy(FreelancerExpense $freelancerExpense): RedirectResponse
     {
+
+        if ($freelancerExpense->image) {
+            Storage::delete($freelancerExpense->image);
+        }
+
         $freelancerExpense->delete();
 
         //I should replace this with event

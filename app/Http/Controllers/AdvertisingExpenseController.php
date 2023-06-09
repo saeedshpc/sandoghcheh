@@ -99,6 +99,11 @@ class AdvertisingExpenseController extends Controller
 
     public function destroy(AdvertisingExpense $advertisingExpense): RedirectResponse
     {
+
+        if ($advertisingExpense->image) {
+            Storage::delete($advertisingExpense->image);
+        }
+
         $advertisingExpense->delete();
 
         //I should replace this with event

@@ -93,13 +93,19 @@ class ExpenseController extends Controller
 
     public function destroy(Expense $expense): RedirectResponse
     {
+
+        if ($expense->image) {
+            Storage::delete($expense->image);
+        }
+
+        $expense->delete();
+
         //I should replace this with event
         Activity::remove(
             request()->user()->id,
             EventsInfo::DeleteExpense->value
         );
 
-        $expense->delete();
 
         return redirect('/expenses')->with([
             'message' => 'هزینه تنخواه حذف شذ!'
