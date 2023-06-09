@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('purchaser');
             $table->text('description')->nullable();
             $table->string('payment_status')->default(PaymentStatus::Pending->value);
-            $table->string('invoice_image')->nullable();
+            $table->string('image')->nullable();
             $table->timestamp('purchased_date')->nullable();
             $table->timestamps();
         });

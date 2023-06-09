@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('advertising_media')->default(AdvertisingMedia::SMS->name);
             $table->string('payment_status')->default(PaymentStatus::Pending->value);
             $table->timestamp('purchased_date')->nullable();
-            $table->string('invoice_image')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
