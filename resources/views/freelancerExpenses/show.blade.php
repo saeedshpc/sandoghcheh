@@ -56,7 +56,7 @@
                     {{ $expense->purchased_date }}
             </x-show.data>
             <!-- div 9 file upload -->
-           <x-show.invoice :expense="$expense" />
+           <x-show.invoice :object="$expense" />
             <!-- mobile actions -->
             <div class="lg:hidden flex justify-end gap-3 mt-5">
                 <x-show.edit-button href="/freelancerExpenses/{{$expense->id}}/edit" />
