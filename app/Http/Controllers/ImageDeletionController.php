@@ -10,14 +10,12 @@ class ImageDeletionController extends Controller
 {
     public function __invoke($model, $recordId, $hash): RedirectResponse
     {
-        //  find the model
         $modelClass = 'App\Models\\' . ucfirst($model);
-        //   check if the model exists
+
         if (!class_exists($modelClass)) {
             abort(404);
         }
 
-        //  find the record in the model
         $record = $modelClass::findOrFail($recordId);
 
 
@@ -32,7 +30,9 @@ class ImageDeletionController extends Controller
                 'image' => null
             ]);
 
-            $message = 'تصویر فاکتور از این هزینه حذف شد.';
+            $message = ucfirst($model) === 'User'
+                ?  'تصویر پروفایل کاربر حذف شد.'
+                : 'تصویر فاکتور از این هزینه حذف شد.' ;
         } else {
             $message = 'تصویری در دیتابیس ثبت نشده است';
         }
