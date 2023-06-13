@@ -3,8 +3,8 @@
     'label' => 'برچسب',
     'description' => 'توضیحات',
     'seperator' => true,
-    'object',
-    'model'
+    'object' => null,
+    'model' => null
         ])
 
 <div
