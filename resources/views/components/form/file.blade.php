@@ -1,4 +1,11 @@
-@props(['name', 'label' => 'برچسب', 'description' => 'توضیحات', 'seperator' => true ])
+@props([
+    'name',
+    'label' => 'برچسب',
+    'description' => 'توضیحات',
+    'seperator' => true,
+    'object',
+    'model'
+        ])
 
 <div
     class="flex flex-col gap-4 items-start justify-between md:flex-row md:items-center md:gap-0"
@@ -30,3 +37,7 @@
         class="pb-1 border-b border-gray-100 mx-10 dark:border-gray-700"
     ></div>
 @endif
+
+<x-form.imageBox :object="$object" :model="$model" />
+
+
