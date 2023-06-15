@@ -64,11 +64,11 @@
                     />
                     <x-icon name="magnifier" class="w-6 h-6"/>
                 </div>
-                <a
-                    href="./add-tankhah.html"
-                    class="p-3 px-4 rounded-lg bg-[#0b9b82] text-white duration-200 hover:bg-[#32bba4] text-sm"
-                >افزودن هزینه</a
-                >
+
+                <a href="{{ $createButtonHref ?? '/expenses/create' }}"
+                   class="p-3 px-6 rounded-lg bg-[#0b9b82] text-white duration-200 hover:bg-[#32bba4] text-sm"
+                >افزودن هزینه</a>
+
                 <a
                     href="#"
                     class="p-2 px-2 rounded-lg bg-white dark:bg-slate-700 dark:text-white border dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 duration-200 text-sm"

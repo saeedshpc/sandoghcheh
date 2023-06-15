@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout createButtonHref="/advertisers/create">
     <!-- report section -->
     <div class="py-6 px-4">
         <div
