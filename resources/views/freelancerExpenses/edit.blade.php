@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout createButtonHref="/freelancerExpenses/create">
     <!-- Form -->
     <div class="py-6 px-4">
         <form
