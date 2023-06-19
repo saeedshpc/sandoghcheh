@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout createButtonHref="/users/create">
     <!-- buttons and header -->
     <div
         class="flex flex-col md:flex-row md:items-center justify-between gap-4 py-6 px-2 md:px-4"
