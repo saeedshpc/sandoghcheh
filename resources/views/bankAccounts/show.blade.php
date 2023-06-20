@@ -5,10 +5,11 @@
             class="flex flex-col gap-5 text-gray-700 border dark:border-gray-600 p-6 rounded-xl"
         >
             <x-show.header
-            title="{{$bankAccount->name}}"
-            description="در این صفحه اطلاعات حساب بانکی را مشاهده می نمایید."
-            cancel_href="/cards"
-            edit_href="/cards/{{$bankAccount->id}}/edit"
+                label="عنوان حساب"
+                title="{{$bankAccount->name}}"
+                description="در این صفحه اطلاعات حساب بانکی را مشاهده می نمایید."
+                cancel_href="/cards"
+                edit_href="/cards/{{$bankAccount->id}}/edit"
             />
 
             <!-- data 1 -->

@@ -5,6 +5,7 @@
             class="flex flex-col gap-5 text-gray-700 border dark:border-gray-600 p-6 rounded-xl"
         >
             <x-show.header
+                label="فریلنسر"
             title="{{$freelancer->name}}"
             description="در این صفحه اطلاعات فریلنسر را مشاهده می نمایید."
             cancel_href="/freelancers"

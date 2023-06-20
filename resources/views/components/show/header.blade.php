@@ -1,10 +1,10 @@
-@props(['title' => 'عنوان گزارش', 'description' => 'توضیحات گزارش', 'cancel_href' => '#', 'edit_href' => '#'])
+@props(['label' => null, 'title' => 'عنوان گزارش', 'description' => 'توضیحات گزارش', 'cancel_href' => '#', 'edit_href' => '#'])
 <div
     class="flex flex-col items-start justify-between lg:flex-row lg:items-center"
 >
     <div>
         <h2 class="text-lg font-bold mb-2 dark:text-gray-100">
-            تنخواه :
+            {{$label ?? 'نمایش' }} :
             <span class="font-normal"
             > {{ $title }} </span
             >

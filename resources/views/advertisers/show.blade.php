@@ -5,10 +5,11 @@
             class="flex flex-col gap-5 text-gray-700 border dark:border-gray-600 p-6 rounded-xl"
         >
             <x-show.header
-            title="{{$advertiser->name}}"
-            description="در این صفحه اطلاعات مجری تبلیغات را مشاهده می نمایید."
-            cancel_href="/advertisers"
-            edit_href="/advertisers/{{$advertiser->id}}/edit"
+                label="مجری"
+                title="{{$advertiser->name}}"
+                description="در این صفحه اطلاعات مجری تبلیغات را مشاهده می نمایید."
+                cancel_href="/advertisers"
+                edit_href="/advertisers/{{$advertiser->id}}/edit"
             />
             <!-- div 1 -->
             <x-show.data

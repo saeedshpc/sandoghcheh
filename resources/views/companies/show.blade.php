@@ -5,10 +5,11 @@
             class="flex flex-col gap-5 text-gray-700 border dark:border-gray-600 p-6 rounded-xl"
         >
             <x-show.header
-            title="{{$company->name}}"
-            description="در این صفحه اطلاعات شرکت را مشاهده می نمایید."
-            cancel_href="/companies"
-            edit_href="/companies/{{$company->id}}/edit"
+                label="کسب و کار"
+                title="{{$company->name}}"
+                description="در این صفحه اطلاعات شرکت را مشاهده می نمایید."
+                cancel_href="/companies"
+                edit_href="/companies/{{$company->id}}/edit"
             />
             <!-- div 1 -->
             <x-show.data

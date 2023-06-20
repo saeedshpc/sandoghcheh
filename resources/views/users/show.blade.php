@@ -5,7 +5,8 @@
             class="flex flex-col gap-5 text-gray-700 border dark:border-gray-600 p-6 rounded-xl"
         >
             <x-show.header
-                title="{{$user->title}}"
+                label="کاربر"
+                title="{{ $user->firstName}} {{$user->lastName}}"
                 description="در این صفحه اطلاعات کاربر سامانه را مشاهده می‌نمایید."
                 cancel_href="/users"
                 edit_href="/users/{{$user->id}}/edit"

@@ -5,10 +5,11 @@
             class="flex flex-col gap-5 text-gray-700 border dark:border-gray-600 p-6 rounded-xl"
         >
             <x-show.header
-            title="{{$expense->title}}"
-            description="{{$expense->description}}"
-            cancel_href="/advertisingExpenses"
-            edit_href="/advertisingExpenses/{{$expense->id}}/edit"
+                label="عنوان تبلیغ"
+                title="{{$expense->title}}"
+                description="{{$expense->description}}"
+                cancel_href="/advertisingExpenses"
+                edit_href="/advertisingExpenses/{{$expense->id}}/edit"
             />
             <!-- div 1 -->
             <x-show.data
