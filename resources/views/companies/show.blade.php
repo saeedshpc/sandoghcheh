@@ -1,4 +1,4 @@
-<x-layout createButtonHref="/cards/create">
+<x-layout createButtonHref="/companies/create">
     <!-- report section -->
     <div class="py-6 px-4">
         <div
