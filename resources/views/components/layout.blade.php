@@ -67,7 +67,7 @@
 
                 <a href="{{ $createButtonHref ?? '/expenses/create' }}"
                    class="p-3 px-6 rounded-lg bg-[#0b9b82] text-white duration-200 hover:bg-[#32bba4] text-sm"
-                >افزودن هزینه</a>
+                >{{ $createButtonText ?? 'افزودن هزینه' }}</a>
 
                 <a
                     href="#"

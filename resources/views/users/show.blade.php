@@ -1,4 +1,4 @@
-<x-layout createButtonHref="/users/create">
+<x-layout createButtonHref="/users/create" createButtonText="افزودن کاربر">
     <!-- report section -->
     <div class="py-6 px-4">
         <div
