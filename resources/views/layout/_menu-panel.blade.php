@@ -20,7 +20,7 @@
                 >
             </li>
             <li
-                class="{{ request()->is('expenses') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}"
+                class="{{str()->startsWith(request()->path(), 'expenses') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}"
             >
                 <a
                     href="/expenses"
@@ -30,7 +30,7 @@
                     <span>مدیریت تنخواه</span></a
                 >
             </li>
-            <li class="{{ request()->is('freelancerExpenses') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}">
+            <li class="{{ str()->startsWith(request()->path(),'freelancerExpenses') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}">
                 <a
                     href="/freelancerExpenses"
                     class="flex items-center gap-2"
@@ -39,7 +39,7 @@
                     <span>مدیریت فریلسنرها</span></a
                 >
             </li>
-            <li class="{{ request()->is('advertisingExpenses') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}">
+            <li class="{{ str()->startsWith(request()->path(),'advertisingExpenses') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}">
                 <a href="/advertisingExpenses" class="flex items-center gap-2">
                     <x-icon name="advertismentExpense" />
                     <span>مدیریت تبلیغات</span></a
@@ -59,20 +59,20 @@
                     <span>تنظیمات</span></a
                 >
             </li>
-            <li class="{{ request()->is('companies') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}">
+            <li class="{{ str()->startsWith(request()->path(),'companies') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}">
                 <a href="/companies" class="flex items-center gap-2">
                     <x-icon name="companies" />
                     <span>مدیریت شرکت‌ها</span></a
                 >
             </li>
 
-            <li class="{{ request()->is('cards') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}">
+            <li class="{{ str()->startsWith(request()->path(), 'cards') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}">
                 <a href="/cards" class="flex items-center gap-2">
                     <x-icon name="bankAccounts"/>
                     <span>مدیریت حساب‌های بانکی</span></a
                 >
             </li>
-            <li class="{{ request()->is('freelancers') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}">
+            <li class="{{ str()->startsWith(request()->path(),'freelancers') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}">
                 <a href="/freelancers" class="flex items-center gap-2">
                    <x-icon name="freelancers" />
                     <span>همکاران فریلنسر</span></a
@@ -86,13 +86,13 @@
         <ul
             class="flex flex-col gap-6 font-bold text-gray-400 dark:text-gray-300"
         >
-            <li class="{{ request()->is('revenues') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}">
+            <li class="{{ str()->startsWith(request()->path(),'revenues') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}">
                 <a href="/revenues" class="flex items-center gap-2">
                     <x-icon name="revenues" />
                     <span>درآمد و نقدینگی</span></a
                 >
             </li>
-            <li class="{{ request()->is('advertisers') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}">
+            <li class="{{ str()->startsWith(request()->path(),'advertisers') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}">
                 <a href="/advertisers" class="flex items-center gap-2">
                     <x-icon name="advertisers" />
 
@@ -105,7 +105,7 @@
                     <span>فعالیت‌ها</span></a
                 >
             </li>
-            <li class="{{ request()->is('users') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}">
+            <li class="{{ str()->startsWith(request()->path(), 'users') ? 'text-gray-800 dark:text-white font-bold' : 'hover:text-gray-800 dark:hover:text-gray-400' }}">
                 <a href="/users" class="flex items-center gap-2">
                     <x-icon name="users" />
                     <span>مدیریت کاربران سامانه</span></a
