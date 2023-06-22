@@ -1,4 +1,4 @@
-<x-layout createButtonHref="/revenues/create">
+<x-layout createButtonHref="/revenues/create" createButtonText="افزودن درآمد">
     <!-- Form -->
     <div class="py-6 px-4">
         <form

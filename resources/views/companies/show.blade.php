@@ -1,4 +1,4 @@
-<x-layout createButtonHref="/companies/create">
+<x-layout createButtonHref="/companies/create" createButtonText="افزودن کسب و کار">
     <!-- report section -->
     <div class="py-6 px-4">
         <div

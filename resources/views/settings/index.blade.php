@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout createButtonText="افزودن تنخواه">
     <!-- Form -->
     <div class="py-6 px-4">
         <form
