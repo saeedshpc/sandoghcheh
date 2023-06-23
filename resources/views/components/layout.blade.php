@@ -55,14 +55,14 @@
                 class="flex items-center justify-between gap-4 border-b border-gray-100 py-6 px-4"
             >
                 <div
-                    class="flex flex-1 w-full bg-white dark:bg-slate-700 p-2 px-4 rounded-lg border border-gray-200 dark:border-gray-600 focus:border-[#0b9b82] focus:outline-2 focus:outline-green-100"
+                    class="group flex flex-1 w-full bg-white dark:bg-slate-700 p-2 px-4 rounded-lg border  border-gray-200 dark:border-gray-600 focus-within:border-[#0b9b82] duration-200 "
                 >
                     <input
                         type="text"
                         placeholder="جستجو..."
                         class="w-full focus:outline-none text-xs dark:bg-slate-700 dark:text-white"
                     />
-                    <x-icon name="magnifier" class="w-6 h-6"/>
+                    <x-icon name="magnifier" class="w-6 h-6 group-focus-within:text-[#0b9b82]"/>
                 </div>
 
                 <a href="{{ $createButtonHref ?? '/expenses/create' }}"
